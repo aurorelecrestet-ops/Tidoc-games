@@ -1,0 +1,1594 @@
+/* ========================================
+   BACTERIA SLASH MULTIJOUEUR
+======================================== */
+
+.bacteria-multi-game-page {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9000;
+
+  width: 100vw;
+  height: 100dvh;
+
+  overflow: hidden;
+
+  background: transparent;
+
+  touch-action: none;
+}
+
+
+.bacteria-multi-board {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+
+/* ========================================
+   COUNTDOWN
+======================================== */
+
+.bacteria-countdown {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 500;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  background:
+    rgba(
+      3,
+      25,
+      39,
+      0.34
+    );
+
+  backdrop-filter:
+    blur(3px);
+
+  -webkit-backdrop-filter:
+    blur(3px);
+}
+
+
+.bacteria-countdown > span {
+  color: #70e5f4;
+
+  font-size: 11px;
+  font-weight: 900;
+
+  letter-spacing: 0.20em;
+}
+
+
+.bacteria-countdown > strong {
+  color: white;
+
+  font-size:
+    clamp(
+      74px,
+      14vw,
+      130px
+    );
+
+  font-weight: 950;
+
+  line-height: 1;
+
+  text-shadow:
+    0 0 35px
+    rgba(
+      112,
+      229,
+      244,
+      0.35
+    );
+}
+
+
+/* ========================================
+   HUD GLOBAL
+======================================== */
+
+.bacteria-multi-hud {
+  position: fixed;
+
+  top:
+    max(
+      12px,
+      env(safe-area-inset-top)
+    );
+
+  left: 50%;
+
+  z-index: 10000;
+
+  width:
+    min(
+      1120px,
+      calc(
+        100vw - 40px
+      )
+    );
+
+  min-height: 70px;
+
+  padding:
+    8px 10px;
+
+  display: grid;
+
+  grid-template-columns:
+    auto
+    minmax(
+      0,
+      1fr
+    );
+
+  align-items: center;
+
+  gap: 10px;
+
+  border:
+    1px solid
+    rgba(
+      112,
+      229,
+      244,
+      0.16
+    );
+
+  border-radius: 21px;
+
+  background:
+    rgba(
+      4,
+      35,
+      54,
+      0.76
+    );
+
+  backdrop-filter:
+    blur(16px);
+
+  -webkit-backdrop-filter:
+    blur(16px);
+
+  box-shadow:
+    0 16px
+    38px
+    rgba(
+      0,
+      0,
+      0,
+      0.22
+    );
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   CHRONO
+======================================== */
+
+.bacteria-multi-timer {
+  min-width: 88px;
+  height: 52px;
+
+  padding:
+    0 14px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(
+      112,
+      229,
+      244,
+      0.18
+    );
+
+  border-radius: 14px;
+
+  background:
+    rgba(
+      112,
+      229,
+      244,
+      0.055
+    );
+}
+
+
+.bacteria-multi-timer span {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.48
+    );
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 0.15em;
+}
+
+
+.bacteria-multi-timer strong {
+  margin-top: 1px;
+
+  color: white;
+
+  font-size: 24px;
+  font-weight: 950;
+
+  line-height: 1;
+}
+
+
+/* ========================================
+   JOUEURS HUD
+======================================== */
+
+.bacteria-multi-players {
+  min-width: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  align-items: center;
+}
+
+
+.bacteria-multi-hud-player {
+  position: relative;
+
+  min-width: 0;
+
+  height: 46px;
+
+  padding:
+    0 13px;
+
+  display: grid;
+
+  grid-template-columns:
+    auto
+    minmax(
+      0,
+      1fr
+    )
+    auto;
+
+  align-items: center;
+
+  gap: 7px;
+
+  border-left:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+}
+
+
+.bacteria-multi-hud-player:first-child {
+  border-left: 0;
+}
+
+
+.bacteria-multi-hud-player.is-me {
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(
+        112,
+        229,
+        244,
+        0.075
+      ),
+      rgba(
+        112,
+        229,
+        244,
+        0.018
+      )
+    );
+
+  box-shadow:
+    inset
+    0
+    0
+    0
+    1px
+    rgba(
+      255,
+      255,
+      255,
+      0.055
+    );
+}
+
+
+.bacteria-multi-hud-player strong {
+  min-width: 0;
+
+  overflow: hidden;
+
+  color: white;
+
+  font-size: 11px;
+  font-weight: 750;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.bacteria-multi-hud-player > span:last-child {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.82
+    );
+
+  font-size: 12px;
+  font-weight: 900;
+
+  white-space: nowrap;
+}
+
+
+/* ========================================
+   POINT DE COULEUR
+======================================== */
+
+.bacteria-multi-player-dot,
+.bacteria-multi-ranking-dot {
+  width: 10px;
+  height: 10px;
+
+  flex: 0 0 auto;
+
+  border-radius: 50%;
+
+  background:
+    currentColor;
+
+  box-shadow:
+    0 0 12px
+    currentColor;
+}
+
+
+/* ========================================
+   COULEURS JOUEURS
+======================================== */
+
+.bacteria-color-green {
+  color: #55e68a;
+}
+
+.bacteria-color-red {
+  color: #ff5f68;
+}
+
+.bacteria-color-yellow {
+  color: #ffd84d;
+}
+
+.bacteria-color-purple {
+  color: #b77cff;
+}
+
+
+/* ========================================
+   OBJETS
+======================================== */
+
+.bacteria-multi-object {
+  position: absolute;
+
+  z-index: 40;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  touch-action: none;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
+  user-select: none;
+
+  will-change:
+    left,
+    bottom,
+    transform;
+}
+
+
+.bacteria-multi-object img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+  filter:
+    drop-shadow(
+      0 5px 8px
+      rgba(
+        0,
+        0,
+        0,
+        0.32
+      )
+    );
+}
+
+
+/* ========================================
+   HALO VERT
+======================================== */
+
+.bacteria-target-green::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -11px;
+
+  z-index: -1;
+
+  border:
+    2px solid
+    rgba(
+      85,
+      230,
+      138,
+      0.75
+    );
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        85,
+        230,
+        138,
+        0.16
+      ) 0%,
+      rgba(
+        85,
+        230,
+        138,
+        0.07
+      ) 47%,
+      transparent
+      72%
+    );
+
+  box-shadow:
+    0 0 14px
+    rgba(
+      85,
+      230,
+      138,
+      0.72
+    ),
+    0 0 30px
+    rgba(
+      85,
+      230,
+      138,
+      0.25
+    );
+}
+
+
+/* ========================================
+   HALO ROUGE
+======================================== */
+
+.bacteria-target-red::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -11px;
+
+  z-index: -1;
+
+  border:
+    2px solid
+    rgba(
+      255,
+      95,
+      104,
+      0.78
+    );
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        255,
+        95,
+        104,
+        0.16
+      ) 0%,
+      rgba(
+        255,
+        95,
+        104,
+        0.07
+      ) 47%,
+      transparent
+      72%
+    );
+
+  box-shadow:
+    0 0 14px
+    rgba(
+      255,
+      95,
+      104,
+      0.72
+    ),
+    0 0 30px
+    rgba(
+      255,
+      95,
+      104,
+      0.25
+    );
+}
+
+
+/* ========================================
+   HALO JAUNE
+======================================== */
+
+.bacteria-target-yellow::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -11px;
+
+  z-index: -1;
+
+  border:
+    2px solid
+    rgba(
+      255,
+      216,
+      77,
+      0.82
+    );
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        255,
+        216,
+        77,
+        0.17
+      ) 0%,
+      rgba(
+        255,
+        216,
+        77,
+        0.07
+      ) 47%,
+      transparent
+      72%
+    );
+
+  box-shadow:
+    0 0 14px
+    rgba(
+      255,
+      216,
+      77,
+      0.75
+    ),
+    0 0 30px
+    rgba(
+      255,
+      216,
+      77,
+      0.25
+    );
+}
+
+
+/* ========================================
+   HALO VIOLET
+======================================== */
+
+.bacteria-target-purple::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -11px;
+
+  z-index: -1;
+
+  border:
+    2px solid
+    rgba(
+      183,
+      124,
+      255,
+      0.82
+    );
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        183,
+        124,
+        255,
+        0.17
+      ) 0%,
+      rgba(
+        183,
+        124,
+        255,
+        0.07
+      ) 47%,
+      transparent
+      72%
+    );
+
+  box-shadow:
+    0 0 14px
+    rgba(
+      183,
+      124,
+      255,
+      0.75
+    ),
+    0 0 30px
+    rgba(
+      183,
+      124,
+      255,
+      0.25
+    );
+}
+
+
+/* ========================================
+   EXPLOSION
+======================================== */
+
+.bacteria-multi-explosion {
+  position: absolute;
+
+  z-index: 100;
+
+  width: 1px;
+  height: 1px;
+
+  pointer-events: none;
+
+  transform:
+    translate(
+      -50%,
+      50%
+    );
+}
+
+
+.bacteria-multi-explosion i {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background:
+    currentColor;
+
+  box-shadow:
+    0 0 10px
+    currentColor;
+
+  animation:
+    bacteriaMultiParticle
+    0.58s
+    ease-out
+    forwards;
+}
+
+
+.bacteria-multi-explosion i:nth-child(1) {
+  --x: -42px;
+  --y: -34px;
+}
+
+.bacteria-multi-explosion i:nth-child(2) {
+  --x: 38px;
+  --y: -38px;
+}
+
+.bacteria-multi-explosion i:nth-child(3) {
+  --x: -50px;
+  --y: 12px;
+}
+
+.bacteria-multi-explosion i:nth-child(4) {
+  --x: 48px;
+  --y: 16px;
+}
+
+.bacteria-multi-explosion i:nth-child(5) {
+  --x: -18px;
+  --y: 42px;
+}
+
+.bacteria-multi-explosion i:nth-child(6) {
+  --x: 20px;
+  --y: 44px;
+}
+
+
+.bacteria-explosion-green {
+  color: #55e68a;
+}
+
+.bacteria-explosion-red {
+  color: #ff5f68;
+}
+
+.bacteria-explosion-yellow {
+  color: #ffd84d;
+}
+
+.bacteria-explosion-purple {
+  color: #b77cff;
+}
+
+
+.bacteria-multi-explosion strong {
+  position: absolute;
+
+  left: 50%;
+  top: -30px;
+
+  color: white;
+
+  font-size: 16px;
+  font-weight: 950;
+
+  white-space: nowrap;
+
+  transform:
+    translateX(-50%);
+
+  animation:
+    bacteriaMultiText
+    0.6s
+    ease-out
+    forwards;
+}
+
+
+.bacteria-multi-explosion > span {
+  position: absolute;
+
+  left: 50%;
+  top: -8px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.82
+    );
+
+  font-size: 10px;
+  font-weight: 750;
+
+  white-space: nowrap;
+
+  transform:
+    translateX(-50%);
+
+  animation:
+    bacteriaMultiText
+    0.6s
+    ease-out
+    forwards;
+}
+
+
+/* ========================================
+   TA COULEUR
+======================================== */
+
+.bacteria-multi-my-color {
+  position: fixed;
+
+  left:
+    max(
+      18px,
+      env(safe-area-inset-left)
+    );
+
+  bottom:
+    max(
+      18px,
+      env(safe-area-inset-bottom)
+    );
+
+  z-index: 200;
+
+  min-width: 132px;
+
+  padding:
+    10px 14px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.11
+    );
+
+  border-radius: 16px;
+
+  background:
+    rgba(
+      4,
+      35,
+      54,
+      0.72
+    );
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  pointer-events: none;
+}
+
+
+.bacteria-multi-my-color > div {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.bacteria-multi-my-color > div span {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.40
+    );
+
+  font-size: 7px;
+  font-weight: 900;
+
+  letter-spacing: 0.15em;
+}
+
+
+.bacteria-multi-my-color > div strong {
+  margin-top: 1px;
+
+  color: white;
+
+  font-size: 11px;
+  font-weight: 900;
+}
+
+
+/* ========================================
+   CONSIGNE
+======================================== */
+
+.bacteria-multi-hint {
+  position: fixed;
+
+  right:
+    max(
+      18px,
+      env(safe-area-inset-right)
+    );
+
+  bottom:
+    max(
+      18px,
+      env(safe-area-inset-bottom)
+    );
+
+  z-index: 200;
+
+  padding:
+    10px 14px;
+
+  display: flex;
+
+  gap: 16px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.10
+    );
+
+  border-radius: 16px;
+
+  background:
+    rgba(
+      4,
+      35,
+      54,
+      0.70
+    );
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  pointer-events: none;
+}
+
+
+.bacteria-multi-hint span {
+  display: flex;
+  flex-direction: column;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.46
+    );
+
+  font-size: 8px;
+  font-weight: 750;
+}
+
+
+.bacteria-multi-hint strong {
+  margin-top: 1px;
+
+  color: white;
+
+  font-size: 11px;
+  font-weight: 900;
+}
+
+
+/* ========================================
+   CHARGEMENT / ERREUR
+======================================== */
+
+.bacteria-multi-loading {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9000;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 30px;
+
+  color: white;
+
+  text-align: center;
+
+  background:
+    #061c2d;
+}
+
+
+.bacteria-multi-loading strong {
+  color: #70e5f4;
+
+  font-size: 24px;
+}
+
+
+.bacteria-multi-loading p {
+  margin: 0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.65
+    );
+}
+
+
+/* ========================================
+   RÉSULTATS
+======================================== */
+
+.bacteria-multi-results-page {
+  min-height:
+    calc(
+      100dvh - 100px
+    );
+
+  overflow-y: auto;
+}
+
+
+.bacteria-multi-final-card {
+  width:
+    min(
+      620px,
+      100%
+    );
+}
+
+
+.bacteria-multi-match-ranking {
+  width: 100%;
+
+  padding:
+    0 20px 22px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+
+.bacteria-multi-ranking-dot {
+  margin-right: 2px;
+}
+
+
+/* ========================================
+   TÉLÉPHONE
+======================================== */
+
+@media (max-width: 700px) {
+
+  .bacteria-multi-hud {
+    top:
+      max(
+        8px,
+        env(safe-area-inset-top)
+      );
+
+    width:
+      calc(
+        100vw - 20px
+      );
+
+    min-height: 58px;
+
+    padding:
+      6px 7px;
+
+    gap: 6px;
+
+    border-radius: 16px;
+  }
+
+
+  .bacteria-multi-timer {
+    min-width: 62px;
+    height: 44px;
+
+    padding:
+      0 8px;
+
+    border-radius: 11px;
+  }
+
+
+  .bacteria-multi-timer span {
+    font-size: 6px;
+  }
+
+
+  .bacteria-multi-timer strong {
+    font-size: 20px;
+  }
+
+
+  .bacteria-multi-hud-player {
+    height: 38px;
+
+    padding:
+      0 6px;
+
+    gap: 4px;
+  }
+
+
+  .bacteria-multi-hud-player strong {
+    font-size: 8px;
+  }
+
+
+  .bacteria-multi-hud-player
+  > span:last-child {
+    font-size: 8px;
+  }
+
+
+  .bacteria-multi-player-dot {
+    width: 7px;
+    height: 7px;
+  }
+
+
+  .bacteria-multi-my-color {
+    left: 10px;
+
+    bottom:
+      max(
+        10px,
+        env(
+          safe-area-inset-bottom
+        )
+      );
+
+    min-width: auto;
+
+    padding:
+      8px 10px;
+
+    border-radius: 13px;
+  }
+
+
+  .bacteria-multi-my-color
+  > div span {
+    font-size: 6px;
+  }
+
+
+  .bacteria-multi-my-color
+  > div strong {
+    font-size: 9px;
+  }
+
+
+  .bacteria-multi-hint {
+    right: 10px;
+
+    bottom:
+      max(
+        10px,
+        env(
+          safe-area-inset-bottom
+        )
+      );
+
+    padding:
+      8px 10px;
+
+    gap: 10px;
+
+    border-radius: 13px;
+  }
+
+
+  .bacteria-multi-hint span {
+    font-size: 6px;
+  }
+
+
+  .bacteria-multi-hint strong {
+    font-size: 9px;
+  }
+
+
+  .bacteria-multi-match-ranking {
+    padding:
+      0 13px 18px;
+  }
+
+}
+
+
+/* ========================================
+   PETIT TÉLÉPHONE
+======================================== */
+
+@media (max-width: 430px) {
+
+  .bacteria-multi-hud-player strong {
+    display: none;
+  }
+
+
+  .bacteria-multi-hud-player {
+    grid-template-columns:
+      auto
+      auto;
+
+    justify-content: center;
+  }
+
+
+  .bacteria-multi-hint {
+    display: none;
+  }
+
+}
+
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+@keyframes bacteriaMultiParticle {
+
+  from {
+    opacity: 1;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(1);
+  }
+
+  to {
+    opacity: 0;
+
+    transform:
+      translate(
+        calc(
+          -50% + var(--x)
+        ),
+        calc(
+          -50% + var(--y)
+        )
+      )
+      scale(0.25);
+  }
+
+}
+
+
+@keyframes bacteriaMultiText {
+
+  from {
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      translateY(0);
+  }
+
+  to {
+    opacity: 0;
+
+    transform:
+      translateX(-50%)
+      translateY(-24px);
+  }
+
+}
+
+/* ========================================
+   HALOS MULTIJOUEURS RENFORCÉS
+======================================== */
+
+.bacteria-multi-object::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -16px;
+
+  z-index: -1;
+
+  border: 3px solid var(--team-color);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      var(--team-glow) 0%,
+      transparent 78%
+    );
+
+  box-shadow:
+    0 0 18px var(--team-color),
+    0 0 38px var(--team-glow),
+    0 0 62px var(--team-glow);
+
+  pointer-events: none;
+}
+
+
+/* VERT NÉON */
+
+.bacteria-multi-object.bacteria-target-green {
+  --team-color: #39ff88;
+  --team-glow: rgba(57, 255, 136, 0.55);
+}
+
+
+/* ROUGE VIF */
+
+.bacteria-multi-object.bacteria-target-red {
+  --team-color: #ff304b;
+  --team-glow: rgba(255, 48, 75, 0.60);
+}
+
+
+/* JAUNE LUMINEUX */
+
+.bacteria-multi-object.bacteria-target-yellow {
+  --team-color: #ffe11f;
+  --team-glow: rgba(255, 225, 31, 0.62);
+}
+
+
+/* VIOLET SATURÉ */
+
+.bacteria-multi-object.bacteria-target-purple {
+  --team-color: #bf59ff;
+  --team-glow: rgba(191, 89, 255, 0.60);
+}
+
+/* ========================================
+   SUPPRIMER LE HALO ROUGE DU SOLO
+   UNIQUEMENT EN MULTIJOUEUR
+======================================== */
+
+.bacteria-multi-game-page
+.bacteria-multi-object.is-bacteria {
+  box-shadow: none;
+}
+
+
+/* Désactiver le halo du mode solo */
+
+.bacteria-multi-game-page
+.bacteria-multi-object.is-bacteria::after {
+  content: none;
+}
+
+
+/* Garder uniquement le halo de la team */
+
+.bacteria-multi-game-page
+.bacteria-multi-object.is-bacteria::before {
+  content: "";
+
+  background:
+    radial-gradient(
+      circle,
+      var(--team-glow) 0%,
+      transparent 78%
+    );
+
+  border:
+    3px solid
+    var(--team-color);
+
+  box-shadow:
+    0 0 18px var(--team-color),
+    0 0 38px var(--team-glow),
+    0 0 62px var(--team-glow);
+}
+
+/* ========================================
+   COUNTDOWN MULTIJOUEUR — STYLE ECG
+======================================== */
+
+.bacteria-multi-game-page
+.bacteria-countdown > span {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.50
+    );
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 5px;
+}
+
+
+.bacteria-multi-game-page
+.bacteria-countdown > strong {
+  color: #70e5f4;
+
+  font-size:
+    clamp(
+      90px,
+      17vw,
+      170px
+    );
+
+  font-weight: 850;
+
+  line-height: 0.9;
+
+  text-shadow:
+    0 0 25px
+    rgba(
+      85,
+      217,
+      238,
+      0.32
+    );
+
+  animation:
+    bacteriaCountdownPop
+    0.55s ease;
+}
+
+
+@keyframes bacteriaCountdownPop {
+
+  0% {
+    opacity: 0;
+
+    transform: scale(0.55);
+  }
+
+  65% {
+    opacity: 1;
+
+    transform: scale(1.08);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
+
+/* ========================================
+   CLASSEMENT FINAL CENTRÉ
+======================================== */
+
+.bacteria-multi-results-page
+.bacteria-multi-final-card {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.bacteria-multi-results-page
+.bacteria-multi-match-ranking {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========================================
+   RÉSULTATS MULTI — CENTRAGE COMPLET
+======================================== */
+
+.bacteria-multi-results-page .rankings-games {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bacteria-multi-results-page .rankings-game-card {
+  width: min(620px, calc(100% - 32px));
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bacteria-multi-results-page .bacteria-multi-match-ranking {
+  width: 100%;
+
+  margin-left: auto;
+  margin-right: auto;
+}

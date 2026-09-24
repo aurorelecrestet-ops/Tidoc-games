@@ -1,0 +1,17 @@
+/* Coupe Externe / Interne / Docteur — seulement le tournoi solo */
+.tournament-solo-cups-section { width: min(850px, 100%); margin: 0 auto 24px; text-align: center; }
+.tournament-solo-cups-intro { color: #70e5f4; font-size: 11px; font-weight: 900; letter-spacing: .2em; }
+.tournament-solo-cups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 20px 0; }
+.tournament-solo-cup { min-width: 0; min-height: 225px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 20px 13px; border: 1px solid rgba(112,229,244,.25); border-radius: 24px; background: linear-gradient(145deg,rgba(9,70,96,.93),rgba(4,31,51,.97)); color: white; text-align: center; font: inherit; cursor: pointer; transition: transform .18s ease,border-color .18s ease, box-shadow .18s ease; }
+.tournament-solo-cup:hover { transform: translateY(-3px); }
+.tournament-solo-cup.is-selected { border: 2px solid #70e5f4; box-shadow: 0 0 0 3px rgba(112,229,244,.12),0 16px 38px rgba(0,0,0,.25); }
+.tournament-solo-cup:focus-visible { outline: 3px solid #70e5f4; outline-offset: 3px; }
+.tournament-solo-cup-trophy { font-size: 65px; line-height: 1.3; }
+.tournament-solo-cup-difficulty { font-size: 10px; font-weight: 900; letter-spacing: .15em; color: #70e5f4; }
+.tournament-solo-cup strong { font-size: clamp(16px,2vw,23px); }
+.tournament-solo-cup-description { color: #b6d0da; font-size: 12px; line-height: 1.5; }
+.tournament-solo-cups-start { max-width: 360px; margin: 4px auto 10px; }
+.tournament-solo-cup-active { width: fit-content; max-width: 100%; margin: 0 auto 18px; padding: 8px 17px; border: 1px solid rgba(112,229,244,.3); border-radius: 100px; color: #70e5f4; background: rgba(5,39,62,.7); font-weight: 850; font-size: 12px; }
+.tournament-solo-lobby-players { width: min(850px,100%); margin: 20px auto; }
+@media(max-width:600px) { .tournament-solo-cups { grid-template-columns: 1fr; gap: 10px; } .tournament-solo-cup { min-height: 120px; display: grid; grid-template-columns: 74px 1fr; grid-template-rows: auto auto auto; column-gap: 12px; padding: 13px; text-align: left; } .tournament-solo-cup-trophy { grid-row: 1 / 4; font-size: 53px; text-align: center; } .tournament-solo-cup strong { font-size: 20px; } .tournament-solo-cup-description { font-size: 11px; } }
+@media(prefers-reduced-motion:reduce){.tournament-solo-cup{transition:none;}.tournament-solo-cup:hover{transform:none;}}

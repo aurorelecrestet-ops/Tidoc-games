@@ -1,0 +1,517 @@
+.ecg-lobby-page {
+  position: relative;
+
+  width: 100%;
+  min-height: 100%;
+
+  padding:
+    48px
+    clamp(20px, 6vw, 90px)
+    70px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.ecg-lobby-back {
+  position: absolute;
+
+  top: 28px;
+  left:
+    clamp(20px, 5vw, 70px);
+
+  border: 0;
+
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  background: transparent;
+
+  font: inherit;
+  font-size: 13px;
+  font-weight: 750;
+
+  cursor: pointer;
+}
+
+
+.ecg-lobby-heading {
+  width: 100%;
+  max-width: 700px;
+
+  margin-top: 28px;
+
+  text-align: center;
+}
+
+
+.ecg-lobby-eyebrow {
+  margin: 0 0 10px;
+
+  color: #55d9ee;
+
+  font-size: 11px;
+  font-weight: 850;
+
+  letter-spacing: 0.16em;
+}
+
+
+.ecg-lobby-heading h1 {
+  margin: 0;
+
+  color: white;
+
+  font-size:
+    clamp(36px, 6vw, 60px);
+}
+
+
+.ecg-lobby-code {
+  margin:
+    24px auto
+    0;
+
+  width: min(330px, 100%);
+
+  padding: 18px 24px;
+
+  border:
+    1px solid
+    rgba(85, 217, 238, 0.30);
+
+  border-radius: 20px;
+
+  background:
+    rgba(5, 39, 59, 0.72);
+
+  box-shadow:
+    0 0 30px
+    rgba(85, 217, 238, 0.10);
+}
+
+
+.ecg-lobby-code span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color:
+    rgba(255, 255, 255, 0.48);
+
+  font-size: 9px;
+  font-weight: 850;
+
+  letter-spacing: 0.17em;
+}
+
+
+.ecg-lobby-code strong {
+  color: white;
+
+  font-size: 30px;
+  font-weight: 900;
+
+  letter-spacing: 0.20em;
+}
+
+
+.ecg-lobby-players {
+  width: 100%;
+  max-width: 900px;
+
+  margin-top: 38px;
+
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+
+.ecg-lobby-player {
+  position: relative;
+
+  min-height: 180px;
+
+  padding: 24px 18px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.10);
+
+  border-radius: 24px;
+
+  background:
+    rgba(5, 38, 58, 0.78);
+
+  text-align: center;
+
+  backdrop-filter:
+    blur(14px);
+
+  -webkit-backdrop-filter:
+    blur(14px);
+}
+
+
+.ecg-lobby-player-number {
+  position: absolute;
+
+  top: 15px;
+  left: 16px;
+
+  color:
+    rgba(255, 255, 255, 0.30);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.12em;
+}
+
+
+.ecg-lobby-color-dot {
+  width: 34px;
+  height: 34px;
+
+  margin-bottom: 2px;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 22px
+    currentColor;
+}
+
+
+.ecg-lobby-player strong {
+  color: white;
+
+  font-size: 16px;
+}
+
+
+.ecg-lobby-player > span {
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.15em;
+}
+
+
+.ecg-lobby-green {
+  color: #55e68a;
+}
+
+
+.ecg-lobby-green .ecg-lobby-color-dot {
+  background: #55e68a;
+}
+
+
+.ecg-lobby-red {
+  color: #ff5f68;
+}
+
+
+.ecg-lobby-red .ecg-lobby-color-dot {
+  background: #ff5f68;
+}
+
+
+.ecg-lobby-yellow {
+  color: #ffd84d;
+}
+
+
+.ecg-lobby-yellow .ecg-lobby-color-dot {
+  background: #ffd84d;
+}
+
+
+.ecg-lobby-purple {
+  color: #b77cff;
+}
+
+
+.ecg-lobby-purple .ecg-lobby-color-dot {
+  background: #b77cff;
+}
+
+
+.ecg-lobby-footer {
+  width: 100%;
+  max-width: 900px;
+
+  margin-top: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+.ecg-lobby-footer p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.65);
+
+  font-size: 13px;
+  font-weight: 750;
+}
+
+
+.ecg-lobby-footer button {
+  min-width: 220px;
+  min-height: 52px;
+
+  padding:
+    0 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  border: 0;
+  border-radius: 15px;
+
+  color: #052c3d;
+
+  background: #55d9ee;
+
+  font: inherit;
+  font-size: 13px;
+  font-weight: 900;
+
+  cursor: pointer;
+}
+
+
+.ecg-lobby-footer button:disabled {
+  opacity: 0.35;
+
+  cursor: default;
+}
+
+
+.ecg-lobby-status,
+.ecg-lobby-error {
+  margin-top: 40px;
+
+  color: white;
+}
+
+
+.ecg-lobby-error {
+  color: #ff9098;
+}
+
+
+@media (max-width: 800px) {
+
+  .ecg-lobby-players {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .ecg-lobby-page {
+    padding:
+      38px
+      18px
+      55px;
+  }
+
+  .ecg-lobby-players {
+    grid-template-columns: 1fr;
+  }
+
+  .ecg-lobby-footer {
+    flex-direction: column;
+  }
+
+  .ecg-lobby-footer button {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  .ecg-lobby-page {
+    height: 100%;
+    min-height: 0;
+
+    padding:
+      24px
+      14px
+      max(
+        110px,
+        calc(
+          env(safe-area-inset-bottom)
+          + 90px
+        )
+      );
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+
+  .ecg-lobby-back {
+    top: 18px;
+    left: 16px;
+
+    font-size: 12px;
+  }
+
+
+  .ecg-lobby-heading {
+    margin-top: 58px;
+  }
+
+
+  .ecg-lobby-eyebrow {
+    margin-bottom: 8px;
+
+    font-size: 9px;
+    letter-spacing: 0.14em;
+  }
+
+
+  .ecg-lobby-heading h1 {
+    font-size: 42px;
+  }
+
+
+  .ecg-lobby-code {
+    width: min(300px, 100%);
+
+    margin-top: 20px;
+
+    padding:
+      16px
+      18px;
+
+    border-radius: 18px;
+  }
+
+
+  .ecg-lobby-code span {
+    margin-bottom: 6px;
+
+    font-size: 8px;
+  }
+
+
+  .ecg-lobby-code strong {
+    font-size: 24px;
+
+    letter-spacing: 0.16em;
+  }
+
+
+  .ecg-lobby-players {
+    margin-top: 26px;
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    gap: 12px;
+  }
+
+
+  .ecg-lobby-player {
+    min-height: 145px;
+
+    padding:
+      20px
+      12px
+      16px;
+
+    gap: 7px;
+
+    border-radius: 20px;
+  }
+
+
+  .ecg-lobby-player-number {
+    top: 12px;
+    left: 12px;
+
+    font-size: 8px;
+  }
+
+
+  .ecg-lobby-color-dot {
+    width: 28px;
+    height: 28px;
+
+    margin-top: 10px;
+  }
+
+
+  .ecg-lobby-player strong {
+    font-size: 14px;
+
+    max-width: 100%;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+
+  .ecg-lobby-player > span {
+    font-size: 8px;
+  }
+
+
+  .ecg-lobby-footer {
+    margin-top: 20px;
+
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+
+  .ecg-lobby-footer p {
+    font-size: 12px;
+  }
+
+
+  .ecg-lobby-footer button {
+    width: 100%;
+
+    min-height: 48px;
+
+    font-size: 12px;
+  }
+
+}

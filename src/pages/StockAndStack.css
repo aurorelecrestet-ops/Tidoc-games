@@ -1,0 +1,3731 @@
+
+/* ========================================
+   STOCK & STACK
+   RÉGLAGES PRINCIPAUX
+======================================== */
+
+.stock-game-page {
+
+  /* POSITION DU QUADRILLAGE */
+
+--stock-grid-left: 23.3%;
+--stock-grid-top: 17.1%;
+--stock-grid-width: 53.5%;
+--stock-grid-height: 64.5%;
+
+
+--stock-tray-scale: 2.4;
+--stock-board-scale: 2.4;
+
+/* CARTONS PROPOSÉS EN BAS */
+--stock-tray-crop-x: 240%;
+--stock-tray-crop-y: 255%;
+
+  /* ESPACE ENTRE LES CARTONS POSÉS */
+
+  --stock-box-gap: 3px;
+
+
+  /* COULEURS */
+
+  --stock-blue: #198ca7;
+  --stock-cyan: #70e5f4;
+  --stock-deep: #061c2d;
+
+
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+
+  min-height: calc(100dvh - 100px);
+
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  color: white;
+
+  overflow: hidden;
+
+}
+
+
+/* ========================================
+   BOX SIZING
+======================================== */
+
+.stock-game-page,
+.stock-game-page * {
+
+  box-sizing: border-box;
+
+}
+
+
+/* ========================================
+   ZONE PRINCIPALE
+======================================== */
+
+.stock-play-area {
+
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+
+  min-height: 500px;
+
+  flex: 1;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+}
+
+
+/* ========================================
+   MENU DE DÉPART
+   STYLE BEAT CATCHER
+======================================== */
+
+.stock-start-screen {
+
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  max-width: 600px;
+
+  min-height: 500px;
+
+  margin: auto;
+
+  padding: 30px 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+}
+
+
+/* ========================================
+   MEILLEUR SCORE DU MENU
+======================================== */
+
+.stock-menu-best {
+
+  margin-bottom: 18px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+}
+
+
+.stock-menu-best span {
+
+  color: rgba(255, 255, 255, 0.46);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+
+}
+
+
+.stock-menu-best strong {
+
+  margin-top: 3px;
+
+  color: var(--stock-cyan);
+
+  font-size: 26px;
+  font-weight: 900;
+
+  text-shadow:
+    0 0 18px
+    rgba(85, 217, 238, 0.30);
+
+}
+
+
+/* ========================================
+   ICÔNE DU MENU
+======================================== */
+
+.stock-start-icon {
+
+  width: 94px;
+  height: 94px;
+
+  margin-bottom: 16px;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.26);
+
+  border-radius: 26px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(21, 111, 141, 0.28),
+      rgba(5, 50, 75, 0.34)
+    );
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.06),
+
+    0 18px 50px
+    rgba(0, 0, 0, 0.20),
+
+    0 0 30px
+    rgba(85, 217, 238, 0.08);
+
+}
+
+
+.stock-start-icon img {
+
+  display: block;
+
+  width: 75%;
+  height: 75%;
+
+  object-fit: contain;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(85, 217, 238, 0.24)
+    );
+
+}
+
+
+/* ========================================
+   SPÉCIALITÉ
+======================================== */
+
+.stock-mode {
+
+  margin: 0 0 7px;
+
+  color: var(--stock-cyan);
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 0.28em;
+
+}
+
+
+/* ========================================
+   TITRE
+======================================== */
+
+.stock-start-screen h1 {
+
+  margin: 0;
+
+  color: white;
+
+  font-size:
+    clamp(45px, 8vw, 74px);
+
+  font-weight: 900;
+
+  line-height: 0.98;
+
+  letter-spacing: -3px;
+
+}
+
+
+.stock-start-screen h1 span {
+
+  color: var(--stock-cyan);
+
+  text-shadow:
+    0 0 25px
+    rgba(85, 217, 238, 0.20);
+
+}
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.stock-instructions {
+
+  width: min(440px, 100%);
+
+  margin: 18px 0 28px;
+
+  color: rgba(255, 255, 255, 0.64);
+
+  font-size: 15px;
+
+  line-height: 1.55;
+
+}
+
+
+/* ========================================
+   BOUTON COMMENCER / REJOUER
+======================================== */
+
+.stock-start-button {
+
+  min-width: 220px;
+
+  padding: 14px 25px;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.48);
+
+  border-radius: 100px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 13px;
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 850;
+
+  background:
+    linear-gradient(
+      135deg,
+      #198ca7,
+      #16b9d2
+    );
+
+  box-shadow:
+    0 10px 30px
+    rgba(13, 163, 191, 0.22),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.15);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease,
+    box-shadow 0.18s ease;
+
+}
+
+
+.stock-start-button:hover {
+
+  transform: translateY(-2px);
+
+  filter: brightness(1.08);
+
+}
+
+
+.stock-start-button:active {
+
+  transform: scale(0.97);
+
+}
+
+
+.stock-start-button span {
+
+  font-size: 20px;
+
+}
+
+
+/* ========================================
+   BOUTON RETOUR
+======================================== */
+
+.stock-back-button {
+
+  min-width: 220px;
+
+  margin-top: 12px;
+
+  padding: 13px 23px;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.24);
+
+  border-radius: 100px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  background:
+    rgba(255, 255, 255, 0.055);
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease;
+
+}
+
+
+.stock-back-button:hover {
+
+  color: white;
+
+  border-color:
+    rgba(112, 229, 244, 0.48);
+
+  background:
+    rgba(85, 217, 238, 0.10);
+
+}
+
+
+/* ========================================
+   ÉCRAN DE PARTIE
+======================================== */
+
+.stock-playing-screen {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 500;
+
+  width: 100vw;
+  height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  /*
+    Le fond hospitalBg reste
+    celui de App.tsx.
+  */
+
+  background: transparent;
+
+  touch-action: none;
+
+  overscroll-behavior: none;
+
+  -webkit-user-select: none;
+  user-select: none;
+
+  -webkit-touch-callout: none;
+
+}
+
+
+/* ========================================
+   HUD
+======================================== */
+
+.stock-topbar {
+
+  position: relative;
+
+  z-index: 30;
+
+  width:
+    min(
+      1100px,
+      calc(100% - 28px)
+    );
+
+  height: 62px;
+
+  flex-shrink: 0;
+
+  margin:
+    max(
+      14px,
+      env(safe-area-inset-top)
+    )
+    auto
+    0;
+
+  padding: 0 16px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  column-gap: 12px;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.14);
+
+  border-radius: 20px;
+
+  background:
+    rgba(4, 35, 54, 0.72);
+
+  backdrop-filter: blur(15px);
+
+  -webkit-backdrop-filter: blur(15px);
+
+  box-shadow:
+    0 16px 35px
+    rgba(0, 0, 0, 0.20);
+
+  pointer-events: none;
+
+}
+
+
+/* ========================================
+   SCORES HUD
+======================================== */
+
+.stock-best-score,
+.stock-current-score {
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+
+}
+
+
+.stock-best-score {
+
+  justify-self: start;
+
+  align-items: flex-start;
+
+}
+
+
+.stock-current-score {
+
+  justify-self: end;
+
+  align-items: flex-end;
+
+}
+
+
+.stock-best-score span,
+.stock-current-score span {
+
+  color: rgba(255, 255, 255, 0.46);
+
+  font-size: 8px;
+  font-weight: 900;
+
+  line-height: 1;
+
+  letter-spacing: 0.16em;
+
+  white-space: nowrap;
+
+}
+
+
+.stock-best-score strong,
+.stock-current-score strong {
+
+  margin-top: 2px;
+
+  color: white;
+
+  font-size: 21px;
+  font-weight: 850;
+
+  line-height: 1;
+
+}
+
+
+.stock-current-score strong {
+
+  color: var(--stock-cyan);
+
+  text-shadow:
+    0 0 18px
+    rgba(85, 217, 238, 0.35);
+
+}
+
+
+/* ========================================
+   TITRE HUD
+======================================== */
+
+.stock-hud-title {
+
+  justify-self: center;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 4px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 10px;
+  font-weight: 900;
+
+  line-height: 1;
+
+  letter-spacing: 0.13em;
+
+  white-space: nowrap;
+
+}
+
+
+.stock-hud-title strong {
+
+  color: var(--stock-cyan);
+
+}
+
+
+/* ========================================
+   ZONE DE LA RÉSERVE
+======================================== */
+
+.stock-board-wrapper {
+
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  min-height: 0;
+
+  flex: 1;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 12px;
+
+  overflow: hidden;
+
+}
+
+
+/* ========================================
+   IMAGE DE LA RÉSERVE
+======================================== */
+
+.stock-board {
+
+  position: relative;
+
+  width:
+    min(
+      98vw,
+      680px,
+      calc(100dvh - 205px)
+    );
+
+  /*
+    On conserve les proportions
+    naturelles de fondpharma.png.
+  */
+
+  aspect-ratio: auto;
+
+  flex-shrink: 0;
+
+  overflow: visible;
+
+  filter:
+    drop-shadow(
+      0 18px 35px
+      rgba(0, 0, 0, 0.24)
+    );
+
+}
+
+
+.stock-board-background {
+
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  pointer-events: none;
+
+  -webkit-user-drag: none;
+
+  user-select: none;
+
+}
+
+
+/* ========================================
+   GRILLE HTML 8 × 8
+======================================== */
+
+.stock-grid {
+
+  position: absolute;
+
+  left: var(--stock-grid-left);
+  top: var(--stock-grid-top);
+
+  width: var(--stock-grid-width);
+  height: var(--stock-grid-height);
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(8, minmax(0, 1fr));
+
+  grid-template-rows:
+    repeat(8, minmax(0, 1fr));
+
+  gap: 0;
+
+  padding: 0;
+  margin: 0;
+
+  overflow: visible;
+
+  pointer-events: none;
+
+  z-index: 4;
+
+  aspect-ratio: 1 / 1;
+
+}
+
+
+/* ========================================
+   CASE DU QUADRILLAGE
+======================================== */
+
+.stock-grid-cell {
+
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  padding: 0;
+  margin: 0;
+
+  overflow: hidden;
+
+  background: transparent;
+
+  aspect-ratio: 1 / 1;
+
+}
+
+
+/* ========================================
+   PRÉVISUALISATION LUMINEUSE
+======================================== */
+
+.stock-grid-cell.is-preview {
+
+  z-index: 5;
+
+  background:
+    rgba(112, 229, 244, 0.24);
+
+  box-shadow:
+    inset 0 0 0 2px
+    rgba(164, 244, 255, 0.90),
+
+    inset 0 0 18px
+    rgba(85, 217, 238, 0.30),
+
+    0 0 14px
+    rgba(85, 217, 238, 0.36);
+
+}
+
+
+.stock-grid-cell.is-preview::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 12%;
+
+  border-radius: 5px;
+
+  background:
+    rgba(164, 244, 255, 0.13);
+
+  filter: blur(5px);
+
+  pointer-events: none;
+
+}
+
+
+/* ========================================
+   POSITION DE CHAQUE CARTON
+   DANS SA FORME (L, T, LIGNE...)
+======================================== */
+
+.stock-piece-box {
+
+  position: absolute;
+
+  display: block;
+
+  padding: 0;
+  margin: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  -webkit-user-select: none;
+
+  -webkit-user-drag: none;
+
+}
+
+/* ========================================
+   FORME COMPOSÉE DE CARTONS
+
+   Utilisée :
+   - dans les 3 emplacements
+   - pendant le déplacement
+======================================== */
+
+.stock-piece-shape {
+
+  position: relative;
+
+  flex-shrink: 0;
+
+  padding: 0;
+  margin: 0;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  -webkit-user-select: none;
+
+  -webkit-touch-callout: none;
+
+}
+
+
+.stock-piece-box img {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  display: block;
+
+  width: var(--stock-tray-crop-x);
+  height: var(--stock-tray-crop-y);
+
+  max-width: none;
+
+  object-fit: contain;
+
+  transform: translate(-50%, -50%);
+
+  padding: 0;
+  margin: 0;
+
+  pointer-events: none;
+
+  -webkit-user-drag: none;
+}
+
+
+/* ========================================
+   CARTONS POSÉS SUR LA RÉSERVE
+
+   La boîte occupe une case
+   moins le petit espacement.
+======================================== */
+
+.stock-grid-cell .stock-board-box {
+
+  position: absolute;
+
+  inset:
+    calc(
+      var(--stock-box-gap) / 2
+    );
+
+  width: auto;
+  height: auto;
+
+  padding: 0;
+  margin: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+}
+
+
+/* ========================================
+   IMAGE DU CARTON POSÉ
+
+   Réglage indépendant
+   des pièces du bas.
+======================================== */
+
+.stock-grid-cell .stock-board-box img {
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: none;
+
+  object-fit: contain;
+  object-position: center;
+
+  transform:
+    translate(-50%, -50%)
+    scale(var(--stock-board-scale));
+
+  transform-origin: center;
+
+  padding: 0;
+  margin: 0;
+
+  pointer-events: none;
+
+  -webkit-user-drag: none;
+
+}
+
+/* ========================================
+   CARTON DE PRÉVISUALISATION
+======================================== */
+
+.stock-grid-cell .stock-preview-box {
+
+  opacity: 0.65;
+
+  filter:
+    brightness(1.25)
+    drop-shadow(
+      0 0 6px
+      rgba(112, 229, 244, 0.65)
+    );
+
+}
+
+
+/* ========================================
+   ZONE DES TROIS PIÈCES
+======================================== */
+
+.stock-pieces-area {
+
+  position: relative;
+
+  z-index: 10;
+
+  width:
+    min(
+      600px,
+      calc(100% - 24px)
+    );
+
+  flex-shrink: 0;
+
+  margin:
+    0
+    auto
+    max(
+      18px,
+      env(safe-area-inset-bottom)
+    );
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 8px;
+
+}
+
+
+/* ========================================
+   TEXTE AU-DESSUS DES PIÈCES
+======================================== */
+
+.stock-pieces-label {
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.19em;
+
+  text-align: center;
+
+}
+
+
+/* ========================================
+   PLATEAU DES 3 PROPOSITIONS
+
+   HAUTEUR FIXE
+======================================== */
+
+.stock-pieces-tray {
+
+  width: 100%;
+
+  /*
+    Suffisant pour accueillir
+    une pièce verticale de 5 cartons
+    de 23 px, sans changer
+    la hauteur du plateau.
+  */
+
+  height: 136px;
+  min-height: 136px;
+
+  flex-shrink: 0;
+
+  padding: 8px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  align-items: stretch;
+
+  gap: 8px;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.18);
+
+  border-radius: 22px;
+
+  background:
+    rgba(4, 35, 54, 0.68);
+
+  backdrop-filter: blur(13px);
+
+  -webkit-backdrop-filter: blur(13px);
+
+  box-shadow:
+    0 12px 32px
+    rgba(0, 0, 0, 0.18);
+
+}
+
+
+/* ========================================
+   UN EMPLACEMENT DE PIÈCE
+
+   HAUTEUR FIXE
+======================================== */
+
+.stock-piece-slot {
+
+  position: relative;
+
+  min-width: 0;
+  min-height: 0;
+
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.11);
+
+  border-radius: 16px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  cursor: grab;
+
+  touch-action: none;
+
+  user-select: none;
+
+  -webkit-user-select: none;
+
+  -webkit-touch-callout: none;
+
+}
+
+
+.stock-piece-slot:active {
+
+  cursor: grabbing;
+
+}
+
+
+.stock-piece-slot.is-dragging {
+
+  border-color:
+    rgba(112, 229, 244, 0.34);
+
+  background:
+    rgba(85, 217, 238, 0.055);
+
+}
+
+
+.stock-piece-slot.is-dragging
+.stock-piece-shape {
+
+  opacity: 0.18;
+
+}
+
+
+.stock-piece-slot.is-empty {
+
+  cursor: default;
+
+  border-color:
+    rgba(255, 255, 255, 0.035);
+
+  background:
+    rgba(0, 0, 0, 0.08);
+
+}
+
+
+/* ========================================
+   PIÈCE QUI SUIT LE DOIGT
+======================================== */
+
+.stock-drag-ghost {
+
+  position: fixed;
+
+  z-index: 99999;
+
+  transform:
+    translate(-50%, -50%);
+
+  pointer-events: none;
+
+  touch-action: none;
+
+  will-change:
+    left,
+    top;
+
+  filter:
+    drop-shadow(
+      0 9px 12px
+      rgba(0, 0, 0, 0.35)
+    );
+
+}
+
+
+.stock-drag-ghost.is-valid {
+
+  filter:
+    drop-shadow(
+      0 0 9px
+      rgba(85, 217, 238, 0.45)
+    )
+    drop-shadow(
+      0 10px 12px
+      rgba(0, 0, 0, 0.30)
+    );
+
+}
+
+
+.stock-drag-ghost.is-invalid {
+
+  opacity: 0.88;
+
+}
+
+
+/* ========================================
+   FIN DE PARTIE
+======================================== */
+
+.stock-game-over {
+
+  width:
+    min(
+      420px,
+      calc(100% - 40px)
+    );
+
+  margin: auto;
+
+  padding: 30px 0 55px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+}
+
+
+.stock-game-over h2 {
+
+  margin: 2px 0 0;
+
+  color: white;
+
+  font-size:
+    clamp(70px, 13vw, 110px);
+
+  font-weight: 850;
+
+  line-height: 0.95;
+
+  letter-spacing: -4px;
+
+  text-shadow:
+    0 0 30px
+    rgba(85, 217, 238, 0.18);
+
+}
+
+
+.stock-game-over-points {
+
+  margin-top: 2px;
+
+  color: rgba(255, 255, 255, 0.48);
+
+  font-size: 13px;
+
+}
+
+
+.stock-game-over-best {
+
+  margin: 25px 0 16px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+}
+
+
+.stock-game-over-best span {
+
+  color: rgba(255, 255, 255, 0.44);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+}
+
+
+.stock-game-over-best strong {
+
+  margin-top: 3px;
+
+  color: var(--stock-cyan);
+
+  font-size: 23px;
+  font-weight: 800;
+
+}
+
+
+.stock-game-over-lines {
+
+  margin: 0 0 25px;
+
+  color: rgba(255, 255, 255, 0.64);
+
+  font-size: 13px;
+
+}
+
+
+/* ========================================
+   TÉLÉPHONE PORTRAIT
+======================================== */
+
+@media
+  (max-width: 650px)
+  and (orientation: portrait) {
+
+  .stock-game-page {
+
+    min-height:
+      calc(100dvh - 84px);
+
+  }
+
+
+  .stock-play-area {
+
+    min-height: 0;
+
+  }
+
+
+  .stock-start-screen {
+
+    width:
+      calc(100% - 30px);
+
+    min-height: 0;
+
+    padding:
+      35px
+      12px
+      45px;
+
+  }
+
+
+  .stock-menu-best {
+
+    margin-bottom: 18px;
+
+  }
+
+
+  .stock-start-icon {
+
+    width: 82px;
+    height: 82px;
+
+    margin-bottom: 14px;
+
+    border-radius: 23px;
+
+  }
+
+
+  .stock-start-screen h1 {
+
+    font-size:
+      clamp(40px, 11vw, 62px);
+
+    letter-spacing: -2.5px;
+
+  }
+
+
+  .stock-instructions {
+
+    margin: 15px 0 25px;
+
+    font-size: 13px;
+
+  }
+
+
+  .stock-start-button,
+  .stock-back-button {
+
+    width:
+      min(280px, 90%);
+
+  }
+
+
+  /* HUD */
+
+  .stock-topbar {
+
+    height: 56px;
+
+    padding: 0 11px;
+
+    border-radius: 17px;
+
+  }
+
+
+  .stock-best-score span,
+  .stock-current-score span {
+
+    font-size: 7px;
+
+    letter-spacing: 0.10em;
+
+  }
+
+
+  .stock-best-score strong,
+  .stock-current-score strong {
+
+    font-size: 18px;
+
+  }
+
+
+  .stock-hud-title {
+
+    font-size: 8px;
+
+    letter-spacing: 0.06em;
+
+  }
+
+
+  /* RÉSERVE */
+
+  .stock-board {
+
+    width:
+      min(
+        100vw,
+        calc(100dvh - 205px)
+      );
+
+  }
+
+
+  .stock-board-wrapper {
+
+    padding: 4px 0;
+
+  }
+
+
+  /* PIÈCES DU BAS */
+
+  .stock-pieces-area {
+
+    width:
+      calc(100% - 20px);
+
+    gap: 7px;
+
+  }
+
+
+  .stock-pieces-tray {
+
+    padding: 7px;
+
+    gap: 6px;
+
+    border-radius: 18px;
+
+  }
+
+
+  .stock-piece-slot {
+
+    border-radius: 13px;
+
+  }
+
+
+  .stock-pieces-label {
+
+    font-size: 8px;
+
+    letter-spacing: 0.12em;
+
+  }
+
+}
+
+
+/* ========================================
+   PETITS TÉLÉPHONES
+======================================== */
+
+@media (max-width: 380px) {
+
+  .stock-start-screen h1 {
+
+    font-size: 39px;
+
+  }
+
+
+  .stock-board {
+
+    width:
+      min(
+        96vw,
+        calc(100dvh - 205px)
+      );
+
+  }
+
+}
+
+
+/* ========================================
+   TABLETTE
+======================================== */
+
+@media (min-width: 651px) {
+
+  .stock-pieces-area {
+
+    width:
+      min(
+        640px,
+        calc(100% - 40px)
+      );
+
+  }
+
+}
+
+
+/* ========================================
+   PAYSAGE
+======================================== */
+
+@media (orientation: landscape) {
+
+  .stock-topbar {
+
+    height: 50px;
+
+    margin-top:
+      max(
+        8px,
+        env(safe-area-inset-top)
+      );
+
+  }
+
+
+  .stock-board-wrapper {
+
+    padding: 2px 8px;
+
+  }
+
+
+  .stock-board {
+
+    width:
+      min(
+        52vw,
+        460px,
+        calc(100dvh - 230px)
+      );
+
+  }
+
+
+  .stock-pieces-area {
+
+    margin-bottom:
+      max(
+        8px,
+        env(safe-area-inset-bottom)
+      );
+
+    gap: 4px;
+
+  }
+
+
+  .stock-pieces-tray {
+
+    padding: 5px;
+
+  }
+
+
+  .stock-pieces-label {
+
+    font-size: 7px;
+
+  }
+
+}
+
+
+/* ========================================
+   EMPÊCHER LE DÉFILEMENT TACTILE
+======================================== */
+
+.stock-state-playing {
+
+  touch-action: none;
+
+  overscroll-behavior: none;
+
+}
+
+
+.stock-state-playing img {
+
+  -webkit-user-drag: none;
+
+  user-select: none;
+
+}
+
+
+/* ========================================
+   ACCESSIBILITÉ
+======================================== */
+
+@media
+  (prefers-reduced-motion: reduce) {
+
+  .stock-start-button,
+  .stock-back-button {
+
+    transition: none;
+
+  }
+
+}
+
+/* ========================================
+   PAYSAGE
+   TABLETTE / GRAND ÉCRAN
+======================================== */
+
+@media (orientation: landscape) {
+
+  .stock-topbar {
+    height: 54px;
+    margin-top: max(10px, env(safe-area-inset-top));
+  }
+
+  .stock-board-wrapper {
+    padding: 6px 12px;
+  }
+
+  .stock-board {
+    width: min(
+      78vw,
+      760px,
+      calc(100dvh - 120px)
+    );
+  }
+
+  .stock-pieces-area {
+    width: min(
+      760px,
+      calc(100% - 36px)
+    );
+
+    margin-bottom: max(
+      12px,
+      env(safe-area-inset-bottom)
+    );
+
+    gap: 8px;
+  }
+
+  .stock-pieces-tray {
+    min-height: 118px;
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .stock-piece-slot {
+    min-height: 100px;
+  }
+
+  .stock-pieces-label {
+    font-size: 8px;
+  }
+}
+
+
+/* ========================================
+   STOCK & STACK
+   ANIMATION COMBO — VERSION ARCADE
+======================================== */
+
+
+/* ========================================
+   LIGNES COMPLÈTES
+======================================== */
+
+.stock-grid-cell.is-clearing {
+
+  z-index: 8;
+
+  overflow: visible;
+
+  animation:
+    stockCellFlash
+    750ms
+    ease-out
+    both;
+
+}
+
+
+/* ========================================
+   CARTONS QUI DISPARAISSENT
+======================================== */
+
+.stock-grid-cell.is-clearing
+.stock-board-box {
+
+  transform-origin: center;
+
+  animation:
+    stockBoxDisappear
+    750ms
+    cubic-bezier(
+      0.18,
+      0.75,
+      0.25,
+      1
+    )
+    both;
+
+}
+
+
+/* ========================================
+   EXPLOSION DE PAILLETTES
+======================================== */
+
+.stock-sparkles {
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 20;
+
+  overflow: visible;
+
+  pointer-events: none;
+
+}
+
+
+.stock-sparkles span {
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 2px;
+
+  background: #e9fdff;
+
+  box-shadow:
+    0 0 5px #ffffff,
+
+    0 0 12px #70e5f4,
+
+    0 0 20px
+    rgba(85, 217, 238, 0.70);
+
+  opacity: 0;
+
+  animation:
+    stockSparkleBurst
+    750ms
+    ease-out
+    both;
+
+  animation-delay:
+    calc(
+      var(--spark-index) *
+      12ms
+    );
+
+}
+
+
+/* DIRECTION DES SIX PAILLETTES */
+
+.stock-sparkles span:nth-child(1) {
+
+  --spark-x: -32px;
+  --spark-y: -34px;
+
+}
+
+.stock-sparkles span:nth-child(2) {
+
+  --spark-x: 32px;
+  --spark-y: -30px;
+
+}
+
+.stock-sparkles span:nth-child(3) {
+
+  --spark-x: -40px;
+  --spark-y: 0px;
+
+}
+
+.stock-sparkles span:nth-child(4) {
+
+  --spark-x: 40px;
+  --spark-y: 3px;
+
+}
+
+.stock-sparkles span:nth-child(5) {
+
+  --spark-x: -25px;
+  --spark-y: 35px;
+
+}
+
+.stock-sparkles span:nth-child(6) {
+
+  --spark-x: 27px;
+  --spark-y: 37px;
+
+}
+
+
+/* PAILLETTES ALTERNÉES */
+
+.stock-sparkles span:nth-child(even) {
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: white;
+
+}
+
+
+/* ========================================
+   COMMENTAIRE
+======================================== */
+
+.stock-clear-message {
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  z-index: 100;
+
+  width: max-content;
+  max-width: 90%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 15px 25px;
+
+  border:
+    1px solid
+    rgba(
+      164,
+      244,
+      255,
+      0.60
+    );
+
+  border-radius: 19px;
+
+  color: white;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(
+        3,
+        40,
+        62,
+        0.94
+      ),
+      rgba(
+        13,
+        98,
+        121,
+        0.94
+      )
+    );
+
+  backdrop-filter: blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  box-shadow:
+    0 0 0 1px
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    ),
+
+    0 0 24px
+    rgba(
+      85,
+      217,
+      238,
+      0.30
+    ),
+
+    0 0 55px
+    rgba(
+      85,
+      217,
+      238,
+      0.14
+    ),
+
+    0 16px 38px
+    rgba(
+      0,
+      0,
+      0,
+      0.30
+    );
+
+  pointer-events: none;
+
+  animation:
+    stockComboPop
+    1250ms
+    cubic-bezier(
+      0.20,
+      0.80,
+      0.20,
+      1
+    )
+    both;
+
+}
+
+
+/* BRILLANCE DU PANNEAU */
+
+.stock-clear-message::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: -2px;
+
+  z-index: -1;
+
+  border-radius: inherit;
+
+  border:
+    1px solid
+    rgba(
+      164,
+      244,
+      255,
+      0.40
+    );
+
+  box-shadow:
+    0 0 18px
+    rgba(
+      112,
+      229,
+      244,
+      0.45
+    );
+
+  pointer-events: none;
+
+  animation:
+    stockPanelGlow
+    1250ms
+    ease-in-out
+    both;
+
+}
+
+
+/* POINTS */
+
+.stock-clear-message span {
+
+  color: #70e5f4;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 0.20em;
+
+  text-shadow:
+    0 0 10px
+    rgba(
+      112,
+      229,
+      244,
+      0.65
+    );
+
+}
+
+
+/* TEXTE PRINCIPAL */
+
+.stock-clear-message strong {
+
+  color: white;
+
+  font-size:
+    clamp(
+      14px,
+      2.8vw,
+      24px
+    );
+
+  font-weight: 900;
+
+  line-height: 1.1;
+
+  letter-spacing: 0.04em;
+
+  white-space: nowrap;
+
+  text-shadow:
+    0 0 15px
+    rgba(
+      112,
+      229,
+      244,
+      0.55
+    );
+
+}
+
+
+/* ========================================
+   TRIPLE COMBO ET PLUS
+======================================== */
+
+.stock-clear-message.is-big-combo {
+
+  border-color: #a4f4ff;
+
+  box-shadow:
+    0 0 0 2px
+    rgba(
+      164,
+      244,
+      255,
+      0.16
+    ),
+
+    0 0 42px
+    rgba(
+      85,
+      217,
+      238,
+      0.56
+    ),
+
+    0 0 80px
+    rgba(
+      85,
+      217,
+      238,
+      0.22
+    ),
+
+    0 18px 42px
+    rgba(
+      0,
+      0,
+      0,
+      0.34
+    );
+
+}
+
+
+.stock-clear-message.is-big-combo strong {
+
+  color: #a4f4ff;
+
+  font-size:
+    clamp(
+      18px,
+      3.2vw,
+      29px
+    );
+
+  text-shadow:
+    0 0 10px
+    rgba(
+      164,
+      244,
+      255,
+      0.95
+    ),
+
+    0 0 26px
+    rgba(
+      112,
+      229,
+      244,
+      0.55
+    );
+
+}
+
+
+/* ========================================
+   ANIMATION : FLASH DE LA LIGNE
+======================================== */
+
+@keyframes stockCellFlash {
+
+  0% {
+
+    background:
+      rgba(
+        112,
+        229,
+        244,
+        0
+      );
+
+  }
+
+  20% {
+
+    background:
+      rgba(
+        164,
+        244,
+        255,
+        0.45
+      );
+
+    box-shadow:
+      inset
+      0 0 0 2px
+      rgba(
+        255,
+        255,
+        255,
+        0.95
+      ),
+
+      0 0 20px
+      rgba(
+        112,
+        229,
+        244,
+        0.80
+      );
+
+  }
+
+  45% {
+
+    background:
+      rgba(
+        112,
+        229,
+        244,
+        0.28
+      );
+
+  }
+
+  100% {
+
+    background:
+      transparent;
+
+    box-shadow:
+      none;
+
+  }
+
+}
+
+
+/* ========================================
+   ANIMATION : CARTONS
+======================================== */
+
+@keyframes stockBoxDisappear {
+
+  0% {
+
+    opacity: 1;
+
+    transform:
+      scale(1);
+
+    filter:
+      brightness(1);
+
+  }
+
+  25% {
+
+    opacity: 1;
+
+    transform:
+      scale(1.06);
+
+    filter:
+      brightness(1.45);
+
+  }
+
+  45% {
+
+    opacity: 1;
+
+    transform:
+      scale(1.04);
+
+    filter:
+      brightness(1.8)
+      drop-shadow(
+        0 0 10px
+        rgba(
+          164,
+          244,
+          255,
+          0.85
+        )
+      );
+
+  }
+
+  75% {
+
+    opacity: 0.55;
+
+    transform:
+      scale(0.87);
+
+    filter:
+      brightness(1.4);
+
+  }
+
+  100% {
+
+    opacity: 0;
+
+    transform:
+      scale(0.50);
+
+    filter:
+      brightness(1.6);
+
+  }
+
+}
+
+
+/* ========================================
+   ANIMATION : PAILLETTES
+======================================== */
+
+@keyframes stockSparkleBurst {
+
+  0% {
+
+    opacity: 0;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(0.2)
+      rotate(0deg);
+
+  }
+
+  20% {
+
+    opacity: 1;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(1.15)
+      rotate(45deg);
+
+  }
+
+  100% {
+
+    opacity: 0;
+
+    transform:
+      translate(
+        calc(
+          -50% +
+          var(--spark-x)
+        ),
+        calc(
+          -50% +
+          var(--spark-y)
+        )
+      )
+      scale(0.1)
+      rotate(180deg);
+
+  }
+
+}
+
+
+/* ========================================
+   ANIMATION : APPARITION DU COMMENTAIRE
+======================================== */
+
+@keyframes stockComboPop {
+
+  0% {
+
+    opacity: 0;
+
+    transform:
+      translate(
+        -50%,
+        -45%
+      )
+      scale(0.60);
+
+  }
+
+  15% {
+
+    opacity: 1;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(1.12);
+
+  }
+
+  28% {
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(0.98);
+
+  }
+
+  38% {
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(1);
+
+  }
+
+  82% {
+
+    opacity: 1;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(1);
+
+  }
+
+  100% {
+
+    opacity: 0;
+
+    transform:
+      translate(
+        -50%,
+        -54%
+      )
+      scale(0.94);
+
+  }
+
+}
+
+
+/* ========================================
+   ANIMATION : LUEUR DU PANNEAU
+======================================== */
+
+@keyframes stockPanelGlow {
+
+  0% {
+
+    opacity: 0;
+
+  }
+
+  30% {
+
+    opacity: 1;
+
+  }
+
+  65% {
+
+    opacity: 0.85;
+
+  }
+
+  100% {
+
+    opacity: 0;
+
+  }
+
+}
+
+
+/* ========================================
+   ACCESSIBILITÉ
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .stock-grid-cell.is-clearing,
+  .stock-grid-cell.is-clearing
+  .stock-board-box,
+  .stock-sparkles span,
+  .stock-clear-message,
+  .stock-clear-message::before {
+
+    animation-duration: 1ms;
+
+  }
+
+}
+
+
+
+/* ========================================
+   PAILLETTES
+======================================== */
+
+.stock-sparkles {
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 20;
+
+  overflow: visible;
+
+  pointer-events: none;
+
+}
+
+
+.stock-sparkles span {
+
+  --spark-index: 0;
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #d9fbff;
+
+  box-shadow:
+    0 0 8px #70e5f4,
+    0 0 15px rgba(85, 217, 238, 0.65);
+
+  opacity: 0;
+
+  animation:
+    stockSparkleBurst
+    750ms
+    ease-out
+    both;
+
+  animation-delay:
+    calc(var(--spark-index) * 20ms);
+
+}
+
+
+/* DIRECTION DES SIX PAILLETTES */
+
+.stock-sparkles span:nth-child(1) {
+  --spark-x: -26px;
+  --spark-y: -28px;
+}
+
+.stock-sparkles span:nth-child(2) {
+  --spark-x: 25px;
+  --spark-y: -24px;
+}
+
+.stock-sparkles span:nth-child(3) {
+  --spark-x: -31px;
+  --spark-y: 3px;
+}
+
+.stock-sparkles span:nth-child(4) {
+  --spark-x: 30px;
+  --spark-y: 8px;
+}
+
+.stock-sparkles span:nth-child(5) {
+  --spark-x: -18px;
+  --spark-y: 29px;
+}
+
+.stock-sparkles span:nth-child(6) {
+  --spark-x: 20px;
+  --spark-y: 27px;
+}
+
+
+/* ========================================
+   MESSAGE DE COMBO
+======================================== */
+
+.stock-clear-message {
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  z-index: 100;
+
+  width: max-content;
+
+  max-width: 90%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 13px 22px;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.38);
+
+  border-radius: 18px;
+
+  color: white;
+
+  text-align: center;
+
+  background:
+    rgba(4, 35, 54, 0.85);
+
+  backdrop-filter: blur(10px);
+
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 0 30px
+    rgba(85, 217, 238, 0.24),
+
+    0 15px 35px
+    rgba(0, 0, 0, 0.24);
+
+  pointer-events: none;
+
+  animation:
+    stockComboPop
+    750ms
+    ease
+    both;
+
+}
+
+
+.stock-clear-message span {
+
+  color: #70e5f4;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+
+}
+
+
+.stock-clear-message strong {
+
+  color: white;
+
+  font-size:
+    clamp(13px, 2.5vw, 22px);
+
+  font-weight: 900;
+
+  line-height: 1.1;
+
+  letter-spacing: 0.03em;
+
+  text-shadow:
+    0 0 14px
+    rgba(112, 229, 244, 0.5);
+
+}
+
+
+/* TRIPLE COMBO ET PLUS */
+
+.stock-clear-message.is-big-combo {
+
+  border-color:
+    rgba(164, 244, 255, 0.70);
+
+  box-shadow:
+    0 0 40px
+    rgba(85, 217, 238, 0.42),
+
+    0 15px 35px
+    rgba(0, 0, 0, 0.24);
+
+}
+
+
+.stock-clear-message.is-big-combo strong {
+
+  color: #a4f4ff;
+
+  font-size:
+    clamp(17px, 3vw, 27px);
+
+}
+
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+@keyframes stockCellFlash {
+
+  0% {
+    background:
+      rgba(112, 229, 244, 0);
+  }
+
+  25% {
+    background:
+      rgba(164, 244, 255, 0.38);
+
+    box-shadow:
+      inset 0 0 0 2px
+      rgba(164, 244, 255, 0.95),
+
+      0 0 18px
+      rgba(112, 229, 244, 0.65);
+  }
+
+  70% {
+    background:
+      rgba(164, 244, 255, 0.16);
+  }
+
+  100% {
+    background:
+      rgba(112, 229, 244, 0);
+  }
+
+}
+
+
+@keyframes stockBoxDisappear {
+
+  0% {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+
+  30% {
+    opacity: 1;
+
+    transform: scale(1.05);
+  }
+
+  65% {
+    opacity: 0.75;
+
+    transform: scale(0.94);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform: scale(0.72);
+  }
+
+}
+
+
+@keyframes stockSparkleBurst {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.3);
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(
+        calc(-50% + var(--spark-x)),
+        calc(-50% + var(--spark-y))
+      )
+      scale(0.1);
+  }
+
+}
+
+
+@keyframes stockComboPop {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.65);
+  }
+
+  20% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.10);
+  }
+
+  35% {
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -55%)
+      scale(0.95);
+  }
+
+}
+
+
+/* ========================================
+   ACCESSIBILITÉ
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .stock-grid-cell.is-clearing,
+  .stock-grid-cell.is-clearing
+  .stock-board-box,
+  .stock-sparkles span,
+  .stock-clear-message {
+
+    animation-duration: 1ms;
+
+  }
+
+}
+
+/* ========================================
+   COUNTDOWN STOCK & STACK
+======================================== */
+
+.stock-state-countdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stock-countdown {
+  position: relative;
+  z-index: 300;
+
+  width: 100%;
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+  text-align: center;
+
+  pointer-events: none;
+}
+
+.stock-countdown-label {
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 11px;
+  font-weight: 900;
+
+  letter-spacing: 5px;
+}
+
+.stock-countdown strong {
+  color: #70e5f4;
+
+  font-size: clamp(90px, 17vw, 170px);
+  font-weight: 900;
+
+  line-height: 0.9;
+
+  text-shadow:
+    0 0 25px rgba(85, 217, 238, 0.35),
+    0 0 65px rgba(85, 217, 238, 0.15);
+
+  animation:
+    stockCountdownPop 0.55s ease both;
+}
+
+@keyframes stockCountdownPop {
+
+  0% {
+    opacity: 0;
+    transform: scale(0.55);
+  }
+
+  65% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (orientation: landscape) {
+
+  .stock-state-countdown {
+    position: fixed;
+    inset: 0;
+
+    z-index: 500;
+
+    width: 100vw;
+    height: 100dvh;
+
+    min-width: 100vw;
+    min-height: 100dvh;
+
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .stock-state-countdown .stock-countdown {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .stock-countdown strong {
+    animation-duration: 1ms;
+  }
+}
+
+
+/* ========================================
+   CORRECTION DES PIÈCES DU BAS UNIQUEMENT
+======================================== */
+
+.stock-tray-shape .stock-piece-box {
+  overflow: hidden;
+}
+
+.stock-tray-shape .stock-piece-box img {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 240%;
+  height: 240%;
+
+  max-width: none;
+
+  object-fit: fill;
+
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+}
+
+/* ========================================
+   PIÈCES DU BAS
+   VERSION MINIATURE DU PLATEAU
+======================================== */
+
+/* Même petit espace proportionnel entre les cartons */
+
+.stock-tray-shape .stock-piece-box {
+  overflow: hidden;
+
+  /*
+    Une case du bas fait 23px.
+    On réduit légèrement son contenu,
+    sans déplacer la case elle-même.
+  */
+
+  padding: 0;
+}
+
+/* Même cadrage que les cartons du plateau */
+
+.stock-tray-shape .stock-piece-box img {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: none;
+
+  object-fit: contain;
+  object-position: center;
+
+  transform:
+    translate(-50%, -50%)
+    scale(var(--stock-board-scale));
+
+  transform-origin: center;
+
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.stock-tray-shape .stock-piece-box {
+  clip-path: inset(4%);
+}
+
+/* ========================================
+   STOCK & STACK
+   CLASSEMENT MONDIAL
+======================================== */
+
+.stock-leaderboard {
+  width: min(100%, 520px);
+
+  margin: 24px auto 8px;
+
+  padding: 18px;
+
+  border: 1px solid rgba(85, 217, 238, 0.22);
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 46, 67, 0.92),
+      rgba(5, 30, 48, 0.96)
+    );
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+
+/* ========================================
+   TITRE DU CLASSEMENT
+======================================== */
+
+.stock-leaderboard-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 4px 14px;
+}
+
+.stock-leaderboard-heading > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stock-leaderboard-kicker {
+  margin-bottom: 4px;
+
+  color: #55d9ee;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.19em;
+}
+
+.stock-leaderboard-heading strong {
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+
+/* ========================================
+   ICÔNE TROPHÉE
+======================================== */
+
+.stock-leaderboard-trophy {
+  display: grid;
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid rgba(85, 217, 238, 0.24);
+  border-radius: 12px;
+
+  color: #8eeeff;
+
+  background: rgba(25, 140, 167, 0.13);
+}
+
+.stock-leaderboard-trophy svg {
+  width: 20px;
+  height: 20px;
+
+  fill: currentColor;
+
+  filter:
+    drop-shadow(
+      0 0 6px rgba(85, 217, 238, 0.45)
+    );
+}
+
+
+/* ========================================
+   LISTE DES JOUEURS
+======================================== */
+
+.stock-ranking-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.stock-ranking-row {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    34px
+    42px
+    minmax(0, 1fr)
+    auto;
+
+  align-items: center;
+
+  min-height: 56px;
+
+  padding: 7px 12px 7px 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+
+/* ========================================
+   POSITION
+======================================== */
+
+.stock-ranking-position {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+
+/* ========================================
+   AVATAR
+======================================== */
+
+.stock-ranking-avatar {
+  width: 36px;
+  height: 36px;
+
+  object-fit: cover;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* ========================================
+   PSEUDO ET BADGE TOI
+======================================== */
+
+.stock-ranking-player {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  min-width: 0;
+
+  padding-left: 10px;
+}
+
+.stock-ranking-player strong {
+  overflow: hidden;
+
+  color: rgba(255, 255, 255, 0.92);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stock-ranking-player span {
+  flex-shrink: 0;
+
+  padding: 3px 6px;
+
+  border-radius: 999px;
+
+  color: #9af2ff;
+
+  background: rgba(85, 217, 238, 0.13);
+
+  font-size: 7px;
+  font-weight: 900;
+
+  letter-spacing: 0.13em;
+}
+
+
+/* ========================================
+   SCORE
+======================================== */
+
+.stock-ranking-score {
+  display: flex;
+  align-items: baseline;
+
+  gap: 4px;
+
+  padding-left: 8px;
+}
+
+.stock-ranking-score strong {
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.stock-ranking-score span {
+  color: rgba(255, 255, 255, 0.38);
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+
+/* ========================================
+   TOP 3
+======================================== */
+
+.stock-ranking-top {
+  min-height: 61px;
+}
+
+/* PREMIÈRE PLACE */
+
+.stock-ranking-1 {
+  border-color: rgba(255, 215, 95, 0.28);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 205, 75, 0.10),
+      rgba(255, 255, 255, 0.035)
+    );
+}
+
+/* DEUXIÈME PLACE */
+
+.stock-ranking-2 {
+  border-color: rgba(210, 226, 235, 0.18);
+}
+
+/* TROISIÈME PLACE */
+
+.stock-ranking-3 {
+  border-color: rgba(214, 150, 102, 0.18);
+}
+
+.stock-ranking-top .stock-ranking-position {
+  font-size: 18px;
+}
+
+
+/* ========================================
+   JOUEUR ACTUEL
+======================================== */
+
+.stock-ranking-me {
+  border-color: rgba(85, 217, 238, 0.65);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(25, 140, 167, 0.22),
+      rgba(85, 217, 238, 0.07)
+    );
+
+  box-shadow:
+    inset 3px 0 0 #55d9ee,
+    0 0 18px rgba(85, 217, 238, 0.07);
+}
+
+
+/* ========================================
+   CHARGEMENT / CLASSEMENT VIDE
+======================================== */
+
+.stock-leaderboard-loading {
+  padding: 22px 10px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  text-align: center;
+
+  font-size: 12px;
+}
+
+
+/* ========================================
+   PETITS ÉCRANS
+======================================== */
+
+@media (max-width: 520px) {
+
+  .stock-leaderboard {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 13px;
+
+    border-radius: 18px;
+  }
+
+  .stock-ranking-row {
+    grid-template-columns:
+      29px
+      37px
+      minmax(0, 1fr)
+      auto;
+
+    min-height: 52px;
+
+    padding-right: 9px;
+  }
+
+  .stock-ranking-avatar {
+    width: 33px;
+    height: 33px;
+  }
+
+  .stock-ranking-player {
+    padding-left: 8px;
+  }
+
+  .stock-ranking-player strong {
+    font-size: 12px;
+  }
+
+  .stock-ranking-score strong {
+    font-size: 12px;
+  }
+
+}
+
+
+/* ========================================
+   ÉCRAN DE FIN
+   LAISSER LE CLASSEMENT VISIBLE
+======================================== */
+
+.stock-state-gameover {
+  overflow: visible;
+}
+
+.stock-state-gameover .stock-play-area {
+  min-height: 0;
+
+  overflow: visible;
+}
+
+.stock-state-gameover .stock-game-over {
+  width: min(520px, calc(100% - 34px));
+
+  margin: 30px auto;
+
+  padding: 0 0 45px;
+}
+
+.stock-state-gameover .stock-game-over-best {
+  margin-bottom: 12px;
+}
+
+.stock-state-gameover .stock-leaderboard {
+  margin-top: 12px;
+  margin-bottom: 22px;
+}
+
+/* ========================================
+   STOCK & STACK
+   ANIMATION NOUVEAU RECORD
+======================================== */
+
+.stock-record-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 200;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(13, 114, 143, 0.24),
+      rgba(3, 29, 47, 0.10) 45%,
+      transparent 72%
+    );
+
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
+  animation:
+    stockRecordOverlay
+    2s ease both;
+}
+
+
+/* CARTE CENTRALE */
+
+.stock-record-burst {
+  position: relative;
+
+  min-width: 285px;
+  max-width: 95%;
+
+  padding: 24px 38px;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.35);
+
+  border-radius: 26px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(9, 75, 101, 0.94),
+      rgba(4, 40, 63, 0.96)
+    );
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.34),
+    0 0 45px rgba(85, 217, 238, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+
+  animation:
+    stockRecordBurst
+2s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+}
+
+
+/* TEXTE NOUVEAU RECORD */
+
+.stock-record-kicker {
+  color: #70e5f4;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 4px;
+}
+
+
+/* SCORE */
+
+.stock-record-burst strong {
+  margin-top: 4px;
+
+  color: white;
+
+  font-size: clamp(34px, 7vw, 56px);
+  font-weight: 850;
+
+  line-height: 1;
+
+  letter-spacing: -2px;
+
+  text-shadow:
+    0 0 25px
+    rgba(85, 217, 238, 0.30);
+}
+
+
+/* DESCRIPTION */
+
+.stock-record-burst p {
+  margin: 8px 0 0;
+
+  color: rgba(255, 255, 255, 0.66);
+
+  font-size: 12px;
+}
+
+
+/* ÉTOILE */
+
+.stock-record-star {
+  position: absolute;
+
+  top: -18px;
+  right: -14px;
+
+  color: #a4f4ff;
+
+  font-size: 35px;
+
+  text-shadow:
+    0 0 18px
+    rgba(85, 217, 238, 0.80);
+
+  animation:
+    stockRecordStar
+    2s ease both;
+}
+
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+@keyframes stockRecordOverlay {
+
+  0% {
+    opacity: 0;
+  }
+
+  18% {
+    opacity: 1;
+  }
+
+  78% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+
+}
+
+
+@keyframes stockRecordBurst {
+
+  0% {
+    opacity: 0;
+    transform: scale(0.55);
+  }
+
+  24% {
+    opacity: 1;
+    transform: scale(1.07);
+  }
+
+  38% {
+    transform: scale(1);
+  }
+
+  78% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+}
+
+
+@keyframes stockRecordStar {
+
+  0% {
+    opacity: 0;
+    transform: scale(0.2) rotate(-90deg);
+  }
+
+  30% {
+    opacity: 1;
+    transform: scale(1.2) rotate(15deg);
+  }
+
+  60% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.8) rotate(35deg);
+  }
+
+}
+
+
+/* ========================================
+   TÉLÉPHONE
+======================================== */
+
+@media (max-width: 520px) {
+
+  .stock-record-burst {
+    min-width: 0;
+
+    width: min(285px, 92%);
+
+    padding: 20px 16px;
+  }
+
+  .stock-record-kicker {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .stock-record-burst p {
+    font-size: 11px;
+  }
+
+}
+
+
+/* ========================================
+   ACCESSIBILITÉ
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .stock-record-overlay,
+  .stock-record-burst,
+  .stock-record-star {
+    animation-duration: 1ms;
+  }
+
+}

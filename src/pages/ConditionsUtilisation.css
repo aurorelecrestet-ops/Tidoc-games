@@ -1,0 +1,464 @@
+/* ========================================
+   TI'DOC GAMES
+   CONDITIONS D'UTILISATION
+
+   Complément de Parametres.css
+======================================== */
+
+
+/* ========================================
+   PAGE ET DÉFILEMENT
+======================================== */
+
+.settings-legal-page {
+  height: 100%;
+  min-height: 0;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  overscroll-behavior-y: contain;
+
+  -webkit-overflow-scrolling: touch;
+
+  padding-bottom:
+    max(
+      100px,
+      env(safe-area-inset-bottom)
+    );
+}
+
+
+/* ========================================
+   EN-TÊTE
+======================================== */
+
+.settings-legal-page
+.settings-heading {
+  width: min(850px, 100%);
+
+  margin:
+    39px auto 35px;
+}
+
+
+.settings-legal-page
+.settings-heading h1 {
+  font-size:
+    clamp(35px, 5vw, 59px);
+
+  line-height: 1.12;
+
+  letter-spacing: -0.045em;
+
+  overflow-wrap: break-word;
+}
+
+
+.settings-legal-page
+.settings-subtitle {
+  max-width: 600px;
+
+  margin:
+    18px auto 0;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   CARTE DU DOCUMENT
+======================================== */
+
+.settings-legal-page
+.settings-content {
+  width: min(850px, 100%);
+
+  gap: 22px;
+}
+
+
+.settings-legal-document {
+  width: 100%;
+
+  padding: 38px 43px;
+
+  border: 1px solid
+    rgba(112, 229, 244, 0.18);
+
+  border-radius: 23px;
+
+  background:
+    linear-gradient(
+      150deg,
+      rgba(7, 51, 72, 0.97),
+      rgba(4, 34, 51, 0.97)
+    );
+
+  box-shadow:
+    0 20px 50px
+      rgba(0, 0, 0, 0.16);
+
+  box-sizing: border-box;
+}
+
+
+/* ========================================
+   SECTIONS NUMÉROTÉES
+======================================== */
+
+.settings-legal-section {
+  padding:
+    29px 0 30px;
+
+  border-bottom: 1px solid
+    rgba(112, 229, 244, 0.12);
+}
+
+
+.settings-legal-section:first-child {
+  padding-top: 0;
+}
+
+
+.settings-legal-section:last-child {
+  padding-bottom: 0;
+
+  border-bottom: none;
+}
+
+
+/* ========================================
+   TITRES
+======================================== */
+
+.settings-legal-document
+.settings-legal-section h2 {
+  margin: 0 0 17px;
+
+  color: #b8f2fa;
+
+  font-size: 19px;
+  font-weight: 850;
+
+  line-height: 1.45;
+
+  letter-spacing: -0.02em;
+}
+
+
+/* ========================================
+   PARAGRAPHES
+======================================== */
+
+.settings-legal-section p {
+  margin: 0;
+
+  color: #c3d7e1;
+
+  font-size: 13px;
+
+  font-weight: 450;
+
+  line-height: 1.9;
+
+  overflow-wrap: break-word;
+}
+
+
+.settings-legal-section p + p {
+  margin-top: 13px;
+}
+
+
+.settings-legal-section strong {
+  color: #f1fcff;
+
+  font-weight: 800;
+}
+
+
+/* ========================================
+   LISTES
+======================================== */
+
+.settings-legal-section ul {
+  margin:
+    14px 0 0;
+
+  padding-left: 23px;
+
+  color: #c3d7e1;
+}
+
+
+.settings-legal-section li {
+  padding-left: 5px;
+
+  font-size: 13px;
+
+  line-height: 1.85;
+}
+
+
+.settings-legal-section li + li {
+  margin-top: 10px;
+}
+
+
+.settings-legal-section li::marker {
+  color: #70e5f4;
+}
+
+
+/* ========================================
+   ADRESSE E-MAIL
+======================================== */
+
+.settings-legal-email {
+  display: inline-block;
+
+  max-width: 100%;
+
+  margin-top: 17px;
+
+  padding: 11px 15px;
+
+  border: 1px solid
+    rgba(112, 229, 244, 0.24);
+
+  border-radius: 10px;
+
+  color: #b7f4fc;
+
+  background:
+    rgba(25, 140, 167, 0.12);
+
+  font-size: 13px;
+  font-weight: 750;
+
+  text-decoration: none;
+
+  overflow-wrap: anywhere;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.settings-legal-email:hover {
+  color: #ffffff;
+
+  border-color:
+    rgba(112, 229, 244, 0.50);
+
+  background:
+    rgba(25, 140, 167, 0.23);
+}
+
+
+/* ========================================
+   SIGNATURE TI'DOC
+======================================== */
+
+.settings-legal-footer {
+  width: 100%;
+
+  padding:
+    24px 20px 12px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 8px;
+
+  text-align: center;
+
+  box-sizing: border-box;
+}
+
+
+.settings-legal-footer strong {
+  color: #ffffff;
+
+  font-size: 17px;
+  font-weight: 900;
+}
+
+
+.settings-legal-footer > span {
+  color: #a9c4d1;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+.settings-legal-footer p {
+  margin: 11px 0 0;
+
+  color: #70e5f4;
+
+  font-size: 10px;
+  font-weight: 850;
+
+  letter-spacing: 0.14em;
+}
+
+
+/* ========================================
+   TABLETTE
+======================================== */
+
+@media (max-width: 900px) {
+
+  .settings-legal-document {
+    padding: 31px 29px;
+  }
+
+
+  .settings-legal-section {
+    padding:
+      25px 0 26px;
+  }
+
+
+  .settings-legal-document
+  .settings-legal-section h2 {
+    font-size: 18px;
+  }
+
+}
+
+
+/* ========================================
+   TÉLÉPHONE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .settings-legal-page {
+    padding-bottom:
+      max(
+        85px,
+        env(safe-area-inset-bottom)
+      );
+  }
+
+
+  .settings-legal-page
+  .settings-heading {
+    margin:
+      30px auto 27px;
+  }
+
+
+  .settings-legal-page
+  .settings-heading h1 {
+    font-size:
+      clamp(32px, 9vw, 43px);
+  }
+
+
+  .settings-legal-page
+  .settings-subtitle {
+    font-size: 12px;
+  }
+
+
+  .settings-legal-document {
+    padding: 24px 19px;
+
+    border-radius: 18px;
+  }
+
+
+  .settings-legal-section {
+    padding:
+      23px 0 24px;
+  }
+
+
+  .settings-legal-document
+  .settings-legal-section h2 {
+    margin-bottom: 14px;
+
+    font-size: 16px;
+
+    line-height: 1.45;
+  }
+
+
+  .settings-legal-section p,
+  .settings-legal-section li {
+    font-size: 12px;
+
+    line-height: 1.85;
+  }
+
+
+  .settings-legal-section ul {
+    padding-left: 19px;
+  }
+
+
+  .settings-legal-email {
+    font-size: 12px;
+
+    padding: 10px 12px;
+  }
+
+
+  .settings-legal-footer {
+    padding:
+      19px 10px 10px;
+  }
+
+
+  .settings-legal-footer strong {
+    font-size: 15px;
+  }
+
+
+  .settings-legal-footer > span {
+    font-size: 11px;
+  }
+
+
+  .settings-legal-footer p {
+    font-size: 9px;
+
+    letter-spacing: 0.09em;
+  }
+
+}
+
+
+/* ========================================
+   ACCESSIBILITÉ
+======================================== */
+
+.settings-legal-page a:focus-visible {
+  outline: 2px solid #70e5f4;
+
+  outline-offset: 4px;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .settings-legal-page *,
+  .settings-legal-page *::before,
+  .settings-legal-page *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+}

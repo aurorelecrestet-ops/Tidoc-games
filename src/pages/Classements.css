@@ -1,0 +1,511 @@
+/* ========================================
+   PAGE CLASSEMENTS
+======================================== */
+
+.rankings-page {
+  width: min(1180px, 90%);
+  margin: 0 auto;
+  padding: 35px 0 70px;
+  color: white;
+}
+
+
+/* ========================================
+   TITRE
+======================================== */
+
+.rankings-heading {
+  margin-bottom: 42px;
+  text-align: center;
+}
+
+.rankings-eyebrow {
+  margin: 0 0 10px;
+
+  color: #55d9ee;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 5px;
+}
+
+.rankings-heading h1 {
+  margin: 0;
+
+  font-size: clamp(
+    38px,
+    5vw,
+    62px
+  );
+
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.rankings-heading h1 span {
+  color: #55d9ee;
+}
+
+.rankings-subtitle {
+  margin: 16px auto 0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.65
+    );
+
+  font-size: 15px;
+}
+
+
+/* ========================================
+   GRILLE DES JEUX
+======================================== */
+
+.rankings-games {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+
+/* ========================================
+   CARTE
+======================================== */
+
+.rankings-game-card {
+  min-width: 0;
+  min-height: 310px;
+
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  color: white;
+  text-align: left;
+
+  border:
+    1px solid
+    rgba(
+      112,
+      229,
+      244,
+      0.18
+    );
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15, 72, 99, 0.72),
+      rgba(5, 39, 62, 0.78)
+    );
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+
+  box-shadow:
+    0 20px 50px
+      rgba(0, 0, 0, 0.22),
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.06);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.rankings-game-card:hover {
+  transform:
+    translateY(-5px);
+
+  border-color:
+    rgba(
+      85,
+      217,
+      238,
+      0.48
+    );
+
+  box-shadow:
+    0 25px 60px
+      rgba(0, 0, 0, 0.3),
+    0 0 30px
+      rgba(85, 217, 238, 0.08);
+}
+
+
+/* ========================================
+   HAUT DE CARTE
+======================================== */
+
+.rankings-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.rankings-specialty-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(
+      85,
+      217,
+      238,
+      0.22
+    );
+
+  border-radius: 16px;
+
+  color: #7ce8f7;
+
+  background:
+    rgba(
+      85,
+      217,
+      238,
+      0.1
+    );
+}
+
+.rankings-specialty-icon svg {
+  display: block;
+
+  width: 30px;
+  height: 30px;
+
+  max-width: none;
+
+  color: #7ce8f7;
+}
+
+.rankings-specialty-icon svg path,
+.rankings-specialty-icon svg polygon,
+.rankings-specialty-icon svg circle {
+  fill: currentColor;
+}
+
+
+/* ========================================
+   CONTENU
+======================================== */
+
+.rankings-card-content {
+  margin-top: 28px;
+}
+
+.rankings-specialty {
+  margin: 0 0 7px;
+
+  color: #55d9ee;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 2.5px;
+}
+
+.rankings-card-content h2 {
+  margin: 0;
+
+  color: white;
+
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.rankings-card-content > p:last-child {
+  margin: 11px 0 0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.58
+    );
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+
+/* ========================================
+   BAS DE CARTE
+======================================== */
+
+.rankings-card-bottom {
+  margin-top: auto;
+
+  padding-top: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.rankings-card-bottom button {
+  padding: 10px 17px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  border:
+    1px solid
+    rgba(
+      85,
+      217,
+      238,
+      0.25
+    );
+
+  border-radius: 100px;
+
+  color: white;
+
+  background:
+    rgba(
+      85,
+      217,
+      238,
+      0.12
+    );
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.rankings-card-bottom button:hover {
+  background:
+    rgba(
+      85,
+      217,
+      238,
+      0.23
+    );
+
+  transform:
+    translateX(2px);
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1000px) {
+
+  .rankings-games {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .rankings-page {
+    width: 90%;
+    padding-top: 25px;
+  }
+
+  .rankings-heading {
+    margin-bottom: 30px;
+  }
+
+  .rankings-games {
+    grid-template-columns: 1fr;
+  }
+
+  .rankings-game-card {
+    min-height: 280px;
+  }
+
+}
+
+
+
+/* ========================================
+   CLASSEMENTS — GRILLE RESPONSIVE
+======================================== */
+
+/* TABLETTE : 2 CARTES PAR LIGNE */
+
+@media (min-width: 651px) and (max-width: 1000px) {
+
+  .rankings-games {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+  }
+
+  .rankings-game-card {
+    min-height: 260px;
+    padding: 20px;
+  }
+
+  .rankings-card-content {
+    margin-top: 18px;
+  }
+
+  .rankings-card-bottom {
+    padding-top: 16px;
+  }
+
+}
+
+
+/* ========================================
+   TABLETTE : 4 JEUX EN 2 × 2
+======================================== */
+
+@media (min-width: 651px) and (max-width: 1200px) {
+
+  .rankings-games {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* TÉLÉPHONE : MÊME CARTE HORIZONTALE QUE LES MENUS DE JEUX */
+
+@media (max-width: 650px) {
+
+  .rankings-page {
+    width: calc(100% - 24px);
+
+    padding-top: 12px;
+    padding-bottom: 45px;
+  }
+
+  .rankings-heading {
+    margin-bottom: 14px;
+  }
+
+  .rankings-games {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr);
+
+    gap: 8px;
+  }
+
+  .rankings-game-card {
+    min-width: 0;
+    min-height: 0;
+
+    padding: 12px 13px;
+
+    display: grid;
+    grid-template-columns: 43px minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "icon content bottom"
+      "icon content bottom";
+    align-items: center;
+    column-gap: 11px;
+    border-radius: 18px;
+  }
+
+  .rankings-card-top {
+    grid-area: icon;
+    display: block;
+  }
+
+  .rankings-specialty-icon {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 12px;
+  }
+
+  .rankings-specialty-icon svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .rankings-card-content {
+    grid-area: content;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .rankings-specialty {
+    margin-bottom: 3px;
+
+    font-size: 7px;
+    letter-spacing: 1.5px;
+  }
+
+  .rankings-card-content h2 {
+    font-size: 16px;
+    line-height: 1.05;
+  }
+
+  .rankings-card-content > p:last-child {
+    margin: 5px 0 0;
+
+    max-height: 2.5em;
+    overflow: hidden;
+
+    font-size: 8.5px;
+    line-height: 1.25;
+  }
+
+  .rankings-card-bottom {
+    grid-area: bottom;
+    min-width: 76px;
+    margin: 0;
+    padding: 0;
+
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .rankings-card-bottom button {
+    min-height: 32px;
+    padding: 7px 8px;
+
+    gap: 5px;
+
+    justify-content: center;
+
+    font-size: 8px;
+
+    white-space: nowrap;
+  }
+
+}

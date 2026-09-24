@@ -1,0 +1,1356 @@
+/* ========================================
+   PAGE SOLO
+======================================== */
+
+.solo-page {
+  width: min(1180px, 90%);
+  height: 100%;
+  min-height: 0;
+
+  margin: 0 auto;
+
+  padding: 25px 0 35px;
+
+  color: white;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  overscroll-behavior: contain;
+
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
+}
+
+.solo-page::-webkit-scrollbar {
+  display: none;
+}
+
+.solo-menu-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  margin-bottom: 12px;
+  padding: 8px 13px;
+  border: 1px solid rgba(112, 229, 244, 0.22);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(5, 39, 62, 0.52);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.solo-menu-back:hover {
+  color: white;
+  background: rgba(85, 217, 238, 0.16);
+}
+
+
+/* ========================================
+   TITRE
+======================================== */
+
+.solo-heading {
+  text-align: center;
+
+  margin-bottom: 28px;
+}
+
+.solo-eyebrow {
+  margin: 0 0 8px;
+
+  color: #55d9ee;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 5px;
+}
+
+.solo-heading h1 {
+  margin: 0;
+
+  font-size:
+    clamp(
+      36px,
+      4.5vw,
+      58px
+    );
+
+  line-height: 1;
+
+  letter-spacing: -2px;
+}
+
+.solo-heading h1 span {
+  color: #55d9ee;
+}
+
+.solo-subtitle {
+  margin: 12px auto 0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.65
+    );
+
+  font-size: 14px;
+}
+
+
+/* ========================================
+   GRILLE DES JEUX
+======================================== */
+
+.solo-games {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+
+/* ========================================
+   CARTE D'UN MINI-JEU
+======================================== */
+
+.solo-game-card {
+  min-width: 0;
+  min-height: 275px;
+
+  padding: 21px;
+
+  display: flex;
+  flex-direction: column;
+
+  text-align: left;
+
+  color: white;
+
+  border:
+    1px solid
+    rgba(
+      112,
+      229,
+      244,
+      0.18
+    );
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(
+        15,
+        72,
+        99,
+        0.72
+      ),
+      rgba(
+        5,
+        39,
+        62,
+        0.78
+      )
+    );
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+
+  box-shadow:
+    0 20px 50px
+      rgba(
+        0,
+        0,
+        0,
+        0.22
+      ),
+
+    inset 0 1px 0
+      rgba(
+        255,
+        255,
+        255,
+        0.06
+      );
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.solo-game-card:hover {
+  transform:
+    translateY(-5px);
+
+  border-color:
+    rgba(
+      85,
+      217,
+      238,
+      0.48
+    );
+
+  box-shadow:
+    0 25px 60px
+      rgba(
+        0,
+        0,
+        0,
+        0.3
+      ),
+
+    0 0 30px
+      rgba(
+        85,
+        217,
+        238,
+        0.08
+      );
+}
+
+
+/* ========================================
+   HAUT DE CARTE
+======================================== */
+
+.solo-card-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content:
+    space-between;
+
+  gap: 15px;
+}
+
+.solo-specialty-icon {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  color: #7ce8f7;
+
+  font-size: 24px;
+
+  background:
+    rgba(
+      85,
+      217,
+      238,
+      0.1
+    );
+
+  border:
+    1px solid
+    rgba(
+      85,
+      217,
+      238,
+      0.22
+    );
+}
+
+.solo-status {
+  padding: 6px 10px;
+
+  border:
+    1px solid
+    rgba(
+      85,
+      217,
+      238,
+      0.2
+    );
+
+  border-radius: 100px;
+
+  color: #7ce8f7;
+
+  background:
+    rgba(
+      85,
+      217,
+      238,
+      0.08
+    );
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+}
+
+
+/* ========================================
+   TEXTE
+======================================== */
+
+.solo-card-content {
+  margin-top: 20px;
+}
+
+.solo-specialty {
+  margin: 0 0 6px;
+
+  color: #55d9ee;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 2.2px;
+}
+
+.solo-card-content h2 {
+  margin: 0;
+
+  color: white;
+
+  font-size: 22px;
+
+  line-height: 1.1;
+}
+
+.solo-description {
+  margin: 9px 0 0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.58
+    );
+
+  font-size: 12px;
+
+  line-height: 1.45;
+}
+
+
+/* ========================================
+   BAS DE CARTE
+======================================== */
+
+.solo-card-bottom {
+  margin-top: auto;
+
+  padding-top: 18px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content:
+    space-between;
+
+  gap: 12px;
+}
+
+.solo-best-score {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.solo-best-score span {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.38
+    );
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+}
+
+.solo-best-score strong {
+  color: white;
+
+  font-size: 17px;
+}
+
+.solo-card-bottom button {
+  flex-shrink: 0;
+
+  padding: 9px 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  border:
+    1px solid
+    rgba(
+      85,
+      217,
+      238,
+      0.25
+    );
+
+  border-radius: 100px;
+
+  color: white;
+
+  background:
+    rgba(
+      85,
+      217,
+      238,
+      0.12
+    );
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.solo-card-bottom button:hover {
+  background:
+    rgba(
+      85,
+      217,
+      238,
+      0.23
+    );
+
+  transform:
+    translateX(2px);
+}
+
+
+/* ========================================
+   ICÔNES DES SPÉCIALITÉS
+======================================== */
+
+.solo-specialty-icon svg {
+  display: block;
+
+  width: 28px;
+  height: 28px;
+
+  max-width: none;
+
+  color: #7ce8f7;
+
+  opacity: 1;
+
+  visibility: visible;
+}
+
+.solo-specialty-icon svg path,
+.solo-specialty-icon svg polygon,
+.solo-specialty-icon svg circle {
+  fill: currentColor;
+}
+
+.solo-specialty-icon svg g {
+  color: inherit;
+}
+
+.solo-specialty-icon svg [stroke] {
+  fill: none;
+
+  stroke: currentColor;
+}
+
+
+/* ========================================
+   TABLETTE
+======================================== */
+
+@media
+  (min-width: 601px)
+  and (max-width: 1100px) {
+
+  .solo-page {
+    width: 94%;
+
+    padding:
+      12px 0 22px;
+  }
+
+  .solo-heading {
+    margin-bottom: 17px;
+  }
+
+  .solo-eyebrow {
+    margin-bottom: 5px;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+  }
+
+  .solo-heading h1 {
+    font-size:
+      clamp(
+        34px,
+        5vw,
+        48px
+      );
+  }
+
+  .solo-subtitle {
+    margin-top: 7px;
+
+    font-size: 12px;
+  }
+
+  .solo-games {
+    grid-template-columns:
+      repeat(
+        3,
+        minmax(0, 1fr)
+      );
+
+    gap: 12px;
+  }
+
+  .solo-game-card {
+    min-height: 230px;
+
+    padding: 16px;
+
+    border-radius: 20px;
+  }
+
+  .solo-specialty-icon {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 13px;
+  }
+
+  .solo-specialty-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .solo-card-content {
+    margin-top: 14px;
+  }
+
+  .solo-specialty {
+    margin-bottom: 4px;
+
+    font-size: 7px;
+
+    letter-spacing: 1.8px;
+  }
+
+  .solo-card-content h2 {
+    font-size: 19px;
+  }
+
+  .solo-description {
+    margin-top: 7px;
+
+    font-size: 10px;
+
+    line-height: 1.35;
+  }
+
+  .solo-card-bottom {
+    padding-top: 12px;
+
+    gap: 8px;
+  }
+
+  .solo-best-score span {
+    font-size: 6px;
+  }
+
+  .solo-best-score strong {
+    font-size: 15px;
+  }
+
+  .solo-card-bottom button {
+    padding:
+      8px 12px;
+
+    gap: 6px;
+
+    font-size: 10px;
+  }
+}
+
+
+/* ========================================
+   TABLETTE PAYSAGE
+======================================== */
+
+@media
+  (orientation: landscape)
+  and (min-width: 800px)
+  and (max-width: 1100px)
+  and (min-height: 600px) {
+
+  .solo-page {
+    width: 94%;
+
+    padding:
+      5px 0 15px;
+  }
+
+  .solo-heading {
+    margin-bottom: 12px;
+  }
+
+  .solo-eyebrow {
+    margin-bottom: 4px;
+
+    font-size: 7px;
+
+    letter-spacing: 4px;
+  }
+
+  .solo-heading h1 {
+    font-size:
+      clamp(
+        32px,
+        4.3vw,
+        43px
+      );
+  }
+
+  .solo-subtitle {
+    margin-top: 5px;
+
+    font-size: 10px;
+  }
+
+  .solo-games {
+    grid-template-columns:
+      repeat(
+        3,
+        minmax(0, 1fr)
+      );
+
+    gap: 10px;
+  }
+
+  .solo-game-card {
+    min-height: 195px;
+
+    padding: 13px 14px;
+
+    border-radius: 18px;
+  }
+
+  .solo-specialty-icon {
+    width: 37px;
+    height: 37px;
+
+    border-radius: 11px;
+  }
+
+  .solo-specialty-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .solo-status {
+    padding: 4px 7px;
+
+    font-size: 6px;
+  }
+
+  .solo-card-content {
+    margin-top: 9px;
+  }
+
+  .solo-specialty {
+    margin-bottom: 3px;
+
+    font-size: 6px;
+
+    letter-spacing: 1.7px;
+  }
+
+  .solo-card-content h2 {
+    font-size: 17px;
+  }
+
+  .solo-description {
+    margin-top: 5px;
+
+    font-size: 9px;
+
+    line-height: 1.3;
+  }
+
+  .solo-card-bottom {
+    padding-top: 8px;
+  }
+
+  .solo-best-score span {
+    font-size: 5px;
+  }
+
+  .solo-best-score strong {
+    font-size: 13px;
+  }
+
+  .solo-card-bottom button {
+    min-height: 30px;
+
+    padding:
+      6px 10px;
+
+    font-size: 9px;
+  }
+}
+
+
+/* ========================================
+   TABLETTE PORTRAIT
+======================================== */
+
+@media
+  (min-width: 601px)
+  and (max-width: 800px)
+  and (orientation: portrait) {
+
+  .solo-page {
+    width: 92%;
+
+    padding:
+      15px 0 25px;
+  }
+
+  .solo-heading {
+    margin-bottom: 18px;
+  }
+
+  .solo-games {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    gap: 13px;
+  }
+
+  .solo-game-card {
+    min-height: 220px;
+  }
+}
+
+
+/* ========================================
+   TABLETTE : 4 JEUX EN 2 × 2
+======================================== */
+
+@media
+  (min-width: 601px)
+  and (max-width: 1200px) {
+
+  .solo-games {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* ========================================
+   TÉLÉPHONE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .solo-page {
+    width:
+      calc(
+        100% - 24px
+      );
+
+    height: 100%;
+
+    padding:
+      8px 0
+      max(
+        14px,
+        env(
+          safe-area-inset-bottom
+        )
+      );
+
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .solo-heading {
+    margin-bottom: 12px;
+  }
+
+  .solo-eyebrow {
+    margin-bottom: 4px;
+
+    font-size: 7px;
+
+    letter-spacing: 3.5px;
+  }
+
+  .solo-heading h1 {
+    font-size:
+      clamp(
+        30px,
+        9vw,
+        39px
+      );
+
+    line-height: 0.95;
+
+    letter-spacing: -1.8px;
+  }
+
+  .solo-subtitle {
+    max-width: 330px;
+
+    margin:
+      7px auto 0;
+
+    font-size: 10px;
+
+    line-height: 1.3;
+  }
+
+
+  /* ===============================
+     GRILLE TÉLÉPHONE
+  =============================== */
+
+  .solo-games {
+    display: grid;
+
+    grid-template-columns:
+      1fr;
+
+    gap: 8px;
+  }
+
+
+  /* ===============================
+     CARTE COMPACTE
+  =============================== */
+
+  .solo-game-card {
+    min-height: 0;
+
+    padding: 12px 13px;
+
+    border-radius: 18px;
+
+    display: grid;
+
+    grid-template-columns:
+      43px
+      minmax(0, 1fr)
+      auto;
+
+    grid-template-rows:
+      auto
+      auto;
+
+    grid-template-areas:
+      "icon content bottom"
+      "icon content bottom";
+
+    column-gap: 11px;
+
+    align-items: center;
+  }
+
+
+  /* ICÔNE */
+
+  .solo-card-top {
+    grid-area: icon;
+
+    display: block;
+  }
+
+  .solo-specialty-icon {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 12px;
+  }
+
+  .solo-specialty-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .solo-status {
+    display: none;
+  }
+
+
+  /* TEXTE */
+
+  .solo-card-content {
+    grid-area: content;
+
+    min-width: 0;
+
+    margin: 0;
+  }
+
+  .solo-specialty {
+    margin:
+      0 0 3px;
+
+    font-size: 6px;
+
+    letter-spacing: 1.5px;
+  }
+
+  .solo-card-content h2 {
+    margin: 0;
+
+    font-size: 16px;
+
+    line-height: 1.05;
+  }
+
+  .solo-description {
+  display: block;
+
+  margin:
+    5px 0 0;
+
+  overflow: hidden;
+
+  max-height: 2.5em;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.55
+    );
+
+  font-size: 8.5px;
+
+  line-height: 1.25;
+}
+
+
+  /* SCORE + BOUTON */
+
+  .solo-card-bottom {
+    grid-area: bottom;
+
+    min-width: 72px;
+
+    margin: 0;
+
+    padding: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    gap: 7px;
+  }
+
+  .solo-best-score {
+    align-items: flex-end;
+
+    gap: 1px;
+  }
+
+  .solo-best-score span {
+    font-size: 5px;
+
+    letter-spacing: 0.7px;
+
+    white-space: nowrap;
+  }
+
+  .solo-best-score strong {
+    font-size: 13px;
+  }
+
+  .solo-card-bottom button {
+    min-height: 32px;
+
+    padding:
+      7px 10px;
+
+    gap: 5px;
+
+    font-size: 9px;
+
+    white-space: nowrap;
+  }
+}
+
+
+/* ========================================
+   PETIT TÉLÉPHONE
+======================================== */
+
+@media (max-width: 390px) {
+
+  .solo-page {
+    width:
+      calc(
+        100% - 18px
+      );
+  }
+
+  .solo-heading {
+    margin-bottom: 9px;
+  }
+
+  .solo-heading h1 {
+    font-size: 29px;
+  }
+
+  .solo-subtitle {
+    font-size: 9px;
+  }
+
+  .solo-games {
+    gap: 7px;
+  }
+
+  .solo-game-card {
+    padding:
+      10px 11px;
+
+    grid-template-columns:
+      39px
+      minmax(0, 1fr)
+      auto;
+
+    column-gap: 8px;
+  }
+
+  .solo-specialty-icon {
+    width: 39px;
+    height: 39px;
+  }
+
+  .solo-specialty-icon svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .solo-card-content h2 {
+    font-size: 14px;
+  }
+
+  .solo-description {
+    font-size: 7.8px;
+  }
+
+  .solo-card-bottom {
+    min-width: 65px;
+  }
+
+  .solo-card-bottom button {
+    padding:
+      6px 8px;
+
+    font-size: 8px;
+  }
+}
+
+
+/* ========================================
+   TRÈS PETIT TÉLÉPHONE
+======================================== */
+
+@media (max-width: 350px) {
+
+  .solo-description {
+    display: none;
+  }
+
+  .solo-game-card {
+    grid-template-columns:
+      37px
+      minmax(0, 1fr)
+      auto;
+  }
+
+  .solo-specialty-icon {
+    width: 37px;
+    height: 37px;
+  }
+
+  .solo-card-bottom {
+    min-width: 60px;
+  }
+}
+
+
+/* ========================================
+   INTERACTIONS TACTILES
+======================================== */
+
+@media
+  (hover: none)
+  and (pointer: coarse) {
+
+  .solo-game-card:hover {
+    transform: none;
+  }
+
+  .solo-card-bottom
+  button:hover {
+    transform: none;
+
+    background:
+      rgba(
+        85,
+        217,
+        238,
+        0.12
+      );
+  }
+}
+
+/* ========================================
+   TABLETTE — MENU SOLO COMPACT
+======================================== */
+
+@media
+  (min-width: 700px)
+  and (max-width: 1180px) {
+
+  .solo-page {
+    width: min(1180px, 94%);
+
+    padding:
+      18px
+      0
+      28px;
+  }
+
+
+  /* TITRE */
+
+  .solo-heading {
+    margin-bottom: 24px;
+  }
+
+
+  .solo-eyebrow {
+    margin-bottom: 6px;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+  }
+
+
+  .solo-heading h1 {
+    font-size:
+      clamp(
+        34px,
+        5vw,
+        46px
+      );
+
+    line-height: 0.98;
+  }
+
+
+  .solo-subtitle {
+    margin-top: 10px;
+
+    font-size: 12px;
+  }
+
+
+  /* GRILLE */
+
+  .solo-games {
+    grid-template-columns:
+      repeat(
+        3,
+        minmax(
+          0,
+          1fr
+        )
+      );
+
+    gap: 12px;
+  }
+
+
+  /* CARTES */
+
+  .solo-game-card {
+    min-height: 235px;
+
+    padding: 16px;
+
+    border-radius: 20px;
+  }
+
+
+  /* ICÔNES */
+
+  .solo-specialty-icon {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 13px;
+  }
+
+
+  .solo-specialty-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+
+
+  /* CONTENU */
+
+  .solo-card-content {
+    margin-top: 16px;
+  }
+
+
+  .solo-specialty {
+    margin-bottom: 5px;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .solo-card-content h2 {
+    font-size: 19px;
+
+    line-height: 1.05;
+  }
+
+
+  .solo-card-content
+  > p:last-child {
+    margin-top: 7px;
+
+    font-size: 10px;
+
+    line-height: 1.35;
+  }
+
+
+  /* BAS DES CARTES */
+
+  .solo-card-bottom {
+    padding-top: 13px;
+  }
+
+
+  .solo-best-score strong {
+    font-size: 17px;
+  }
+
+
+  .solo-best-score span {
+    font-size: 7px;
+  }
+
+
+  .solo-card-bottom button {
+    padding:
+      8px
+      13px;
+
+    font-size: 10px;
+  }
+
+}
+
+@media
+  (min-width: 900px)
+  and (orientation: landscape)
+  and (max-height: 850px) {
+
+  .solo-page {
+    padding-top: 10px;
+  }
+
+
+  .solo-heading {
+    margin-bottom: 18px;
+  }
+
+
+  .solo-games {
+    gap: 10px;
+  }
+
+
+  .solo-game-card {
+    min-height: 215px;
+
+    padding: 14px;
+  }
+
+
+  .solo-card-content {
+    margin-top: 12px;
+  }
+
+
+  .solo-card-bottom {
+    padding-top: 10px;
+  }
+
+}

@@ -1,0 +1,497 @@
+.ecg-multi-page {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+
+  padding:
+    44px
+    clamp(20px, 6vw, 90px)
+    max(
+      70px,
+      calc(
+        env(safe-area-inset-bottom)
+        + 30px
+      )
+    );
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  -webkit-overflow-scrolling: touch;
+
+  overscroll-behavior-y: contain;
+}
+
+
+.ecg-multi-back {
+  position: absolute;
+
+  top: 28px;
+  left:
+    clamp(20px, 5vw, 70px);
+
+  border: 0;
+  padding: 10px 0;
+
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  background: transparent;
+
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.ecg-multi-heading {
+  width: 100%;
+  max-width: 700px;
+
+  margin-top: 30px;
+
+  text-align: center;
+}
+
+
+.ecg-multi-icon {
+  width: 68px;
+  height: 68px;
+
+  margin:
+    0 auto
+    18px;
+
+  display: grid;
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(85, 217, 238, 0.25);
+
+  border-radius: 20px;
+
+  color: #55d9ee;
+
+  background:
+    rgba(8, 55, 77, 0.72);
+
+  box-shadow:
+    0 0 28px
+    rgba(85, 217, 238, 0.12);
+}
+
+
+.ecg-multi-icon svg {
+  width: 42px;
+  height: 42px;
+}
+
+
+.ecg-multi-eyebrow {
+  margin: 0 0 8px;
+
+  color: #55d9ee;
+
+  font-size: 11px;
+  font-weight: 850;
+
+  letter-spacing: 0.18em;
+}
+
+
+.ecg-multi-heading h1 {
+  margin: 0;
+
+  color: white;
+
+  font-size:
+    clamp(34px, 6vw, 58px);
+
+  line-height: 1;
+}
+
+
+.ecg-multi-heading h1 span {
+  color: #55d9ee;
+}
+
+
+.ecg-multi-subtitle {
+  max-width: 500px;
+
+  margin:
+    16px auto
+    0;
+
+  color:
+    rgba(255, 255, 255, 0.65);
+
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+
+.ecg-multi-options {
+  width: 100%;
+  max-width: 850px;
+
+  margin-top: 42px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+.ecg-multi-card {
+  position: relative;
+
+  min-height: 300px;
+
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.10);
+
+  border-radius: 26px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(11, 69, 91, 0.82),
+      rgba(5, 38, 58, 0.88)
+    );
+
+  box-shadow:
+    0 18px 50px
+    rgba(0, 0, 0, 0.22);
+
+  backdrop-filter:
+    blur(16px);
+
+  -webkit-backdrop-filter:
+    blur(16px);
+}
+
+
+.ecg-multi-card-number {
+  position: absolute;
+
+  top: 24px;
+  right: 26px;
+
+  color:
+    rgba(85, 217, 238, 0.35);
+
+  font-size: 12px;
+  font-weight: 900;
+
+  letter-spacing: 0.15em;
+}
+
+
+.ecg-multi-card h2 {
+  margin:
+    4px 0
+    10px;
+
+  color: white;
+
+  font-size: 23px;
+}
+
+
+.ecg-multi-card p {
+  margin:
+    0 0
+    22px;
+
+  color:
+    rgba(255, 255, 255, 0.62);
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+
+.ecg-multi-player-count {
+  margin-bottom: 24px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  color:
+    rgba(255, 255, 255, 0.82);
+
+  font-size: 12px;
+  font-weight: 750;
+}
+
+
+.ecg-multi-player-count span {
+  color: #55d9ee;
+
+  font-size: 10px;
+}
+
+
+.ecg-multi-code-input {
+  width: 100%;
+  height: 58px;
+
+  margin-bottom: 18px;
+
+  border:
+    1px solid
+    rgba(85, 217, 238, 0.28);
+
+  border-radius: 15px;
+
+  outline: none;
+
+  color: white;
+
+  background:
+    rgba(2, 27, 43, 0.58);
+
+  text-align: center;
+
+  font: inherit;
+  font-size: 22px;
+  font-weight: 900;
+
+  letter-spacing: 0.28em;
+
+  text-transform: uppercase;
+}
+
+
+.ecg-multi-code-input:focus {
+  border-color:
+    rgba(85, 217, 238, 0.75);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(85, 217, 238, 0.08);
+}
+
+
+.ecg-multi-code-input::placeholder {
+  color:
+    rgba(255, 255, 255, 0.25);
+}
+
+
+.ecg-multi-primary,
+.ecg-multi-secondary {
+  width: 100%;
+  min-height: 52px;
+
+  margin-top: auto;
+
+  padding:
+    0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  border: 0;
+  border-radius: 15px;
+
+  font: inherit;
+  font-size: 13px;
+  font-weight: 850;
+
+  cursor: pointer;
+}
+
+
+.ecg-multi-primary {
+  color: #052c3d;
+
+  background: #55d9ee;
+}
+
+
+.ecg-multi-secondary {
+  color: white;
+
+  border:
+    1px solid
+    rgba(85, 217, 238, 0.32);
+
+  background:
+    rgba(85, 217, 238, 0.10);
+}
+
+
+.ecg-multi-secondary:disabled {
+  opacity: 0.4;
+
+  cursor: default;
+}
+
+
+@media (max-width: 700px) {
+
+  .ecg-multi-page {
+    padding:
+      36px
+      18px
+      55px;
+  }
+
+  .ecg-multi-heading {
+    margin-top: 42px;
+  }
+
+  .ecg-multi-options {
+    margin-top: 30px;
+
+    grid-template-columns: 1fr;
+  }
+
+  .ecg-multi-card {
+    min-height: 260px;
+
+    padding: 25px;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .ecg-multi-page {
+    min-height: auto;
+
+    padding:
+      26px
+      16px
+      40px;
+
+    align-items: stretch;
+  }
+
+  .ecg-multi-back {
+    top: 18px;
+    left: 16px;
+
+    font-size: 12px;
+  }
+
+  .ecg-multi-heading {
+    margin-top: 58px;
+  }
+
+  .ecg-multi-icon {
+    width: 58px;
+    height: 58px;
+
+    margin:
+      0 auto
+      14px;
+
+    border-radius: 16px;
+  }
+
+  .ecg-multi-icon svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .ecg-multi-eyebrow {
+    margin-bottom: 6px;
+
+    font-size: 10px;
+    letter-spacing: 0.14em;
+  }
+
+  .ecg-multi-heading h1 {
+    font-size: 40px;
+  }
+
+  .ecg-multi-subtitle {
+    margin-top: 12px;
+
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .ecg-multi-options {
+    margin-top: 24px;
+
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .ecg-multi-card {
+    min-height: auto;
+
+    padding: 22px 20px;
+
+    border-radius: 22px;
+  }
+
+  .ecg-multi-card-number {
+    top: 18px;
+    right: 20px;
+  }
+
+  .ecg-multi-card h2 {
+    margin:
+      2px 0
+      8px;
+
+    font-size: 21px;
+  }
+
+  .ecg-multi-card p {
+    margin-bottom: 16px;
+
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+
+  .ecg-multi-player-count {
+    margin-bottom: 18px;
+
+    font-size: 12px;
+  }
+
+  .ecg-multi-code-input {
+    height: 52px;
+
+    margin-bottom: 14px;
+
+    font-size: 20px;
+  }
+
+  .ecg-multi-primary,
+  .ecg-multi-secondary {
+    min-height: 48px;
+
+    margin-top: 0;
+  }
+}
+

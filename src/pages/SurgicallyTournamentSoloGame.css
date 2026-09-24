@@ -1,0 +1,28 @@
+/* Le bandeau des quatre équipes est le seul HUD du tournoi. */
+.surgically-tournament-solo .surgically-hud,
+.surgically-tournament-solo .surgically-menu-best {
+  display: none !important;
+}
+.surgically-tournament-solo .surgically-tournament-timer {
+  position: absolute;
+  z-index: 35;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 18px;
+  border: 1px solid rgba(112,229,244,.4);
+  border-radius: 999px;
+  background: rgba(7,60,75,.9);
+  color: white;
+  font-weight: 850;
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+
+/* Le tournoi n'affiche jamais le record ou les vies du solo de l'accueil. */
+.surgically-tournament-solo .surgically-start-screen .surgically-menu-best,
+.surgically-tournament-solo .surgically-hud,
+.surgically-tournament-solo .surgically-record-overlay {
+  display: none !important;
+}

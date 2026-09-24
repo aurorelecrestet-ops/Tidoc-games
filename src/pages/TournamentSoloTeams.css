@@ -1,0 +1,22 @@
+/* Tournoi solo : couleurs identiques au multijoueur, sans impacter les autres modes. */
+.bacteria-game-page.bacteria-state-playing .bacteria-object.bacteria-multi-object.is-bacteria::after { content: none; }
+.bacteria-game-page.bacteria-state-playing .bacteria-object.bacteria-multi-object.is-bacteria::before {
+  background: radial-gradient(circle, var(--team-glow), transparent 78%);
+  border: 3px solid var(--team-color);
+  box-shadow: 0 0 18px var(--team-color), 0 0 38px var(--team-glow);
+}
+.bacteria-game-page .tournament-solo-clock {
+  position: fixed;
+  top: max(106px, calc(env(safe-area-inset-top) + 82px));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 250;
+  min-width: 100px;
+  text-align: center;
+  pointer-events: none;
+}
+@media (max-width: 600px) {
+  .bacteria-game-page .tournament-solo-clock {
+    top: max(92px, calc(env(safe-area-inset-top) + 74px));
+  }
+}

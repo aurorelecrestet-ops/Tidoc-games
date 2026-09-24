@@ -1,0 +1,762 @@
+/* ========================================
+   MODE TOURNOI
+   Menu, lobby, manches et classement final.
+
+   Les quatre manches réutilisent les écrans
+   multijoueurs existants : ce fichier ne
+   couvre que la couche tournoi.
+======================================== */
+
+
+/* ========================================
+   MENU — ACTIONS
+======================================== */
+
+.tournament-actions {
+  width: 100%;
+  max-width: 640px;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tournament-card {
+  padding: 22px;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.18);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15, 72, 99, 0.72),
+      rgba(5, 39, 62, 0.78)
+    );
+
+  box-shadow:
+    0 18px 44px
+      rgba(0, 0, 0, 0.22);
+}
+
+.tournament-card h2 {
+  margin: 0 0 8px;
+
+  color: white;
+
+  font-size: 19px;
+  letter-spacing: 0.02em;
+}
+
+.tournament-card p {
+  margin: 0 0 16px;
+
+  color:
+    rgba(255, 255, 255, 0.62);
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.tournament-primary,
+.tournament-secondary {
+  min-height: 46px;
+  width: 100%;
+
+  padding: 12px 18px;
+
+  border: none;
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.tournament-primary {
+  color: #04212f;
+
+  background:
+    linear-gradient(
+      120deg,
+      #70e5f4,
+      #4bc6dc
+    );
+
+  box-shadow:
+    0 14px 30px
+      rgba(85, 217, 238, 0.24);
+}
+
+.tournament-secondary {
+  color: white;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.30);
+
+  background:
+    rgba(5, 39, 62, 0.62);
+}
+
+.tournament-primary:hover:not(:disabled),
+.tournament-secondary:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.tournament-primary:disabled,
+.tournament-secondary:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.tournament-join {
+  display: flex;
+  gap: 10px;
+}
+
+.tournament-code-input {
+  flex: 1;
+  min-width: 0;
+
+  min-height: 46px;
+
+  padding: 12px 16px;
+
+  color: white;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.22);
+
+  border-radius: 999px;
+
+  background:
+    rgba(3, 24, 38, 0.72);
+
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.tournament-code-input::placeholder {
+  color:
+    rgba(255, 255, 255, 0.32);
+
+  letter-spacing: 0.16em;
+}
+
+.tournament-join .tournament-secondary {
+  width: auto;
+
+  white-space: nowrap;
+}
+
+.tournament-error {
+  margin: 14px 0 0;
+
+  color: #ffb4b4;
+
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.tournament-status {
+  margin: 12px 0 0;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+
+  font-size: 12.5px;
+}
+
+
+/* ========================================
+   LISTE DES TOURNOIS OUVERTS
+======================================== */
+
+.tournament-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tournament-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 12px 14px;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.14);
+
+  border-radius: 16px;
+
+  background:
+    rgba(255, 255, 255, 0.04);
+}
+
+.tournament-list-item strong {
+  display: block;
+
+  color: white;
+
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.tournament-list-item span {
+  color:
+    rgba(255, 255, 255, 0.55);
+
+  font-size: 11.5px;
+}
+
+.tournament-list-item button {
+  min-height: 36px;
+
+  padding: 8px 15px;
+
+  color: white;
+
+  border:
+    1px solid
+    rgba(85, 217, 238, 0.36);
+
+  border-radius: 999px;
+
+  background:
+    rgba(85, 217, 238, 0.14);
+
+  cursor: pointer;
+
+  font-size: 11.5px;
+  font-weight: 800;
+}
+
+
+/* ========================================
+   SUIVI DES QUATRE MANCHES
+======================================== */
+
+.tournament-rounds {
+  width: 100%;
+  max-width: 720px;
+
+  margin: 26px auto 0;
+
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+.tournament-round-badge {
+  padding: 12px 10px;
+
+  text-align: center;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.14);
+
+  border-radius: 16px;
+
+  background:
+    rgba(5, 39, 62, 0.58);
+
+  color:
+    rgba(255, 255, 255, 0.55);
+}
+
+.tournament-round-badge span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+}
+
+.tournament-round-badge strong {
+  display: block;
+
+  font-size: 12.5px;
+  font-weight: 800;
+}
+
+.tournament-round-badge.is-current {
+  color: #04212f;
+
+  border-color: transparent;
+
+  background:
+    linear-gradient(
+      120deg,
+      #70e5f4,
+      #4bc6dc
+    );
+}
+
+.tournament-round-badge.is-done {
+  color: white;
+
+  border-color:
+    rgba(85, 217, 238, 0.42);
+}
+
+
+/* ========================================
+   TABLEAU DES SCORES
+======================================== */
+
+.tournament-board {
+  width: 100%;
+  max-width: 720px;
+
+  margin: 24px auto 0;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.16);
+
+  border-radius: 20px;
+
+  background:
+    rgba(5, 39, 62, 0.62);
+}
+
+.tournament-board-head,
+.tournament-board-row {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    repeat(4, 52px)
+    76px;
+
+  align-items: center;
+  gap: 6px;
+
+  padding: 11px 14px;
+}
+
+.tournament-board-head {
+  border-bottom:
+    1px solid
+    rgba(112, 229, 244, 0.16);
+
+  color:
+    rgba(255, 255, 255, 0.48);
+
+  font-size: 9.5px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.tournament-board-row {
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.05);
+
+  color: white;
+
+  font-size: 13px;
+}
+
+.tournament-board-row.is-me {
+  background:
+    rgba(85, 217, 238, 0.10);
+}
+
+.tournament-board-player {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  min-width: 0;
+}
+
+.tournament-board-player strong {
+  overflow: hidden;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  font-size: 13.5px;
+}
+
+.tournament-board-dot {
+  flex: none;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.4);
+}
+
+.tournament-dot-green { background: #4ade80; }
+.tournament-dot-red { background: #f87171; }
+.tournament-dot-yellow { background: #fbbf24; }
+.tournament-dot-purple { background: #c084fc; }
+
+.tournament-board-round {
+  text-align: center;
+
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  font-size: 12.5px;
+}
+
+.tournament-board-total {
+  text-align: right;
+
+  font-size: 15px;
+  font-weight: 900;
+}
+
+
+/* ========================================
+   PAGE DE MANCHE
+======================================== */
+
+.tournament-round-card {
+  width: min(720px, 100%);
+
+  margin: 22px auto 0;
+
+  padding: 26px 22px;
+
+  text-align: center;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.22);
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      150deg,
+      rgba(15, 72, 99, 0.76),
+      rgba(5, 39, 62, 0.82)
+    );
+
+  box-shadow:
+    0 22px 50px
+      rgba(0, 0, 0, 0.24);
+}
+
+.tournament-round-kicker {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color:
+    rgba(112, 229, 244, 0.86);
+
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.20em;
+}
+
+.tournament-round-card h2 {
+  margin: 0 0 6px;
+
+  color: white;
+
+  font-size:
+    clamp(24px, 5vw, 34px);
+}
+
+.tournament-round-card p {
+  margin: 0 0 20px;
+
+  color:
+    rgba(255, 255, 255, 0.62);
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.tournament-round-card button {
+  min-height: 50px;
+
+  padding: 14px 26px;
+
+  color: #04212f;
+
+  border: none;
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  background:
+    linear-gradient(
+      120deg,
+      #70e5f4,
+      #4bc6dc
+    );
+
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+.tournament-round-card button span {
+  margin-left: 8px;
+}
+
+.tournament-round-card button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+
+/* ========================================
+   CLASSEMENT FINAL
+======================================== */
+
+.tournament-winner {
+  width: min(720px, 100%);
+
+  margin: 22px auto 0;
+
+  padding: 26px 22px;
+
+  text-align: center;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.30);
+
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(85, 217, 238, 0.22),
+      rgba(5, 39, 62, 0.82) 70%
+    );
+}
+
+.tournament-winner span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color:
+    rgba(112, 229, 244, 0.86);
+
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.20em;
+}
+
+.tournament-winner strong {
+  color: white;
+
+  font-size:
+    clamp(26px, 6vw, 38px);
+  font-weight: 900;
+}
+
+.tournament-winner p {
+  margin: 10px 0 0;
+
+  color:
+    rgba(255, 255, 255, 0.62);
+
+  font-size: 13px;
+}
+
+.tournament-results-actions {
+  width: min(720px, 100%);
+
+  margin: 22px auto 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.tournament-results-actions .tournament-primary,
+.tournament-results-actions .tournament-secondary {
+  width: auto;
+
+  min-width: 210px;
+}
+
+
+/* ========================================
+   CLASSEMENT FINAL SOLO
+   Positions, détail des manches et total.
+============================================ */
+
+.tournament-standings {
+  width: min(720px, 100%);
+
+  margin: 22px auto 0;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.16);
+
+  border-radius: 20px;
+
+  background:
+    rgba(5, 39, 62, 0.62);
+}
+
+.tournament-standings-row {
+  display: grid;
+  grid-template-columns:
+    42px
+    minmax(0, 1fr)
+    76px;
+
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 14px;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.05);
+
+  color: white;
+}
+
+.tournament-standings-row:first-child {
+  border-top: none;
+}
+
+.tournament-standings-row.is-me {
+  background:
+    rgba(85, 217, 238, 0.10);
+}
+
+.tournament-standings-position {
+  font-size: 17px;
+  font-weight: 900;
+  text-align: center;
+
+  color:
+    rgba(112, 229, 244, 0.86);
+}
+
+.tournament-standings-player {
+  min-width: 0;
+}
+
+.tournament-standings-player strong {
+  display: block;
+
+  overflow: hidden;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  font-size: 14px;
+}
+
+.tournament-standings-player span {
+  display: block;
+
+  margin-top: 2px;
+
+  color:
+    rgba(255, 255, 255, 0.52);
+
+  font-size: 11.5px;
+}
+
+.tournament-standings-total {
+  text-align: right;
+}
+
+.tournament-standings-total strong {
+  display: block;
+
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.tournament-standings-total span {
+  color:
+    rgba(255, 255, 255, 0.48);
+
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 640px) {
+
+  .tournament-rounds {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .tournament-board-head,
+  .tournament-board-row {
+    grid-template-columns:
+      minmax(0, 1fr)
+      repeat(4, 34px)
+      58px;
+
+    padding: 10px 11px;
+
+    font-size: 11.5px;
+  }
+
+  .tournament-board-player strong {
+    font-size: 12.5px;
+  }
+
+  .tournament-join {
+    flex-direction: column;
+  }
+
+  .tournament-join .tournament-secondary {
+    width: 100%;
+  }
+
+  .tournament-results-actions .tournament-primary,
+  .tournament-results-actions .tournament-secondary {
+    width: 100%;
+  }
+}

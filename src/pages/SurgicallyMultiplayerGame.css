@@ -1,0 +1,98 @@
+/* Le solo reste intact : toutes les positions organes / téléphone / tablette sont reprises. */
+@import './SurgicallyInsane.css';
+
+.surgically-multi-game .surgically-multi-hud {
+  position: fixed; z-index: 230;
+  top: max(10px, env(safe-area-inset-top)); left: 50%;
+  transform: translateX(-50%);
+  width: min(900px, calc(100vw - 16px));
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px;
+  padding: 7px; border: 1px solid rgba(112,229,244,.3);
+  border-radius: 17px; background: rgba(4,35,54,.91);
+  backdrop-filter: blur(12px); pointer-events: none;
+}
+.surgically-multi-hud-player {
+  display: flex; gap: 5px; align-items: center; justify-content: center;
+  min-width: 0; padding: 8px 5px; border-radius: 10px;
+  font-size: 11px; color: white; opacity: .75;
+}
+.surgically-multi-hud-player strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.surgically-multi-hud-player > span:last-child { font-weight: 900; color: #70e5f4; }
+.surgically-multi-hud-player.is-active { background: rgba(25,140,167,.38); outline: 1px solid #70e5f4; opacity: 1; }
+.surgically-multi-hud-player.is-me strong { color: #70e5f4; }
+.surgically-multi-hud-player.is-eliminated { opacity: .32; text-decoration: line-through; }
+.surgically-multi-dot { display: inline-block; flex: 0 0 auto; width: 9px; height: 9px; border-radius: 50%; }
+.surgically-multi-color-green { background: #4ae390; }
+.surgically-multi-color-red { background: #ff7272; }
+.surgically-multi-color-yellow { background: #ffdd55; }
+.surgically-multi-color-purple { background: #bd8aff; }
+.surgically-multi-turn-banner {
+  position: fixed; z-index: 230; top: max(89px, calc(env(safe-area-inset-top) + 77px));
+  left: 50%; transform: translateX(-50%);
+  max-width: calc(100vw - 18px); padding: 8px 15px;
+  border: 1px solid rgba(112,229,244,.3); border-radius: 999px;
+  color: #70e5f4; font-size: 11px; font-weight: 950; letter-spacing: .07em;
+  text-align: center; white-space: nowrap;
+  background: rgba(4,35,54,.92); pointer-events: none;
+}
+.surgically-multi-game .surgically-timer { z-index: 215; }
+.surgically-multi-game .surgically-tool:disabled { cursor: default; }
+.surgically-multi-message, .surgically-multi-results {
+  width: 100%; min-height: calc(100dvh - 100px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 18px; padding: 24px; text-align: center; color: white;
+}
+.surgically-multi-message button, .surgically-multi-return {
+  padding: 13px 22px; border: 1px solid rgba(112,229,244,.6);
+  border-radius: 100px; color: white; background: #198ca7;
+  font-weight: 900; cursor: pointer;
+}
+.surgically-multi-results h1 { font-size: clamp(32px,6vw,56px); margin: 0; }
+.surgically-multi-results h1 span, .surgically-multi-eyebrow { color: #70e5f4; }
+.surgically-multi-eyebrow { font-size: 10px; font-weight: 900; letter-spacing: .16em; }
+.surgically-multi-results-card {
+  width: min(540px, 100%); padding: 22px;
+  border: 1px solid rgba(112,229,244,.3); border-radius: 22px;
+  background: rgba(4,35,54,.88);
+}
+.surgically-multi-results-card .surgically-multi-return { margin-top: 20px; }
+@media (max-width: 700px) {
+  .surgically-multi-game .surgically-multi-hud { padding: 5px; gap: 2px; }
+  .surgically-multi-hud-player { padding: 6px 2px; font-size: 8px; gap: 3px; }
+  .surgically-multi-dot { width: 6px; height: 6px; }
+  .surgically-multi-turn-banner { top: max(76px, calc(env(safe-area-inset-top) + 66px)); font-size: 9px; padding: 6px 9px; }
+  /* Chrono décalé sous le tour, uniquement en multijoueur téléphone. */
+  .surgically-multi-game .surgically-timer { top: max(106px, calc(env(safe-area-inset-top) + 96px)); left: 50%; transform: translateX(-50%); }
+}
+
+/* ========================================
+   MULTIJOUEUR — TÉLÉPHONE
+   TOUR + CHRONO PLUS HAUT
+======================================== */
+
+@media (max-width: 700px) {
+
+  /* TOUR DU JOUEUR :
+     juste sous la barre des scores */
+
+  .surgically-multi-game
+  .surgically-multi-turn-banner {
+    top: 50px;
+  }
+
+  /* CHRONO :
+     juste sous le nom du joueur */
+
+  .surgically-multi-game
+  .surgically-timer {
+    top: 80px;
+
+    left: 50%;
+
+    transform:
+      translateX(-50%);
+  }
+
+}
+
+

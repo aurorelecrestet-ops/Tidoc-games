@@ -1,0 +1,2233 @@
+
+/* ========================================
+   TI'DOC GAMES — PARAMÈTRES
+
+   Styles propres à Parametres.tsx
+======================================== */
+
+
+/* ========================================
+   VARIABLES
+======================================== */
+
+.settings-page {
+  --settings-blue: #198ca7;
+  --settings-cyan: #70e5f4;
+  --settings-text: #f4fbff;
+  --settings-muted: #a8c0ce;
+  --settings-border: rgba(112, 229, 244, 0.16);
+
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  min-height: 100%;
+
+  padding:
+    34px
+    24px
+    max(70px, env(safe-area-inset-bottom));
+
+  color: var(--settings-text);
+
+  box-sizing: border-box;
+}
+
+
+/* ========================================
+   RETOUR
+======================================== */
+
+.settings-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 40px;
+
+  padding: 0 16px;
+
+  border: 1px solid
+    rgba(112, 229, 244, 0.20);
+
+  border-radius: 100px;
+
+  color: #d9f8ff;
+
+  background:
+    rgba(5, 38, 56, 0.65);
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.settings-back:hover {
+  border-color:
+    rgba(112, 229, 244, 0.50);
+
+  background:
+    rgba(25, 140, 167, 0.20);
+
+  transform:
+    translateY(-1px);
+}
+
+.settings-back:active {
+  transform:
+    translateY(0);
+}
+
+
+/* ========================================
+   EN-TÊTE
+======================================== */
+
+.settings-heading {
+  width: min(800px, 100%);
+
+  margin:
+    40px auto 36px;
+
+  text-align: center;
+}
+
+.settings-eyebrow {
+  margin: 0 0 13px;
+
+  color: var(--settings-cyan);
+
+  font-size: 11px;
+  font-weight: 850;
+
+  letter-spacing: 0.24em;
+}
+
+.settings-heading h1 {
+  margin: 0;
+
+  color: white;
+
+  font-size:
+    clamp(38px, 5.8vw, 66px);
+
+  font-weight: 900;
+
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+}
+
+.settings-heading h1 span {
+  color: var(--settings-cyan);
+}
+
+.settings-subtitle {
+  margin: 17px auto 0;
+
+  color: var(--settings-muted);
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+/* ========================================
+   CONTENU
+======================================== */
+
+.settings-content {
+  width: min(850px, 100%);
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+
+/* ========================================
+   CARTES
+======================================== */
+
+.settings-card {
+  position: relative;
+
+  width: 100%;
+
+  padding: 29px 32px;
+
+  border: 1px solid
+    var(--settings-border);
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(7, 51, 72, 0.96),
+      rgba(4, 34, 51, 0.96)
+    );
+
+  box-shadow:
+    0 18px 45px
+      rgba(0, 0, 0, 0.17),
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.035);
+
+  box-sizing: border-box;
+}
+
+
+/* ========================================
+   TITRES DES CARTES
+======================================== */
+
+.settings-card-heading {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.settings-card-icon {
+  width: 51px;
+  height: 51px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid
+    rgba(112, 229, 244, 0.18);
+
+  border-radius: 15px;
+
+  color: var(--settings-cyan);
+
+  background:
+    rgba(25, 140, 167, 0.14);
+}
+
+.settings-card-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.settings-section-label {
+  margin: 0 0 5px;
+
+  color: var(--settings-cyan);
+
+  font-size: 10px;
+  font-weight: 850;
+
+  letter-spacing: 0.17em;
+}
+
+.settings-card h2 {
+  margin: 0;
+
+  color: white;
+
+  font-size: 24px;
+  font-weight: 850;
+
+  letter-spacing: -0.035em;
+}
+
+.settings-card-description {
+  margin: 18px 0 0;
+
+  color: var(--settings-muted);
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   BOUTON GLOBAL — TOUT COUPER
+======================================== */
+
+.settings-master-audio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 22px;
+
+  margin-top: 26px;
+
+  padding: 19px 21px;
+
+  border: 1px solid
+    rgba(112, 229, 244, 0.23);
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      115deg,
+      rgba(25, 140, 167, 0.20),
+      rgba(25, 140, 167, 0.075)
+    );
+}
+
+.settings-master-audio > div {
+  min-width: 0;
+}
+
+.settings-master-audio strong {
+  display: block;
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.settings-master-audio p {
+  margin: 7px 0 0;
+
+  color: #b7d2dc;
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.settings-master-button {
+  min-height: 40px;
+
+  flex-shrink: 0;
+
+  padding: 0 18px;
+
+  border: 1px solid
+    rgba(112, 229, 244, 0.35);
+
+  border-radius: 11px;
+
+  color: #fff;
+
+  background: var(--settings-blue);
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 850;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.settings-master-button:hover {
+  background: #20a3c0;
+
+  box-shadow:
+    0 5px 17px
+      rgba(25, 140, 167, 0.22);
+}
+
+.settings-master-button:active {
+  transform:
+    scale(0.98);
+}
+
+.settings-master-button.is-muted {
+  border-color:
+    rgba(112, 229, 244, 0.40);
+
+  color: #073c4b;
+
+  background: var(--settings-cyan);
+}
+
+.settings-master-button.is-muted:hover {
+  background: #a0f1fa;
+}
+
+
+/* ========================================
+   GROUPES AUDIO
+======================================== */
+
+.settings-audio-group {
+  margin-top: 27px;
+}
+
+.settings-setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.settings-setting-description {
+  min-width: 0;
+}
+
+.settings-setting-description strong {
+  display: block;
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.settings-setting-description p {
+  margin: 6px 0 0;
+
+  color: var(--settings-muted);
+
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+
+/* ========================================
+   INTERRUPTEURS
+======================================== */
+
+.settings-switch {
+  position: relative;
+
+  width: 53px;
+  height: 30px;
+
+  flex: 0 0 53px;
+
+  padding: 0;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.13);
+
+  border-radius: 100px;
+
+  background: #334f5f;
+
+  cursor: pointer;
+
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.settings-switch > span {
+  position: absolute;
+
+  top: 3px;
+  left: 3px;
+
+  width: 22px;
+  height: 22px;
+
+  border-radius: 50%;
+
+  background: #e1eaf0;
+
+  box-shadow:
+    0 2px 5px
+      rgba(0, 0, 0, 0.22);
+
+  transition:
+    transform 0.22s ease,
+    background 0.22s ease;
+}
+
+.settings-switch.is-on {
+  border-color:
+    rgba(112, 229, 244, 0.44);
+
+  background: var(--settings-blue);
+
+  box-shadow:
+    0 0 0 3px
+      rgba(25, 140, 167, 0.10);
+}
+
+.settings-switch.is-on > span {
+  background: #fff;
+
+  transform:
+    translateX(23px);
+}
+
+.settings-switch:hover {
+  border-color:
+    rgba(112, 229, 244, 0.65);
+}
+
+
+/* ========================================
+   VOLUME
+======================================== */
+
+.settings-volume-control {
+  margin-top: 21px;
+
+  padding: 17px 19px 20px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.055);
+
+  border-radius: 14px;
+
+  background:
+    rgba(0, 16, 29, 0.19);
+
+  transition:
+    opacity 0.2s ease;
+}
+
+.settings-volume-control.is-disabled {
+  opacity: 0.43;
+}
+
+.settings-volume-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 17px;
+}
+
+.settings-volume-heading label {
+  color: #d9eaf1;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.settings-volume-heading output {
+  color: var(--settings-cyan);
+
+  font-size: 13px;
+  font-weight: 850;
+
+  font-variant-numeric:
+    tabular-nums;
+}
+
+
+/* ========================================
+   CURSEUR — STRUCTURE
+======================================== */
+
+.settings-volume-control input[type="range"] {
+  display: block;
+
+  width: 100%;
+  height: 8px;
+
+  margin: 0;
+
+  border: none;
+  border-radius: 100px;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  background:
+    linear-gradient(
+      to right,
+      var(--settings-cyan) 0%,
+      var(--settings-cyan)
+        var(--settings-progress),
+      rgba(112, 229, 244, 0.15)
+        var(--settings-progress),
+      rgba(112, 229, 244, 0.15) 100%
+    );
+
+  cursor: pointer;
+
+  outline: none;
+}
+
+.settings-volume-control
+input[type="range"]:disabled {
+  cursor: not-allowed;
+}
+
+
+/* ========================================
+   CURSEUR — CHROME / SAFARI
+======================================== */
+
+.settings-volume-control
+input[type="range"]::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+
+  border: 3px solid #c9faff;
+  border-radius: 50%;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  background: var(--settings-blue);
+
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.30),
+    0 0 0 4px rgba(112, 229, 244, 0.09);
+}
+
+
+/* ========================================
+   CURSEUR — FIREFOX
+======================================== */
+
+.settings-volume-control
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+
+  border: 3px solid #c9faff;
+  border-radius: 50%;
+
+  background: var(--settings-blue);
+
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.30);
+}
+
+
+/* ========================================
+   SÉPARATEURS
+======================================== */
+
+.settings-divider {
+  width: 100%;
+  height: 1px;
+
+  margin-top: 26px;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      rgba(112, 229, 244, 0.16),
+      transparent
+    );
+}
+
+
+/* ========================================
+   PRÉFÉRENCES
+======================================== */
+
+.settings-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-top: 23px;
+}
+
+.settings-info-row > div {
+  min-width: 0;
+}
+
+.settings-info-row strong {
+  display: block;
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.settings-info-row p {
+  margin: 7px 0 0;
+
+  color: var(--settings-muted);
+
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.settings-info-badge {
+  flex-shrink: 0;
+
+  padding: 7px 11px;
+
+  border: 1px solid
+    rgba(112, 229, 244, 0.17);
+
+  border-radius: 100px;
+
+  color: var(--settings-cyan);
+
+  background:
+    rgba(25, 140, 167, 0.13);
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+
+/* ========================================
+   RÉINITIALISATION
+======================================== */
+
+.settings-reset-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 21px;
+}
+
+.settings-reset-button,
+.settings-cancel-button {
+  min-height: 41px;
+
+  padding: 0 17px;
+
+  border-radius: 11px;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.settings-reset-button {
+  border: 1px solid
+    rgba(112, 229, 244, 0.28);
+
+  color: #e5f9ff;
+
+  background:
+    rgba(25, 140, 167, 0.18);
+}
+
+.settings-reset-button:hover {
+  background:
+    rgba(25, 140, 167, 0.30);
+}
+
+.settings-reset-button.is-confirming {
+  border-color:
+    rgba(255, 112, 122, 0.50);
+
+  color: #ffd8dc;
+
+  background:
+    rgba(130, 38, 52, 0.31);
+}
+
+.settings-reset-button.is-confirming:hover {
+  background:
+    rgba(130, 38, 52, 0.46);
+}
+
+.settings-cancel-button {
+  border: 1px solid
+    rgba(255, 255, 255, 0.15);
+
+  color: var(--settings-muted);
+
+  background:
+    rgba(255, 255, 255, 0.045);
+}
+
+.settings-cancel-button:hover {
+  color: white;
+
+  background:
+    rgba(255, 255, 255, 0.09);
+}
+
+
+/* ========================================
+   À PROPOS
+======================================== */
+
+.settings-about-card {
+  text-align: center;
+
+  padding-top: 31px;
+  padding-bottom: 31px;
+}
+
+.settings-about-card h2 {
+  font-size: 22px;
+}
+
+.settings-about-card > p:not(
+  .settings-section-label
+) {
+  max-width: 470px;
+
+  margin: 13px auto 0;
+
+  color: var(--settings-muted);
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.settings-about-signature {
+  display: block;
+
+  margin-top: 22px;
+
+  color: var(--settings-cyan);
+
+  font-size: 10px;
+  font-weight: 850;
+
+  letter-spacing: 0.17em;
+}
+
+
+/* ========================================
+   ACCESSIBILITÉ CLAVIER
+======================================== */
+
+.settings-page button:focus-visible,
+.settings-page input:focus-visible {
+  outline:
+    2px solid var(--settings-cyan);
+
+  outline-offset: 4px;
+}
+
+
+/* ========================================
+   TABLETTE
+======================================== */
+
+@media (max-width: 900px) {
+
+  .settings-page {
+    padding:
+      25px
+      20px
+      max(
+        60px,
+        env(safe-area-inset-bottom)
+      );
+  }
+
+  .settings-heading {
+    margin:
+      35px auto 30px;
+  }
+
+  .settings-card {
+    padding: 25px;
+  }
+
+}
+
+
+/* ========================================
+   TÉLÉPHONE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .settings-page {
+    padding:
+      20px
+      14px
+      max(
+        55px,
+        env(safe-area-inset-bottom)
+      );
+  }
+
+  .settings-back {
+    min-height: 38px;
+
+    padding: 0 13px;
+
+    font-size: 11px;
+  }
+
+  .settings-heading {
+    margin:
+      29px auto 27px;
+  }
+
+  .settings-heading h1 {
+    font-size: 43px;
+  }
+
+  .settings-eyebrow {
+    font-size: 9px;
+  }
+
+  .settings-subtitle {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .settings-content {
+    gap: 14px;
+  }
+
+  .settings-card {
+    padding: 20px 17px;
+
+    border-radius: 19px;
+  }
+
+  .settings-card-heading {
+    gap: 12px;
+  }
+
+  .settings-card-icon {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 13px;
+  }
+
+  .settings-card-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .settings-card h2 {
+    font-size: 21px;
+  }
+
+  .settings-section-label {
+    font-size: 9px;
+  }
+
+  .settings-card-description {
+    font-size: 12px;
+  }
+
+  .settings-master-audio {
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 15px;
+
+    margin-top: 21px;
+
+    padding: 16px;
+
+    border-radius: 14px;
+  }
+
+  .settings-master-button {
+    width: 100%;
+  }
+
+  .settings-audio-group {
+    margin-top: 23px;
+  }
+
+  .settings-setting-row {
+    gap: 12px;
+  }
+
+  .settings-setting-description strong {
+    font-size: 14px;
+  }
+
+  .settings-setting-description p {
+    font-size: 11px;
+  }
+
+  .settings-volume-control {
+    padding: 16px 14px 20px;
+  }
+
+  .settings-volume-heading label {
+    font-size: 11px;
+  }
+
+  .settings-volume-heading output {
+    font-size: 12px;
+  }
+
+  .settings-info-row {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .settings-reset-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .settings-reset-button,
+  .settings-cancel-button {
+    width: 100%;
+  }
+
+  .settings-about-signature {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+  }
+
+}
+
+
+/* ========================================
+   PETITS TÉLÉPHONES
+======================================== */
+
+@media (max-width: 360px) {
+
+  .settings-heading h1 {
+    font-size: 37px;
+  }
+
+  .settings-card {
+    padding: 18px 14px;
+  }
+
+  .settings-card h2 {
+    font-size: 19px;
+  }
+
+}
+
+
+/* ========================================
+   RÉDUCTION DES ANIMATIONS
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .settings-page *,
+  .settings-page *::before,
+  .settings-page *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+}
+
+/* ========================================
+   PARAMÈTRES — SCROLL VERTICAL
+======================================== */
+
+.settings-page {
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  overscroll-behavior-y: contain;
+
+  -webkit-overflow-scrolling: touch;
+
+  padding-bottom:
+    max(
+      90px,
+      env(safe-area-inset-bottom)
+    );
+}
+
+
+/* ========================================
+   TI'DOC GAMES — PARAMÈTRES
+   COMPLÉMENT CSS
+
+   - Réinitialisation audio discrète
+   - Menu Plus de paramètres
+   - Réseaux Ti'Doc
+   - Informations et À propos
+======================================== */
+
+
+/* ========================================
+   BOUTONS RÉINITIALISER
+   SOUS LES VOLUMES
+======================================== */
+
+.settings-inline-reset {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: 15px;
+}
+
+
+.settings-inline-reset-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 30px;
+
+  padding: 6px 11px;
+
+  border: 1px solid
+    rgba(112, 229, 244, 0.18);
+
+  border-radius: 8px;
+
+  color: #a9cfda;
+
+  background:
+    rgba(25, 140, 167, 0.08);
+
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.settings-inline-reset-button:hover {
+  color: #ffffff;
+
+  border-color:
+    rgba(112, 229, 244, 0.42);
+
+  background:
+    rgba(25, 140, 167, 0.20);
+}
+
+
+.settings-inline-reset-button:active {
+  transform: scale(0.98);
+}
+
+
+/* Le bouton reste utilisable
+   même lorsque le volume est désactivé. */
+
+.settings-volume-control.is-disabled
+.settings-inline-reset-button {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* ========================================
+   PLUS DE PARAMÈTRES
+======================================== */
+
+.settings-more-card {
+  padding-bottom: 26px;
+}
+
+
+.settings-more-card
+.settings-card-heading {
+  margin-bottom: 24px;
+}
+
+
+/* ========================================
+   LIGNES CLIQUABLES
+
+   Inspirées de Block Blast :
+   texte à gauche, chevron à droite.
+======================================== */
+
+.settings-link-row {
+  width: 100%;
+  min-height: 58px;
+
+  padding: 15px 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  border: 0;
+  border-bottom: 1px solid
+    rgba(112, 229, 244, 0.12);
+
+  border-radius: 0;
+
+  color: #edfaff;
+
+  background: transparent;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 650;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    padding 0.2s ease;
+}
+
+
+button.settings-link-row:hover {
+  color: #70e5f4;
+
+  background:
+    rgba(112, 229, 244, 0.045);
+
+  padding-left: 10px;
+}
+
+
+button.settings-link-row:active {
+  background:
+    rgba(112, 229, 244, 0.08);
+}
+
+
+.settings-link-row > span {
+  min-width: 0;
+}
+
+
+/* ========================================
+   CHEVRONS
+======================================== */
+
+.settings-link-row > svg {
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+
+  color: #70e5f4;
+
+  opacity: 0.75;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+
+button.settings-link-row:hover > svg {
+  opacity: 1;
+
+  transform:
+    translateX(3px);
+}
+
+
+/* Chevron À propos :
+   tourne quand la section est ouverte. */
+
+.settings-link-row[aria-expanded="true"]
+> svg {
+  transform:
+    rotate(90deg);
+}
+
+
+/* ========================================
+   MESSAGE APRÈS PARTAGE
+======================================== */
+
+.settings-share-message {
+  margin: 10px 5px;
+
+  padding: 9px 12px;
+
+  border: 1px solid
+    rgba(112, 229, 244, 0.20);
+
+  border-radius: 10px;
+
+  color: #baf5ff;
+
+  background:
+    rgba(25, 140, 167, 0.13);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  line-height: 1.5;
+}
+
+
+
+
+
+/* ========================================
+   CONTENEUR DES RÉSEAUX
+======================================== */
+
+.settings-social-links {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 11px;
+}
+
+
+/* ========================================
+   BOUTON RÉSEAU
+======================================== */
+
+.settings-social-link {
+  min-width: 0;
+  min-height: 86px;
+
+  padding: 12px 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border: 1px solid
+    rgba(112, 229, 244, 0.13);
+
+  border-radius: 13px;
+
+  color: #eafaff;
+
+  background:
+    rgba(4, 29, 46, 0.45);
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.settings-social-link:hover {
+  transform:
+    translateY(-3px);
+
+  border-color:
+    rgba(112, 229, 244, 0.40);
+
+  background:
+    rgba(25, 140, 167, 0.18);
+
+  box-shadow:
+    0 9px 20px
+    rgba(0, 0, 0, 0.16);
+}
+
+
+.settings-social-link:active {
+  transform:
+    translateY(-1px);
+}
+
+
+.settings-social-link
+> span:last-child {
+  max-width: 100%;
+
+  overflow: hidden;
+
+  font-size: 11px;
+  font-weight: 750;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* ========================================
+   ICÔNES SIMPLES DES RÉSEAUX
+
+   Adaptées aux caractères IG, ♪ et ↗
+   du TSX actuel.
+======================================== */
+
+.settings-social-initial {
+  width: 39px;
+  height: 39px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.13);
+
+  border-radius: 11px;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      145deg,
+      #198ca7,
+      #0b5367
+    );
+
+  box-shadow:
+    0 5px 12px
+    rgba(0, 0, 0, 0.17);
+
+  font-size: 15px;
+  font-weight: 900;
+}
+
+
+/* Instagram */
+
+.settings-social-link:nth-child(1)
+.settings-social-initial {
+  background:
+    linear-gradient(
+      135deg,
+      #7047c7,
+      #d64b87,
+      #f4a34f
+    );
+}
+
+
+/* TikTok */
+
+.settings-social-link:nth-child(2)
+.settings-social-initial {
+  background:
+    #111b29;
+
+  text-shadow:
+    -2px -1px #24f4ee,
+    2px 1px #ff4b78;
+}
+
+
+/* Site officiel */
+
+.settings-social-link:nth-child(3)
+.settings-social-initial {
+  background:
+    linear-gradient(
+      145deg,
+      #198ca7,
+      #073c4b
+    );
+}
+
+
+/* ========================================
+   INFORMATIONS LÉGALES
+======================================== */
+
+.settings-legal-links {
+  border-top: 1px solid
+    rgba(112, 229, 244, 0.14);
+}
+
+
+/* Entrées pas encore reliées à
+   une véritable page juridique. */
+
+.settings-link-pending {
+  cursor: default;
+
+  color: #c4d5df;
+}
+
+
+.settings-link-pending small {
+  flex-shrink: 0;
+
+  padding: 5px 9px;
+
+  border-radius: 100px;
+
+  color: #91afbe;
+
+  background:
+    rgba(255, 255, 255, 0.045);
+
+  font-size: 10px;
+  font-weight: 750;
+}
+
+
+/* ========================================
+   À PROPOS — PANNEAU DÉPLIABLE
+======================================== */
+
+.settings-about-details {
+  margin: 12px 0 20px;
+
+  padding: 19px 21px;
+
+  border: 1px solid
+    rgba(112, 229, 244, 0.15);
+
+  border-radius: 13px;
+
+  background:
+    rgba(25, 140, 167, 0.09);
+}
+
+
+.settings-about-details strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 850;
+}
+
+
+.settings-about-details p {
+  margin: 10px 0 0;
+
+  color: #afc9d6;
+
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+
+.settings-about-details > span {
+  display: block;
+
+  margin-top: 16px;
+
+  color: #70e5f4;
+
+  font-size: 9px;
+  font-weight: 850;
+
+  letter-spacing: 0.13em;
+}
+
+
+/* ========================================
+   SCROLL — PAGE PARAMÈTRES
+
+   Permet de descendre jusqu'aux
+   dernières rubriques sur iPad
+   et téléphone.
+======================================== */
+
+.settings-page {
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  overscroll-behavior-y: contain;
+
+  -webkit-overflow-scrolling: touch;
+
+  padding-bottom:
+    max(
+      90px,
+      env(safe-area-inset-bottom)
+    );
+}
+
+
+/* ========================================
+   TABLETTE
+======================================== */
+
+@media (max-width: 900px) {
+
+  .settings-more-card {
+    padding-bottom: 22px;
+  }
+
+
+  .settings-link-row {
+    min-height: 55px;
+
+    font-size: 13px;
+  }
+
+
+  .settings-social-link {
+    min-height: 80px;
+  }
+
+}
+
+
+/* ========================================
+   TÉLÉPHONE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .settings-inline-reset {
+    margin-top: 14px;
+  }
+
+
+  .settings-inline-reset-button {
+    font-size: 10px;
+  }
+
+
+  .settings-more-card
+  .settings-card-heading {
+    margin-bottom: 17px;
+  }
+
+
+  .settings-link-row {
+    min-height: 53px;
+
+    padding:
+      13px 2px;
+
+    font-size: 12px;
+  }
+
+
+  .settings-link-row > svg {
+    width: 16px;
+    height: 16px;
+  }
+
+
+  .settings-social-section {
+    margin: 19px 0 20px;
+
+    padding: 15px;
+
+    border-radius: 14px;
+  }
+
+
+  .settings-social-label {
+    font-size: 9px;
+  }
+
+
+  .settings-social-links {
+    gap: 7px;
+  }
+
+
+  .settings-social-link {
+    min-height: 77px;
+
+    padding: 10px 5px;
+
+    border-radius: 10px;
+  }
+
+
+  .settings-social-initial {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 10px;
+  }
+
+
+  .settings-social-link
+  > span:last-child {
+    font-size: 9px;
+  }
+
+
+  .settings-about-details {
+    padding: 16px;
+  }
+
+
+  .settings-link-pending small {
+    font-size: 9px;
+  }
+
+}
+
+
+/* ========================================
+   TRÈS PETITS ÉCRANS
+======================================== */
+
+@media (max-width: 360px) {
+
+  .settings-social-section {
+    padding: 11px;
+  }
+
+
+  .settings-social-links {
+    gap: 5px;
+  }
+
+
+  .settings-social-link {
+    min-height: 72px;
+
+    padding: 8px 3px;
+  }
+
+
+  .settings-social-link
+  > span:last-child {
+    font-size: 8px;
+  }
+
+}
+
+
+/* ========================================
+   RÉDUCTION DES ANIMATIONS
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .settings-inline-reset-button,
+  .settings-link-row,
+  .settings-link-row > svg,
+  .settings-social-link {
+    transition: none !important;
+  }
+
+}
+
+
+
+/* ========================================
+   ICÔNES
+======================================== */
+
+.settings-social-initial {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  color: #ffffff;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.16);
+}
+
+
+.settings-social-initial svg {
+  width: 29px;
+  height: 29px;
+
+  display: block;
+
+  color: #ffffff;
+}
+
+
+/* Instagram */
+
+.settings-social-link:nth-child(1)
+.settings-social-initial {
+  background:
+    linear-gradient(
+      135deg,
+      #6946c9 0%,
+      #b83caa 40%,
+      #e95b6c 70%,
+      #f2aa55 100%
+    );
+}
+
+
+/* TikTok */
+
+.settings-social-link:nth-child(2)
+.settings-social-initial {
+  background: #101b2b;
+}
+
+
+/* Site */
+
+.settings-social-link:nth-child(3)
+.settings-social-initial {
+  background:
+    linear-gradient(
+      135deg,
+      #25a9c2,
+      #0b5367
+    );
+}
+
+
+/* ========================================
+   NOM DES RÉSEAUX
+
+   On le rend bien visible.
+======================================== */
+
+.settings-social-link
+> span:last-child {
+  display: block;
+
+  max-width: 100%;
+
+  color: #e9f9ff;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.01em;
+
+  text-align: center;
+
+  overflow: visible;
+  white-space: normal;
+}
+
+
+/* ========================================
+   TÉLÉPHONE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .settings-social-section {
+    padding: 15px;
+  }
+
+  .settings-social-links {
+    gap: 8px;
+  }
+
+  .settings-social-link {
+    min-height: 100px;
+
+    padding: 13px 5px;
+
+    gap: 10px;
+
+    border-radius: 12px;
+  }
+
+  .settings-social-initial {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 12px;
+  }
+
+  .settings-social-initial svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .settings-social-link
+  > span:last-child {
+    font-size: 10px;
+  }
+
+}
+
+/* ========================================
+   RÉSEAUX TI'DOC
+   DESIGN COMPACT ET ÉLÉGANT
+======================================== */
+
+.settings-social-section {
+  margin: 24px 0;
+
+  padding: 20px;
+
+  border: 1px solid
+    rgba(112, 229, 244, 0.16);
+
+  border-radius: 16px;
+
+  background:
+    rgba(4, 29, 46, 0.32);
+}
+
+
+/* ========================================
+   TITRE
+======================================== */
+
+.settings-social-label {
+  margin: 0 0 15px;
+
+  color: #b9eaf3;
+
+  font-size: 10px;
+  font-weight: 850;
+
+  letter-spacing: 0.16em;
+}
+
+
+/* ========================================
+   TROIS BOUTONS
+======================================== */
+
+.settings-social-links {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+
+/* ========================================
+   BOUTON INDIVIDUEL
+======================================== */
+
+.settings-social-links
+.settings-social-link {
+  min-width: 0;
+  min-height: 66px;
+
+  padding: 10px 12px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 11px;
+
+  border: 1px solid
+    rgba(112, 229, 244, 0.16);
+
+  border-radius: 12px;
+
+  color: #ffffff;
+
+  background:
+    rgba(7, 45, 65, 0.75);
+
+  text-decoration: none;
+
+  box-shadow: none;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.settings-social-links
+.settings-social-link:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    rgba(112, 229, 244, 0.50);
+
+  background:
+    rgba(25, 140, 167, 0.22);
+}
+
+
+/* ========================================
+   CONTENEUR DE L'ICÔNE
+======================================== */
+
+.settings-social-links
+.settings-social-initial {
+  width: 40px;
+  height: 40px;
+
+  flex: 0 0 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 11px;
+
+  color: #ffffff;
+
+  box-shadow: none;
+}
+
+
+/* ========================================
+   SVG
+======================================== */
+
+.settings-social-links
+.settings-social-initial svg {
+  display: block;
+
+  width: 25px;
+  height: 25px;
+
+  flex-shrink: 0;
+
+  color: #ffffff;
+}
+
+
+/* ========================================
+   INSTAGRAM
+======================================== */
+
+.settings-social-link:nth-child(1)
+.settings-social-initial {
+  background:
+    linear-gradient(
+      135deg,
+      #7043c8,
+      #c33e9e,
+      #ec6b67,
+      #f2a75a
+    );
+}
+
+
+/* ========================================
+   TIKTOK
+======================================== */
+
+.settings-social-link:nth-child(2)
+.settings-social-initial {
+  background: #111827;
+}
+
+
+/* ========================================
+   SITE TI'DOC
+======================================== */
+
+.settings-social-link:nth-child(3)
+.settings-social-initial {
+  background:
+    linear-gradient(
+      135deg,
+      #198ca7,
+      #0b5367
+    );
+}
+
+
+/* ========================================
+   NOM DES RÉSEAUX
+
+   IMPORTANT :
+   FORCER L'AFFICHAGE DU TEXTE
+======================================== */
+
+.settings-social-links
+.settings-social-link
+> span:last-child:not(
+  .settings-social-initial
+) {
+  display: block;
+
+  min-width: 0;
+  max-width: none;
+
+  margin: 0;
+
+  color: #f4fbff;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+
+  line-height: 1.3;
+
+  letter-spacing: 0;
+
+  text-align: left;
+
+  white-space: normal;
+  overflow: visible;
+
+  opacity: 1;
+  visibility: visible;
+
+  text-overflow: clip;
+}
+
+
+/* ========================================
+   TABLETTE
+======================================== */
+
+@media (max-width: 900px) {
+
+  .settings-social-links {
+    gap: 8px;
+  }
+
+  .settings-social-links
+  .settings-social-link {
+    padding: 10px 8px;
+
+    gap: 8px;
+  }
+
+  .settings-social-links
+  .settings-social-link
+  > span:last-child:not(
+    .settings-social-initial
+  ) {
+    font-size: 11px;
+  }
+
+}
+
+
+/* ========================================
+   TÉLÉPHONE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .settings-social-section {
+    padding: 14px;
+  }
+
+  .settings-social-links {
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+  }
+
+  .settings-social-links
+  .settings-social-link {
+    min-height: 55px;
+
+    padding: 8px 12px;
+
+    gap: 12px;
+  }
+
+  .settings-social-links
+  .settings-social-link
+  > span:last-child:not(
+    .settings-social-initial
+  ) {
+    font-size: 12px;
+  }
+
+}
+.settings-language-label {
+  display: block;
+  margin: 0 auto 8px;
+  color: var(--settings-muted);
+  text-align: center;
+}
+
+.settings-language-select {
+  display: block;
+  width: min(360px, 100%);
+  margin: 0 auto;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--settings-border);
+  border-radius: 12px;
+  background: #052638;
+  color: var(--settings-text);
+  font: inherit;
+  text-align: center;
+  text-align-last: center;
+}
+
+.settings-language-select:focus-visible {
+  outline: 2px solid var(--settings-cyan);
+  outline-offset: 3px;
+}
+
+/* ========================================
+   PARAMÈTRES — CENTRAGE MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .settings-page {
+    width: 100%;
+
+    min-width: 0;
+
+    margin: 0;
+
+    padding-left: 14px;
+    padding-right: 14px;
+
+    box-sizing: border-box;
+  }
+
+  .settings-content {
+    width: 100%;
+
+    max-width: 100%;
+
+    min-width: 0;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .settings-card {
+    width: 100%;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+  }
+
+}

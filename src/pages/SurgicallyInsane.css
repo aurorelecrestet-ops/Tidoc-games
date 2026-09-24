@@ -1,0 +1,3696 @@
+/* ========================================
+   SURGICALLY INSANE
+======================================== */
+
+.surgically-page {
+  position: relative;
+
+  width: 100%;
+  min-height: calc(100dvh - 100px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  color: white;
+}
+
+
+/* ========================================
+   PATIENT
+======================================== */
+
+.surgically-patient-wrap {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.surgically-patient {
+  display: block;
+
+  width: auto;
+  height: min(82dvh, 1000px);
+
+  max-width: 94%;
+
+  object-fit: contain;
+
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+
+/* ========================================
+   MENU DE DÉPART / GAME OVER
+======================================== */
+
+.surgically-start-overlay,
+.surgically-gameover-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background:
+    rgba(3, 25, 39, 0.48);
+
+  backdrop-filter:
+    blur(5px);
+
+  -webkit-backdrop-filter:
+    blur(5px);
+}
+
+
+.surgically-start-card,
+.surgically-gameover-card {
+  width: min(450px, 100%);
+
+  padding: 32px 28px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.27);
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(9, 70, 96, 0.95),
+      rgba(4, 31, 51, 0.97)
+    );
+
+  box-shadow:
+    0 24px 65px
+    rgba(0, 0, 0, 0.32),
+
+    0 0 35px
+    rgba(85, 217, 238, 0.09),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.08);
+}
+
+
+.surgically-kicker,
+.surgically-gameover-card > p {
+  margin: 0 0 10px;
+
+  color: #70e5f4;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 0.22em;
+}
+
+
+.surgically-start-description {
+  max-width: 330px;
+
+  margin: 18px 0 16px;
+
+  color:
+    rgba(255, 255, 255, 0.70);
+
+  font-size: 14px;
+
+  line-height: 1.55;
+}
+
+
+/* ========================================
+   CŒUR 3D
+======================================== */
+
+.surgically-heart-shape {
+  fill:
+    url(#surgicallyHeartGradient);
+
+  stroke:
+    rgba(218, 251, 255, 0.95);
+
+  stroke-width: 1.6;
+
+  filter:
+    drop-shadow(
+      0 3px 1px
+      rgba(2, 43, 93, 0.85)
+    )
+    drop-shadow(
+      0 6px 8px
+      rgba(0, 0, 0, 0.28)
+    )
+    drop-shadow(
+      0 0 10px
+      rgba(85, 217, 238, 0.45)
+    );
+}
+
+
+.surgically-heart-highlight {
+  fill: none;
+
+  stroke:
+    rgba(255, 255, 255, 0.90);
+
+  stroke-width: 3;
+
+  stroke-linecap: round;
+
+  filter:
+    drop-shadow(
+      0 0 4px
+      rgba(255, 255, 255, 0.75)
+    );
+}
+
+
+/* ========================================
+   BOUTONS
+======================================== */
+
+.surgically-primary-button {
+  min-width: 205px;
+
+  padding: 13px 23px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.48);
+
+  border-radius: 100px;
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 850;
+
+  background:
+    linear-gradient(
+      135deg,
+      #198ca7,
+      #16b9d2
+    );
+
+  box-shadow:
+    0 10px 30px
+    rgba(13, 163, 191, 0.22);
+
+  cursor: pointer;
+}
+
+
+.surgically-primary-button span {
+  font-size: 20px;
+}
+
+
+.surgically-secondary-button {
+  margin-top: 12px;
+
+  padding: 9px 16px;
+
+  border: 0;
+
+  color:
+    rgba(255, 255, 255, 0.67);
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+
+/* ========================================
+   COUNTDOWN — STYLE ECG
+======================================== */
+
+.surgically-countdown {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 90;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  text-align: center;
+
+  background:
+    rgba(3, 25, 39, 0.34);
+
+  backdrop-filter:
+    blur(3px);
+
+  -webkit-backdrop-filter:
+    blur(3px);
+}
+
+
+.surgically-countdown > span {
+  color:
+    rgba(255, 255, 255, 0.50);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 5px;
+}
+
+
+.surgically-countdown > strong {
+  color: #70e5f4;
+
+  font-size:
+    clamp(90px, 17vw, 170px);
+
+  font-weight: 850;
+
+  line-height: 0.9;
+
+  text-shadow:
+    0 0 25px
+    rgba(85, 217, 238, 0.32);
+
+  animation:
+    surgicallyCountdownPop
+    0.55s ease;
+}
+
+
+/* ========================================
+   HUD DU JEU
+======================================== */
+
+.surgically-hud {
+  position: fixed;
+
+  top:
+    max(
+      12px,
+      env(safe-area-inset-top)
+    );
+
+  left: 50%;
+
+  z-index: 200;
+
+  width:
+    min(
+      1100px,
+      calc(100vw - 32px)
+    );
+
+  min-height: 72px;
+
+  padding: 9px 20px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr auto 1fr;
+
+  align-items: center;
+
+  gap: 14px;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.18);
+
+  border-radius: 20px;
+
+  background:
+    rgba(4, 35, 54, 0.78);
+
+  backdrop-filter:
+    blur(15px);
+
+  -webkit-backdrop-filter:
+    blur(15px);
+
+  box-shadow:
+    0 16px 35px
+    rgba(0, 0, 0, 0.2);
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+}
+
+
+.surgically-hud-mission,
+.surgically-hud-score,
+.surgically-hud-lives {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+.surgically-hud-mission {
+  align-items: flex-start;
+}
+
+
+.surgically-hud-lives {
+  align-items: center;
+}
+
+
+.surgically-hud-score {
+  align-items: flex-end;
+}
+
+
+.surgically-hud-mission > span,
+.surgically-hud-score > span,
+.surgically-hud-label {
+  color:
+    rgba(255, 255, 255, 0.5);
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 0.16em;
+
+  white-space: nowrap;
+}
+
+
+.surgically-hud-mission > strong {
+  color: #70e5f4;
+
+  font-size: 15px;
+  font-weight: 900;
+}
+
+
+.surgically-hud-score > strong {
+  color: white;
+
+  font-size: 23px;
+  font-weight: 900;
+}
+
+
+/* ========================================
+   VIES
+======================================== */
+
+.surgically-hearts {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+.surgically-life {
+  position: relative;
+
+  width: 41px;
+  height: 41px;
+
+  flex: 0 0 auto;
+}
+
+
+.surgically-life > svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  transform-origin: center;
+
+  transition:
+    opacity 0.18s ease;
+}
+
+
+.surgically-life.is-empty > svg {
+  opacity: 0.16;
+
+  filter: grayscale(1);
+}
+
+
+/* ========================================
+   EXPLOSION D'UNE VIE
+======================================== */
+
+.surgically-life.is-exploding > svg {
+  animation:
+    surgicallyHeartBreak
+    0.65s ease-out forwards;
+}
+
+
+.surgically-heart-particles {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+}
+
+
+.surgically-heart-particles i {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 3px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #e2fcff,
+      #19b9e6,
+      #0862b2
+    );
+
+  box-shadow:
+    0 0 9px
+    rgba(112, 229, 244, 0.85);
+
+  animation:
+    surgicallyHeartParticle
+    0.65s ease-out forwards;
+}
+
+
+.surgically-heart-particles i:nth-child(1) {
+  --x: -34px;
+  --y: -40px;
+}
+
+.surgically-heart-particles i:nth-child(2) {
+  --x: 33px;
+  --y: -39px;
+}
+
+.surgically-heart-particles i:nth-child(3) {
+  --x: -48px;
+  --y: -8px;
+}
+
+.surgically-heart-particles i:nth-child(4) {
+  --x: 48px;
+  --y: 2px;
+}
+
+.surgically-heart-particles i:nth-child(5) {
+  --x: -37px;
+  --y: 33px;
+}
+
+.surgically-heart-particles i:nth-child(6) {
+  --x: 36px;
+  --y: 38px;
+}
+
+.surgically-heart-particles i:nth-child(7) {
+  --x: -8px;
+  --y: -49px;
+}
+
+.surgically-heart-particles i:nth-child(8) {
+  --x: 12px;
+  --y: 52px;
+}
+
+.surgically-heart-particles i:nth-child(9) {
+  --x: -54px;
+  --y: 20px;
+}
+
+.surgically-heart-particles i:nth-child(10) {
+  --x: 54px;
+  --y: -21px;
+}
+
+
+/* ========================================
+   BOUTON TEMPORAIRE DE TEST
+======================================== */
+
+.surgically-test-button {
+  position: fixed;
+
+  left: 50%;
+
+  bottom:
+    max(
+      18px,
+      env(safe-area-inset-bottom)
+    );
+
+  z-index: 210;
+
+  padding: 12px 18px;
+
+  border:
+    1px dashed
+    rgba(112, 229, 244, 0.6);
+
+  border-radius: 100px;
+
+  color: white;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  background:
+    rgba(4, 35, 54, 0.88);
+
+  transform:
+    translateX(-50%);
+
+  cursor: pointer;
+}
+
+
+.surgically-test-button:disabled {
+  opacity: 0.5;
+}
+
+
+/* ========================================
+   GAME OVER
+======================================== */
+
+.surgically-gameover-card h1 {
+  margin: 0 0 25px;
+
+  color: white;
+
+  font-size:
+    clamp(44px, 7vw, 65px);
+
+  font-weight: 950;
+
+  line-height: 1;
+}
+
+
+.surgically-gameover-card > span {
+  color:
+    rgba(255, 255, 255, 0.48);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+}
+
+
+.surgically-gameover-card > strong {
+  margin: 5px 0 25px;
+
+  color: #70e5f4;
+
+  font-size: 60px;
+  font-weight: 950;
+}
+
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+@keyframes surgicallyCountdownPop {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      scale(0.55);
+  }
+
+  65% {
+    opacity: 1;
+
+    transform:
+      scale(1.08);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      scale(1);
+  }
+
+}
+
+
+@keyframes surgicallyHeartBreak {
+
+  0% {
+    opacity: 1;
+
+    transform:
+      scale(1);
+  }
+
+  25% {
+    opacity: 1;
+
+    transform:
+      scale(1.28)
+      rotate(-8deg);
+  }
+
+  45% {
+    opacity: 1;
+
+    transform:
+      scale(0.9)
+      rotate(9deg);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      scale(0.15)
+      rotate(35deg);
+  }
+
+}
+
+
+@keyframes surgicallyHeartParticle {
+
+  0% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(
+        calc(-50% + var(--x)),
+        calc(-50% + var(--y))
+      )
+      scale(0.25)
+      rotate(140deg);
+  }
+
+}
+
+
+/* ========================================
+   MENU — STYLE ECG
+======================================== */
+
+.surgically-state-ready
+.surgically-patient-wrap {
+  display: none;
+}
+
+
+.surgically-start-screen {
+  position: relative;
+
+  z-index: 100;
+
+  width: 100%;
+
+  min-height:
+    calc(100dvh - 100px);
+
+  padding: 30px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+/* ========================================
+   MEILLEUR SCORE DU MENU
+======================================== */
+
+.surgically-menu-best {
+  margin-bottom: 18px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.surgically-menu-best span {
+  color:
+    rgba(255, 255, 255, 0.46);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+}
+
+
+.surgically-menu-best strong {
+  margin-top: 3px;
+
+  color: #70e5f4;
+
+  font-size: 26px;
+  font-weight: 900;
+
+  text-shadow:
+    0 0 18px
+    rgba(85, 217, 238, 0.30);
+}
+
+
+/* ========================================
+   ICÔNE DU MENU
+======================================== */
+
+.surgically-start-icon {
+  width: 94px;
+  height: 94px;
+
+  margin-bottom: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.26);
+
+  border-radius: 26px;
+
+  color: #70e5f4;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(21, 111, 141, 0.28),
+      rgba(5, 50, 75, 0.34)
+    );
+
+  box-shadow:
+    0 18px 50px
+    rgba(0, 0, 0, 0.20),
+
+    0 0 30px
+    rgba(85, 217, 238, 0.08);
+}
+
+
+.surgically-start-icon svg {
+  width: 62px;
+  height: 62px;
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(85, 217, 238, 0.38)
+    );
+}
+
+
+/* ========================================
+   SPÉCIALITÉ
+======================================== */
+
+.surgically-start-screen
+.surgically-kicker {
+  margin: 0 0 7px;
+
+  color: #70e5f4;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 0.28em;
+}
+
+
+/* ========================================
+   TITRE
+======================================== */
+
+.surgically-start-screen h1 {
+  margin: 0;
+
+  color: white;
+
+  font-size:
+    clamp(
+      45px,
+      8vw,
+      74px
+    );
+
+  font-weight: 900;
+
+  line-height: 0.98;
+
+  letter-spacing: -3px;
+}
+
+
+.surgically-start-screen h1 span {
+  color: #70e5f4;
+
+  text-shadow:
+    0 0 25px
+    rgba(85, 217, 238, 0.20);
+}
+
+
+/* ========================================
+   DESCRIPTION DU MENU
+======================================== */
+
+.surgically-start-screen
+.surgically-start-description {
+  width:
+    min(440px, 100%);
+
+  max-width: none;
+
+  margin: 18px 0 28px;
+
+  color:
+    rgba(255, 255, 255, 0.64);
+
+  font-size: 15px;
+
+  line-height: 1.55;
+}
+
+
+/* ========================================
+   BOUTON DU MENU
+======================================== */
+
+.surgically-start-screen
+.surgically-primary-button {
+  min-width: 220px;
+
+  padding: 14px 25px;
+
+  gap: 13px;
+
+  box-shadow:
+    0 10px 30px
+    rgba(13, 163, 191, 0.22),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.15);
+
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease;
+}
+
+
+.surgically-start-screen
+.surgically-primary-button:hover {
+  transform:
+    translateY(-2px);
+
+  filter:
+    brightness(1.08);
+}
+
+
+.surgically-start-screen
+.surgically-primary-button:active {
+  transform:
+    scale(0.97);
+}
+
+
+/* ========================================
+   AJUSTEMENT PATIENT / LIT
+======================================== */
+
+.surgically-state-playing
+.surgically-patient-wrap,
+
+.surgically-state-countdown
+.surgically-patient-wrap,
+
+.surgically-state-gameover
+.surgically-patient-wrap {
+  align-items: flex-start;
+
+  padding-top: 88px;
+}
+
+
+.surgically-state-playing
+.surgically-patient,
+
+.surgically-state-countdown
+.surgically-patient,
+
+.surgically-state-gameover
+.surgically-patient {
+  height:
+    min(70dvh, 760px);
+
+  max-width: 86%;
+}
+
+
+/* ========================================
+   BOÎTES
+======================================== */
+
+.surgically-boxes {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 40;
+
+  pointer-events: none;
+}
+
+
+.surgically-box {
+  position: absolute;
+
+  display: block;
+
+  width: 120px;
+  height: auto;
+
+  object-fit: contain;
+
+  user-select: none;
+  -webkit-user-drag: none;
+
+  /*
+    Image paysage :
+    rotation en portrait.
+  */
+
+  transform:
+    rotate(90deg);
+
+  transform-origin:
+    center center;
+
+  filter:
+    drop-shadow(
+      0 8px 18px
+      rgba(0, 0, 0, 0.28)
+    );
+}
+
+
+/* ========================================
+   PINCE RANGÉE
+======================================== */
+
+.surgically-tool {
+  position: absolute;
+
+  z-index: 45;
+
+  display: block;
+
+  width: 72px;
+  height: auto;
+
+  object-fit: contain;
+
+  user-select: none;
+  -webkit-user-drag: none;
+
+  filter:
+    drop-shadow(
+      0 4px 10px
+      rgba(0, 0, 0, 0.22)
+    );
+}
+
+
+/*
+  Une seule pince rangée
+  est visible selon la
+  largeur de l'écran.
+*/
+
+.surgically-tool-phone,
+.surgically-tool-tablet {
+  display: none;
+}
+
+
+/* ========================================
+   PINCE CLIQUABLE
+======================================== */
+
+.surgically-tool-pickup {
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  border-radius: 0;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  background: transparent;
+
+  pointer-events: auto;
+
+  cursor: grab;
+
+  touch-action: none;
+
+  -webkit-tap-highlight-color:
+    transparent;
+}
+
+
+.surgically-tool-pickup:active {
+  cursor: grabbing;
+}
+
+
+.surgically-tool-pickup img {
+  position: relative;
+
+  z-index: 2;
+
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  pointer-events: none;
+
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+
+/*
+  Après la prise :
+  la pince rangée devient
+  invisible et non cliquable.
+
+  On conserve son élément
+  pour ne pas interrompre
+  une capture tactile.
+*/
+
+.surgically-tool-pickup.is-picked-up {
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   ROND LUMINEUX
+   AUTOUR DE LA PINCE RANGÉE
+======================================== */
+
+.surgically-pince-indicator {
+  position: absolute;
+
+  z-index: 1;
+
+  left: 50%;
+  top: 50%;
+
+  width: 88%;
+
+  aspect-ratio: 1;
+
+  border:
+    2px solid
+    rgba(112, 229, 244, 0.95);
+
+  border-radius: 50%;
+
+  background:
+    rgba(112, 229, 244, 0.08);
+
+  box-shadow:
+    0 0 14px
+    rgba(112, 229, 244, 0.7),
+
+    inset 0 0 12px
+    rgba(112, 229, 244, 0.25);
+
+  pointer-events: none;
+
+  animation:
+    surgicallyPincePulse
+    1.35s ease-in-out infinite;
+}
+
+
+@keyframes surgicallyPincePulse {
+
+  0%,
+  100% {
+    opacity: 0.48;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.84);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.15);
+  }
+
+}
+
+
+/* ========================================
+   PINCE TENUE EN MAIN
+======================================== */
+
+.surgically-pince-main {
+  position: fixed;
+
+  z-index: 300;
+
+  display: block;
+
+  width: 110px;
+  height: auto;
+
+  max-height: 170px;
+
+  object-fit: contain;
+
+  /*
+    Le TSX donne les coordonnées
+    du doigt / de la souris.
+  */
+
+  transform:
+    translate(-50%, -50%);
+
+  transform-origin:
+    center center;
+
+  pointer-events: none;
+
+  user-select: none;
+  -webkit-user-drag: none;
+
+  filter:
+    drop-shadow(
+      0 8px 12px
+      rgba(0, 0, 0, 0.34)
+    );
+}
+
+
+/*
+  Sur écran tactile,
+  la pince apparaît un peu
+  au-dessus du doigt pour
+  qu'on puisse bien la voir.
+*/
+
+.surgically-pince-main.is-touch {
+  transform:
+    translate(-50%, -85%);
+}
+
+
+/* ========================================
+   DÉPLACEMENT TACTILE
+======================================== */
+
+.surgically-state-playing {
+  touch-action: none;
+
+  overscroll-behavior: none;
+}
+
+
+/* ========================================
+   TABLETTE / GRAND ÉCRAN
+======================================== */
+
+@media (min-width: 701px) {
+
+  /*
+    TES BOÎTES :
+    300px chacune.
+  */
+
+  .surgically-box {
+    width: 300px;
+  }
+
+
+  /*
+    Boîte de gauche.
+  */
+
+  .surgically-box-1 {
+    left: 70px;
+    top: 50%;
+
+    transform:
+      translateY(-50%)
+      rotate(90deg);
+  }
+
+
+  /*
+    Boîte de droite.
+  */
+
+  .surgically-box-2 {
+    right: 70px;
+    top: 50%;
+
+    transform:
+      translateY(-50%)
+      rotate(90deg);
+  }
+
+
+  /*
+    TA PINCE :
+    dans la boîte de droite.
+  */
+
+  .surgically-tool-tablet {
+    display: block;
+
+    right: 145px;
+    top: 50%;
+
+    transform:
+      translateY(-50%);
+
+    width: 150px;
+  }
+
+}
+
+
+/* ========================================
+   TÉLÉPHONE
+======================================== */
+
+@media (max-width: 700px) {
+
+  /*
+    PATIENT / LIT
+  */
+
+  .surgically-state-playing
+  .surgically-patient-wrap,
+
+  .surgically-state-countdown
+  .surgically-patient-wrap,
+
+  .surgically-state-gameover
+  .surgically-patient-wrap {
+    padding-top: 78px;
+  }
+
+
+  .surgically-state-playing
+  .surgically-patient,
+
+  .surgically-state-countdown
+  .surgically-patient,
+
+  .surgically-state-gameover
+  .surgically-patient {
+    height:
+      min(66dvh, 640px);
+
+    max-width: 92%;
+
+    /*
+      TON DÉCALAGE VERS
+      LA GAUCHE.
+    */
+
+    transform:
+      translateX(-40px);
+  }
+
+
+  /*
+    TES BOÎTES :
+    120px chacune.
+  */
+
+  .surgically-box {
+    width: 120px;
+  }
+
+
+  /*
+    Boîte du haut.
+  */
+
+  .surgically-box-1 {
+    right: -5px;
+    top: 145px;
+
+    transform:
+      rotate(90deg);
+  }
+
+
+  /*
+    Boîte du bas.
+  */
+
+  .surgically-box-2 {
+    right: -5px;
+    bottom: 110px;
+
+    transform:
+      rotate(90deg);
+  }
+
+
+  /*
+    TA PINCE :
+    dans la boîte du haut.
+  */
+
+  .surgically-tool-phone {
+    display: block;
+
+    right: 26px;
+    top: 150px;
+
+    width: 58px;
+  }
+
+
+  /*
+    Pince tenue en main :
+    un peu plus petite.
+  */
+
+  .surgically-pince-main {
+    width: 82px;
+
+    max-height: 130px;
+  }
+
+
+  /*
+    HUD téléphone.
+  */
+
+  .surgically-hud {
+    width:
+      calc(100vw - 18px);
+
+    min-height: 60px;
+
+    padding: 7px 10px;
+
+    gap: 5px;
+
+    border-radius: 15px;
+  }
+
+
+  .surgically-hud-mission > span,
+  .surgically-hud-score > span,
+  .surgically-hud-label {
+    font-size: 6px;
+  }
+
+
+  .surgically-hud-mission > strong {
+    font-size: 10px;
+  }
+
+
+  .surgically-hud-score > strong {
+    font-size: 17px;
+  }
+
+
+  .surgically-hearts {
+    gap: 3px;
+  }
+
+
+  .surgically-life {
+    width: 29px;
+    height: 29px;
+  }
+
+
+  .surgically-gameover-card {
+    padding: 26px 18px;
+  }
+
+}
+
+
+/* ========================================
+   MENU SUR TÉLÉPHONE PORTRAIT
+======================================== */
+
+@media
+  (max-width: 650px)
+  and (orientation: portrait) {
+
+  .surgically-start-screen {
+    min-height:
+      calc(100dvh - 84px);
+
+    padding:
+      35px 12px 45px;
+  }
+
+
+  .surgically-start-icon {
+    width: 82px;
+    height: 82px;
+
+    margin-bottom: 14px;
+
+    border-radius: 23px;
+  }
+
+
+  .surgically-start-icon svg {
+    width: 58px;
+    height: 58px;
+  }
+
+
+  .surgically-start-screen h1 {
+    font-size:
+      clamp(
+        43px,
+        12vw,
+        62px
+      );
+
+    letter-spacing:
+      -2.5px;
+  }
+
+
+  .surgically-start-screen
+  .surgically-start-description {
+    margin:
+      15px 0 28px;
+
+    font-size: 13px;
+  }
+
+
+  .surgically-start-screen
+  .surgically-primary-button {
+    width:
+      min(280px, 90%);
+  }
+
+}
+
+/* ========================================
+   SURGICALLY INSANE
+   NOUVELLES MÉCANIQUES DE JEU
+======================================== */
+
+
+/* ========================================
+   ORGANES SUR LE PATIENT
+
+   Le TSX calcule leurs positions
+   à partir de patientnoir.png.
+======================================== */
+
+.surgically-organ {
+  position: fixed;
+
+  z-index: 35;
+
+  display: block;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: contain;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+  filter:
+    drop-shadow(
+      0 3px 5px
+      rgba(0, 0, 0, 0.22)
+    );
+
+  animation:
+    surgicallyOrganAppear
+    0.2s ease-out both;
+}
+
+
+@keyframes surgicallyOrganAppear {
+
+  from {
+    opacity: 0;
+
+    scale: 0.9;
+  }
+
+  to {
+    opacity: 1;
+
+    scale: 1;
+  }
+
+}
+
+
+/* ========================================
+   CHRONOMÈTRE
+
+   Sous le HUD, au centre.
+======================================== */
+
+.surgically-timer {
+  position: fixed;
+
+  top:
+    max(
+      96px,
+      calc(
+        env(safe-area-inset-top)
+        + 84px
+      )
+    );
+
+  left: 50%;
+
+  z-index: 205;
+
+  width: min(
+    230px,
+    calc(100vw - 40px)
+  );
+
+  padding: 11px 16px 13px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 5px;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.23);
+
+  border-radius: 17px;
+
+  background:
+    rgba(4, 35, 54, 0.82);
+
+  backdrop-filter:
+    blur(14px);
+
+  -webkit-backdrop-filter:
+    blur(14px);
+
+  box-shadow:
+    0 12px 30px
+    rgba(0, 0, 0, 0.18);
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+}
+
+
+.surgically-timer > span {
+  color:
+    rgba(255, 255, 255, 0.58);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+}
+
+
+.surgically-timer > strong {
+  color: #70e5f4;
+
+  font-size: 27px;
+  font-weight: 900;
+
+  line-height: 1.1;
+
+  font-variant-numeric:
+    tabular-nums;
+
+  text-shadow:
+    0 0 15px
+    rgba(112, 229, 244, 0.26);
+}
+
+
+.surgically-timer > strong.is-danger {
+  color: #ff7777;
+
+  text-shadow:
+    0 0 15px
+    rgba(255, 75, 75, 0.55);
+
+  animation: none;
+}
+
+
+.surgically-timer-track {
+  width: 100%;
+  height: 6px;
+
+  margin-top: 4px;
+
+  overflow: hidden;
+
+  border-radius: 100px;
+
+  background:
+    rgba(255, 255, 255, 0.13);
+}
+
+
+.surgically-timer-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #198ca7,
+      #70e5f4
+    );
+
+  box-shadow:
+    0 0 12px
+    rgba(112, 229, 244, 0.45);
+
+  transition:
+    width 0.05s linear;
+}
+
+
+@keyframes surgicallyTimerDanger {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.55;
+  }
+
+}
+
+
+/* ========================================
+   BOUTON SERRER
+
+   Toujours disponible quand
+   la pince est sortie et vide.
+======================================== */
+
+.surgically-squeeze-button {
+  position: fixed;
+
+  left: 50%;
+
+  bottom:
+    max(
+      78px,
+      calc(
+        env(safe-area-inset-bottom)
+        + 66px
+      )
+    );
+
+  z-index: 350;
+
+  min-width: 210px;
+  min-height: 54px;
+
+  padding: 14px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    2px solid
+    rgba(197, 248, 255, 0.8);
+
+  border-radius: 100px;
+
+  color: white;
+
+  font-size: 13px;
+  font-weight: 950;
+
+  letter-spacing: 0.09em;
+
+  background:
+    linear-gradient(
+      135deg,
+      #198ca7,
+      #16b9d2
+    );
+
+  box-shadow:
+    0 8px 28px
+    rgba(5, 145, 184, 0.35),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.24);
+
+  transform:
+    translateX(-50%);
+
+  cursor: pointer;
+
+  touch-action: none;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
+  user-select: none;
+}
+
+
+.surgically-squeeze-button:active {
+  transform:
+    translateX(-50%)
+    scale(0.94);
+
+  filter:
+    brightness(1.12);
+}
+
+
+/* ========================================
+   PINCE AVEC ORGANE
+
+   On conserve la même taille
+   et la même position que
+   pincemain.png.
+======================================== */
+
+.surgically-pince-main {
+  z-index: 320;
+
+  object-fit: contain;
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   ORGANE DÉPOSÉ DANS LA BOÎTE
+======================================== */
+
+.surgically-deposit-organ {
+  position: absolute;
+
+  z-index: 65;
+
+  display: block;
+
+  width: 100px;
+  height: 100px;
+
+  object-fit: contain;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+  filter:
+    drop-shadow(
+      0 5px 8px
+      rgba(0, 0, 0, 0.32)
+    );
+
+  animation:
+    surgicallyDepositOrgan
+    0.8s ease-in-out both;
+}
+
+
+.surgically-deposit-tablet,
+.surgically-deposit-phone {
+  display: none;
+}
+
+
+@keyframes surgicallyDepositOrgan {
+
+  0% {
+    opacity: 0;
+
+    scale: 1.3;
+  }
+
+  25% {
+    opacity: 1;
+
+    scale: 1;
+  }
+
+  75% {
+    opacity: 1;
+
+    scale: 1;
+  }
+
+  100% {
+    opacity: 0;
+
+    scale: 0.8;
+  }
+
+}
+
+
+/* ========================================
+   CERCLE LUMINEUX
+   SUR LA BOÎTE DE DÉPÔT
+
+   Même principe que le cercle
+   autour de la pince rangée.
+======================================== */
+
+.surgically-deposit-indicator {
+  position: absolute;
+
+  z-index: 60;
+
+  width: 132px;
+height: 132px;
+box-sizing: border-box;
+
+  border:
+    2px solid
+    rgba(112, 229, 244, 0.95);
+
+  border-radius: 50%;
+
+  background:
+    rgba(112, 229, 244, 0.08);
+
+  box-shadow:
+    0 0 14px
+    rgba(112, 229, 244, 0.7),
+
+    inset 0 0 12px
+    rgba(112, 229, 244, 0.25);
+
+  pointer-events: none;
+
+  animation:
+    surgicallyPincePulse
+    1.35s ease-in-out infinite;
+}
+
+.surgically-deposit-indicator-tablet,
+.surgically-deposit-indicator-phone {
+  display: none;
+}
+
+
+@keyframes surgicallyDepositPulse {
+
+  0%,
+  100% {
+    opacity: 0.45;
+
+    scale: 0.85;
+  }
+
+  50% {
+    opacity: 1;
+
+    scale: 1.12;
+  }
+
+}
+
+
+/* ========================================
+   ANIMATION POINTS / ERREUR
+======================================== */
+
+.surgically-feedback {
+  position: fixed;
+
+  left: 50%;
+  top: 43%;
+
+  z-index: 400;
+
+  padding: 12px 25px;
+
+  border-radius: 100px;
+
+  font-size:
+    clamp(
+      22px,
+      5vw,
+      36px
+    );
+
+  font-weight: 950;
+
+  letter-spacing: 0.02em;
+
+  white-space: nowrap;
+
+  transform:
+    translate(-50%, -50%);
+
+  pointer-events: none;
+
+  animation:
+    surgicallyFeedbackPop
+    0.85s ease-out both;
+}
+
+
+.surgically-feedback.is-success {
+  color: #e9feff;
+
+  background:
+    rgba(10, 124, 149, 0.92);
+
+  border:
+    1px solid
+    rgba(177, 248, 255, 0.8);
+
+  box-shadow:
+    0 0 35px
+    rgba(85, 217, 238, 0.35);
+}
+
+
+.surgically-feedback.is-error {
+  color: white;
+
+  background:
+    rgba(158, 27, 46, 0.94);
+
+  border:
+    1px solid
+    rgba(255, 160, 160, 0.75);
+
+  box-shadow:
+    0 0 35px
+    rgba(255, 48, 72, 0.35);
+}
+
+
+@keyframes surgicallyFeedbackPop {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.65);
+  }
+
+  25% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.08);
+  }
+
+  65% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -65%)
+      scale(0.9);
+  }
+
+}
+
+
+/* ========================================
+   ERREUR DE CHARGEMENT DE LA CARTE
+======================================== */
+
+.surgically-map-error {
+  position: fixed;
+
+  left: 50%;
+  bottom: 150px;
+
+  z-index: 500;
+
+  width:
+    min(
+      420px,
+      calc(100vw - 30px)
+    );
+
+  padding: 15px 20px;
+
+  border:
+    1px solid #ff9292;
+
+  border-radius: 15px;
+
+  color: white;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  text-align: center;
+
+  background:
+    rgba(145, 21, 43, 0.94);
+
+  transform:
+    translateX(-50%);
+}
+
+
+/* ========================================
+   TABLETTE / GRAND ÉCRAN
+
+   Boîte de dépôt à gauche.
+======================================== */
+
+@media (min-width: 701px) {
+
+  .surgically-deposit-tablet {
+    display: block;
+
+    left: 120px;
+    top: 50%;
+
+    transform:
+      translateY(-50%);
+  }
+
+
+  .surgically-deposit-indicator-tablet {
+    display: block;
+
+    left: 220px;
+    top: 50%;
+
+    transform:
+      translateY(-50%);
+  }
+
+}
+
+
+/* ========================================
+   TÉLÉPHONE
+
+   Boîte de dépôt en bas.
+======================================== */
+
+@media (max-width: 700px) {
+
+  .surgically-timer {
+    top:
+      max(
+        83px,
+        calc(
+          env(safe-area-inset-top)
+          + 70px
+        )
+      );
+
+    width: 170px;
+
+    padding: 8px 12px 10px;
+
+    border-radius: 13px;
+  }
+
+
+  .surgically-timer > span {
+    font-size: 7px;
+  }
+
+
+  .surgically-timer > strong {
+    font-size: 20px;
+  }
+
+
+  .surgically-timer-track {
+    height: 5px;
+  }
+
+
+  .surgically-squeeze-button {
+    bottom:
+      max(
+        77px,
+        calc(
+          env(safe-area-inset-bottom)
+          + 67px
+        )
+      );
+
+    min-width: 170px;
+    min-height: 46px;
+
+    padding: 11px 17px;
+
+    font-size: 11px;
+  }
+
+
+  .surgically-deposit-phone {
+    display: block;
+
+    right: 35px;
+    bottom: 130px;
+
+    /* Le centre visuel du plateau est légèrement plus bas
+       que son cadre après la rotation. */
+    transform: translateY(10px);
+
+    width: 40px;
+    height: 40px;
+  }
+
+
+  .surgically-deposit-indicator-phone {
+    display: block;
+
+    right: -25px;
+    bottom: 45px;
+    
+
+    width: 80px;
+    height: 80px;
+  }
+
+}
+
+/* ========================================
+   AJUSTEMENT VISUEL DES ORGANES
+
+   Ne modifie pas les zones
+   de collision de patientnoir.png.
+======================================== */
+
+
+/* CŒUR : plus haut et mieux centré */
+
+.surgically-organ-coeur {
+  transform:
+    translate(-38%, -350%)
+    scale(0.7);
+}
+
+
+/* POUMON DROIT DU PATIENT
+   (à gauche sur notre écran) */
+
+.surgically-organ-poumon-droit {
+  transform:
+    translate(-100%, -360%)
+    rotate(15deg)
+    scale(1.2);
+}
+
+
+/* POUMON GAUCHE DU PATIENT
+   (à droite sur notre écran) */
+
+.surgically-organ-poumon-gauche {
+  transform:
+    translate(25%, -360%)
+    rotate(-10deg)
+    scale(1.2);
+}
+
+
+/* INTESTINS : plus petits,
+   pour rentrer dans la loge */
+
+.surgically-organ-intestins {
+  transform:
+    translate(-40%, -120%)
+    scale(1.1);
+}
+
+.surgically-organ-humerus {
+  transform:
+    translate(-213%,-330%)
+    rotate(15deg)
+    scale(1.6);
+}
+
+/* estomac */
+
+.surgically-organ-estomac {
+  transform:
+    translate(17%, -248%)
+    scale(0.87);
+}
+
+.surgically-organ-reingauche {
+  transform:
+    translate(58%, -160%)
+    scale(0.68);
+}
+
+.surgically-organ-reindroit {
+  transform:
+    translate(-137%, -160%)
+    scale(0.68);
+}
+
+.surgically-organ-foie {
+  transform:
+    translate(-95%, -263%)
+    rotate(-10deg)
+    scale(1);
+}
+
+.surgically-organ-thyroide {
+  transform:
+    translate(-38%, -465%)
+    scale(0.5);
+}
+
+.surgically-organ-patellaire {
+  transform:
+    translate(-135%, 186%)
+    scale(0.7);
+}
+
+.surgically-organ-interossant {
+  transform:
+    translate(175%, -155%)
+    rotate(-20deg)
+    scale(0.9);
+}
+
+.surgically-organ-tibant {
+  transform:
+    translate(45%, 300%)
+    rotate(10deg)
+    scale(2);
+  clip-path: inset(0 0 38% 0);
+}
+
+/* ========================================
+   HUD — STYLE ECG
+======================================== */
+
+.surgically-hud {
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto
+    minmax(0, 1fr);
+
+  min-height: 76px;
+
+  padding:
+    11px 22px;
+}
+
+
+/* ========================================
+   MEILLEUR SCORE — GAUCHE
+======================================== */
+
+.surgically-hud-best {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 5px;
+}
+
+.surgically-hud-best > span {
+  color:
+    rgba(255, 255, 255, 0.52);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.16em;
+
+  white-space: nowrap;
+}
+
+.surgically-hud-best > strong {
+  color: #70e5f4;
+
+  font-size: 25px;
+  font-weight: 900;
+
+  line-height: 1;
+}
+
+
+/* ========================================
+   VIES — CENTRE
+======================================== */
+
+.surgically-hud-lives {
+  align-items: center;
+
+  justify-self: center;
+}
+
+.surgically-hearts {
+  justify-content: center;
+}
+
+
+/* ========================================
+   SCORE — DROITE
+======================================== */
+
+.surgically-hud-score {
+  align-items: flex-end;
+
+  justify-self: end;
+}
+
+.surgically-hud-score > strong {
+  font-size: 25px;
+
+  line-height: 1;
+}
+
+
+/* ========================================
+   ORGANE DEMANDÉ — EN BAS
+======================================== */
+
+.surgically-bottom-mission {
+  position: fixed;
+
+  left: 50%;
+
+  bottom:
+    max(
+      18px,
+      env(safe-area-inset-bottom)
+    );
+
+  z-index: 210;
+
+  width:
+    min(
+      390px,
+      calc(100vw - 28px)
+    );
+
+  min-height: 78px;
+
+  padding:
+    13px 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.35);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 65, 90, 0.94),
+      rgba(4, 35, 54, 0.96)
+    );
+
+  backdrop-filter: blur(15px);
+
+  -webkit-backdrop-filter:
+    blur(15px);
+
+  box-shadow:
+    0 12px 35px
+    rgba(0, 0, 0, 0.24),
+
+    0 0 24px
+    rgba(85, 217, 238, 0.08);
+
+  text-align: center;
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+}
+
+.surgically-bottom-mission > span {
+  color:
+    rgba(255, 255, 255, 0.54);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.22em;
+}
+
+.surgically-bottom-mission > strong {
+  color: #70e5f4;
+
+  font-size:
+    clamp(
+      19px,
+      3vw,
+      26px
+    );
+
+  font-weight: 950;
+
+  line-height: 1.15;
+
+  text-shadow:
+    0 0 18px
+    rgba(112, 229, 244, 0.23);
+}
+
+
+/* ========================================
+   TÉLÉPHONE
+======================================== */
+
+@media (max-width: 700px) {
+
+  .surgically-hud {
+    min-height: 62px;
+
+    padding:
+      8px 11px;
+
+    gap: 5px;
+  }
+
+  .surgically-hud-best > span {
+    font-size: 6px;
+
+    letter-spacing: 0.09em;
+  }
+
+  .surgically-hud-best > strong {
+    font-size: 17px;
+  }
+
+  .surgically-hud-score > strong {
+    font-size: 17px;
+  }
+
+  .surgically-bottom-mission {
+    min-height: 65px;
+
+    padding:
+      10px 16px;
+
+    border-radius: 18px;
+  }
+
+  .surgically-bottom-mission > span {
+    font-size: 8px;
+  }
+
+  .surgically-bottom-mission > strong {
+    font-size:
+      clamp(
+        17px,
+        4.5vw,
+        21px
+      );
+  }
+
+}
+
+/* ========================================
+   AJUSTEMENTS TÉLÉPHONE UNIQUEMENT
+   Aucun changement sur tablette
+======================================== */
+
+@media (max-width: 700px) {
+
+  /* PATIENT : 35 px PLUS BAS */
+
+  .surgically-state-playing
+  .surgically-patient,
+
+  .surgically-state-countdown
+  .surgically-patient,
+
+  .surgically-state-gameover
+  .surgically-patient {
+
+    transform:
+      translate(-40px, 35px);
+  }
+
+
+  /* CHRONOMÈTRE PLUS COMPACT */
+
+  .surgically-timer {
+
+    top: max(
+      83px,
+      calc(
+        env(safe-area-inset-top)
+        + 70px
+      )
+    );
+
+    width: 145px;
+
+    padding:
+      6px 10px 8px;
+
+    gap: 3px;
+
+    border-radius: 12px;
+  }
+
+  .surgically-timer > span {
+    font-size: 6px;
+
+    letter-spacing: 0.12em;
+  }
+
+  .surgically-timer > strong.is-danger {
+  color: #ff7777;
+
+  text-shadow:
+    0 0 15px
+    rgba(255, 75, 75, 0.55);
+
+  animation: none;
+}
+
+  .surgically-timer-track {
+    height: 4px;
+
+    margin-top: 2px;
+  }
+
+
+  /* PLATEAU DU HAUT */
+
+  .surgically-box-1 {
+    top: 180px;
+  }
+
+
+  /* PINCE RANGÉE :
+     ELLE SUIT LE PLATEAU DU HAUT */
+
+  .surgically-tool-phone {
+    top: 185px;
+  }
+
+
+  /* PLATEAU DU BAS :
+     LÉGÈRE DESCENTE */
+
+  .surgically-box-2 {
+    bottom: 85px;
+  }
+
+}
+
+.surgically-organ {
+  position: fixed;
+
+  z-index: 35;
+
+  display: block;
+
+  width: 50px;
+  height: 50px;
+
+  left: 50%;
+  top: 50%;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: contain;
+
+  pointer-events: none;
+
+  user-select: none;
+  -webkit-user-drag: none;
+
+  filter:
+    drop-shadow(
+      0 3px 5px
+      rgba(0, 0, 0, 0.22)
+    );
+
+  animation:
+    surgicallyOrganAppear
+    0.2s ease-out both;
+}
+
+/* ========================================
+   GROUPE DES ORGANES
+   MODÈLE DE RÉFÉRENCE
+======================================== */
+
+.surgically-organs {
+  position: fixed;
+
+  left: 50%;
+  top: 50%;
+
+  width: 0;
+  height: 0;
+
+  transform: none;
+
+  pointer-events: none;
+}
+
+.surgically-organs-group .surgically-organ {
+  position: absolute;
+}
+
+/* ========================================
+   GROUPE DES ORGANES
+   MODÈLE DE RÉFÉRENCE
+======================================== */
+
+.surgically-organs-group {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 35;
+
+  pointer-events: none;
+
+  transform-origin: center center;
+}
+
+/* Tous les organes partent du
+   même point au centre du groupe */
+
+.surgically-organs-group {
+  position: fixed;
+
+  inset: 0;
+
+  left: 0%;
+  top: 11%;
+
+  transform:
+    scale(0.95);
+
+  transform-origin: center center;
+}
+
+/* ========================================
+   TÉLÉPHONE PORTRAIT
+   RÉDUCTION DU MODÈLE COMPLET
+======================================== */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+  .surgically-organs-group {
+    transform:
+      translate(-40px, 43px)
+      scale(0.65);
+  }
+
+}
+
+/* ========================================
+   TÉLÉPHONE PORTRAIT
+   BOUTON SERRER + ORGANE À EXTRAIRE
+======================================== */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+  /* BOUTON SERRER LA PINCE */
+
+  .surgically-squeeze-button {
+    bottom: 104px;
+
+    min-width: 155px;
+    min-height: 38px;
+
+    padding: 9px 15px;
+
+    font-size: 10px;
+    letter-spacing: 0.05em;
+  }
+
+
+  /* BLOC À EXTRAIRE */
+
+  .surgically-bottom-mission {
+    bottom: 18px;
+
+    min-height: 58px;
+
+    padding: 8px 12px;
+
+    gap: 3px;
+  }
+
+
+  /* PETIT TEXTE « À EXTRAIRE » */
+
+  .surgically-bottom-mission > span {
+    font-size: 7px;
+  }
+
+
+  /* NOM DE L'ORGANE */
+
+  .surgically-bottom-mission > strong {
+    font-size: 16px;
+
+    line-height: 1.1;
+  }
+
+}
+ 
+  
+/* ========================================
+   SURGICALLY INSANE
+   GAME OVER — PLEIN ÉCRAN CENTRÉ
+======================================== */
+
+.surgically-page.surgically-state-gameover {
+  display: block;
+
+  width: 100%;
+  min-height: calc(100dvh - 100px);
+
+  overflow: visible;
+}
+
+
+/* PAGE DE RÉSULTATS */
+
+.surgically-results-page {
+  position: fixed;
+
+  top: 100px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  z-index: 1000;
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 25px 16px 50px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background: transparent;
+}
+
+
+/* MENU CENTRAL */
+
+.surgically-results-page .ecg-game-over {
+  width: min(420px, 100%);
+
+  flex-shrink: 0;
+
+  margin: auto;
+
+  padding: 20px 0 35px;
+
+  box-sizing: border-box;
+}
+
+
+/* ========================================
+   TÉLÉPHONE PORTRAIT
+======================================== */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+  .surgically-results-page {
+    top: 84px;
+
+    padding: 20px 12px 45px;
+  }
+
+  .surgically-results-page .ecg-game-over {
+    width: 100%;
+
+    padding: 15px 0 30px;
+  }
+
+}
+
+/* ========================================
+   COUNTDOWN — SUPPRIMER LA BANDE EN BAS
+======================================== */
+
+.surgically-state-countdown {
+  overflow: hidden;
+}
+
+.surgically-state-countdown .surgically-countdown {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100vw;
+  height: 100dvh;
+
+  background: rgba(3, 25, 39, 0.34);
+
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* ========================================
+   TABLETTE / IPAD
+======================================== */
+
+@media (min-width: 701px) and (max-width: 1180px) {
+
+  /* ================================
+     PATIENT
+  ================================= */
+
+  .surgically-patient-wrap {
+    width: min(31vw, 320px);
+    max-width: 320px;
+  }
+
+  .surgically-patient {
+    max-height: 62vh;
+    object-fit: contain;
+  }
+
+
+  /* ================================
+     BOÎTES LATÉRALES
+  ================================= */
+
+  .surgically-box {
+    width: 112px;
+    height: auto;
+  }
+
+  .surgically-box-1 {
+    left: 8%;
+    top: 54%;
+    transform: translateY(-50%);
+  }
+
+  .surgically-box-2 {
+    right: 8%;
+    top: 54%;
+    transform: translateY(-50%);
+  }
+
+
+  /* ================================
+     PINCE RANGÉE (TABLETTE)
+  ================================= */
+
+  .surgically-tool-tablet {
+    right: 9.2%;
+    top: 54%;
+    transform: translateY(-50%);
+    width: 78px;
+    height: 78px;
+  }
+
+  .surgically-tool-tablet img {
+    width: 52px;
+    height: auto;
+  }
+
+
+  /* ================================
+     CHRONO
+     -> remonté pour ne plus être
+        sur la tête du patient
+  ================================= */
+
+  .surgically-timer {
+    top: 86px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 170px;
+    padding: 10px 14px;
+    z-index: 20;
+  }
+
+
+  /* ================================
+     BOUTON SERRER
+     -> remonté un peu
+  ================================= */
+
+  .surgically-squeeze-button {
+    left: 50%;
+    bottom: 108px;
+    transform: translateX(-50%);
+    z-index: 20;
+  }
+
+
+  /* ================================
+     MISSION EN BAS
+     -> descendue pour laisser
+        de l’air avec le bouton
+  ================================= */
+
+  .surgically-bottom-mission {
+    left: 50%;
+    bottom: 34px;
+    transform: translateX(-50%);
+    width: min(340px, 62vw);
+    z-index: 19;
+  }
+
+
+  /* ================================
+     DÉPÔT DANS LA BOÎTE
+  ================================= */
+
+  .surgically-deposit-organ-tablet {
+    width: 54px;
+    height: auto;
+  }
+
+  .surgically-deposit-indicator-tablet {
+    transform: scale(0.88);
+  }
+}
+
+/* ========================================
+   TABLETTE — AJUSTEMENTS VISUELS
+======================================== */
+
+@media (min-width: 701px) {
+
+  /* Chrono plus compact et plus haut */
+  .surgically-timer {
+    top: 88px;
+    width: 175px;
+    padding: 6px 12px 8px;
+    gap: 3px;
+  }
+
+  .surgically-timer > span {
+    font-size: 7px;
+  }
+
+  .surgically-timer > strong {
+    font-size: 21px;
+  }
+
+  .surgically-timer-track {
+    height: 4px;
+    margin-top: 2px;
+  }
+
+  /* Bouton plus petit et remonté */
+  .surgically-squeeze-button {
+    bottom: 112px;
+    min-width: 170px;
+    min-height: 42px;
+    padding: 9px 16px;
+    font-size: 10px;
+  }
+
+  /* Case de l'organe demandé plus compacte */
+  .surgically-bottom-mission {
+    bottom: 16px;
+    min-height: 65px;
+    padding: 9px 18px;
+  }
+
+  .surgically-bottom-mission > strong {
+    font-size: 20px;
+  }
+
+}
+
+/* ========================================
+   TABLETTE — NOUVELLE DISPOSITION
+======================================== */
+
+@media (min-width: 701px) {
+
+  /* CHRONO À GAUCHE */
+
+  .surgically-timer {
+    left: 35px;
+    top: 50%;
+
+    width: 230px;
+
+    transform:
+      translateY(-50%);
+  }
+
+
+  /* BOÎTE AVEC PINCE — EN HAUT À DROITE */
+
+  .surgically-box-2 {
+    right: 45px;
+    top: 25%;
+
+    transform:
+      translateY(-50%)
+      rotate(90deg);
+  }
+
+  .surgically-tool-tablet {
+    right: 120px;
+    top: 25%;
+
+    transform:
+      translateY(-50%);
+  }
+
+
+  /* BOÎTE DE DÉPÔT — EN BAS À DROITE */
+
+  .surgically-box-1 {
+    left: auto;
+    right: 45px;
+    top: 73%;
+
+    transform:
+      translateY(-50%)
+      rotate(90deg);
+  }
+
+
+  /* ORGANE DÉPOSÉ */
+
+  .surgically-deposit-tablet {
+    left: auto;
+    right: 150px;
+    top: 73%;
+
+    transform:
+      translateY(-50%);
+  }
+
+
+  /* CERCLE DE DÉPÔT */
+
+  .surgically-deposit-indicator-tablet {
+    left: auto;
+    right: 60px;
+    top: 73%;
+
+    transform:
+      translateY(-50%);
+  }
+
+}
+
+/* CHRONO À GAUCHE */
+
+.surgically-timer {
+  left: 75px;
+  top: 50%;
+
+  width: 260px;
+
+  padding: 14px 18px 16px;
+
+  transform:
+    translateY(-50%);
+}
+
+.surgically-timer > strong {
+  font-size: 32px;
+}
+
+@media (min-width: 701px) {
+
+  /* BOÎTE DU HAUT */
+  .surgically-box-2 {
+    top: 33%;
+  }
+
+  /* PINCE DANS LA BOÎTE */
+  .surgically-tool-tablet {
+    top: 33%;
+  }
+
+}
+
+/* ========================================
+   TÉLÉPHONE PORTRAIT — MISE EN PAGE
+   Ne touche pas à la tablette
+======================================== */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+  /* CHRONO :
+     petit, entre le HUD et la tête */
+
+  .surgically-timer {
+    top: 78px;
+
+    left: 50%;
+
+    width: 145px;
+
+    padding: 6px 10px 7px;
+
+    gap: 2px;
+
+    border-radius: 12px;
+
+    transform: translateX(-50%);
+  }
+
+  .surgically-timer > span {
+    font-size: 6px;
+    letter-spacing: 0.12em;
+  }
+
+  .surgically-timer > strong {
+    font-size: 19px;
+    line-height: 1;
+  }
+
+  .surgically-timer-track {
+    height: 4px;
+    margin-top: 2px;
+  }
+
+
+  /* À EXTRAIRE :
+     boîte moins haute en bas */
+
+  .surgically-bottom-mission {
+    bottom: 10px;
+
+    width: calc(100vw - 28px);
+
+    min-height: 52px;
+
+    padding: 7px 12px;
+
+    gap: 2px;
+
+    border-radius: 15px;
+  }
+
+  .surgically-bottom-mission > span {
+    font-size: 7px;
+  }
+
+  .surgically-bottom-mission > strong {
+    font-size: 17px;
+    line-height: 1.1;
+  }
+
+
+  /* SERRER LA PINCE :
+     descend sous le brancard */
+
+  .surgically-squeeze-button {
+    bottom: 70px;
+
+    min-width: 160px;
+    min-height: 38px;
+
+    padding: 8px 14px;
+
+    font-size: 10px;
+
+    border-radius: 100px;
+  }
+
+}
+
+/* TIBIAL ANTÉRIEUR DANS LA COUPELLE
+
+   L'ancien scale: 4 était écrasé par
+   l'animation surgicallyDepositOrgan.
+   On agrandit directement la zone de rendu
+   pour garder une image nette et une taille
+   stable pendant toute l'animation.
+*/
+
+.surgically-deposit-tibant {
+  object-fit: contain;
+  width: 240px;
+  height: 240px;
+}
+
+@media (min-width: 701px) and (max-width: 1180px) {
+
+  .surgically-deposit-tibant {
+    width: 216px;
+    height: 216px;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  .surgically-deposit-tibant {
+    width: 160px;
+    height: 160px;
+  }
+
+  /* Dépôt dans la boîte du bas :
+     même centre que la boîte tournée. */
+  .surgically-deposit-phone.surgically-deposit-tibant {
+    right: -8px;
+    bottom: 100px;
+    width: 125px;
+    height: 125px;
+  }
+
+}
+
+
+/* ========================================
+   SURGICALLY INSANE
+   ANIMATION NOUVEAU RECORD
+======================================== */
+
+.surgically-record-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 10000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(13, 114, 143, 0.24),
+      rgba(3, 29, 47, 0.10) 45%,
+      transparent 72%
+    );
+
+  animation:
+    surgicallyRecordOverlay
+    3s ease both;
+}
+
+
+/* ========================================
+   CARTE CENTRALE
+======================================== */
+
+.surgically-record-burst {
+  position: relative;
+
+  width: min(340px, 90vw);
+
+  padding: 24px 25px;
+
+  border:
+    1px solid
+    rgba(112, 229, 244, 0.35);
+
+  border-radius: 26px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(9, 75, 101, 0.96),
+      rgba(4, 40, 63, 0.98)
+    );
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.34),
+    0 0 45px rgba(85, 217, 238, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+
+  animation:
+    surgicallyRecordBurst
+    3s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+}
+
+
+/* ========================================
+   TITRE
+======================================== */
+
+.surgically-record-kicker {
+  color: #70e5f4;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 4px;
+}
+
+
+/* ========================================
+   SCORE
+======================================== */
+
+.surgically-record-burst strong {
+  margin-top: 5px;
+
+  color: white;
+
+  font-size: clamp(34px, 7vw, 56px);
+  font-weight: 850;
+
+  line-height: 1;
+
+  letter-spacing: -2px;
+
+  text-shadow:
+    0 0 25px rgba(85, 217, 238, 0.30);
+}
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.surgically-record-burst p {
+  margin: 8px 0 0;
+
+  color: rgba(255, 255, 255, 0.66);
+
+  font-size: 12px;
+}
+
+
+/* ========================================
+   ÉTOILE
+======================================== */
+
+.surgically-record-star {
+  position: absolute;
+
+  top: -18px;
+  right: -14px;
+
+  color: #a4f4ff;
+
+  font-size: 35px;
+
+  text-shadow:
+    0 0 18px rgba(85, 217, 238, 0.80);
+
+  animation:
+    surgicallyRecordStar
+    3s ease both;
+}
+
+
+/* ========================================
+   ANIMATION DU FOND
+======================================== */
+
+@keyframes surgicallyRecordOverlay {
+
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  82% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+
+}
+
+
+/* ========================================
+   ANIMATION DE LA CARTE
+======================================== */
+
+@keyframes surgicallyRecordBurst {
+
+  0% {
+    opacity: 0;
+    transform: scale(0.55);
+  }
+
+  8% {
+    opacity: 1;
+    transform: scale(1.07);
+  }
+
+  14% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  82% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+}
+
+
+/* ========================================
+   ANIMATION DE L'ÉTOILE
+======================================== */
+
+@keyframes surgicallyRecordStar {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      scale(0.2)
+      rotate(-90deg);
+  }
+
+  12% {
+    opacity: 1;
+
+    transform:
+      scale(1.2)
+      rotate(15deg);
+  }
+
+  25% {
+    opacity: 1;
+
+    transform:
+      scale(1)
+      rotate(0deg);
+  }
+
+  82% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      scale(0.8)
+      rotate(35deg);
+  }
+
+}
+
+
+/* ========================================
+   PETITS ÉCRANS
+======================================== */
+
+@media (max-width: 520px) {
+
+  .surgically-record-burst {
+    width: min(285px, 90vw);
+
+    padding: 20px 16px;
+  }
+
+  .surgically-record-kicker {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .surgically-record-burst p {
+    font-size: 11px;
+  }
+
+}
+
+
+/* ========================================
+   ACCESSIBILITÉ
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .surgically-record-overlay,
+  .surgically-record-burst,
+  .surgically-record-star {
+    animation-duration: 1ms;
+  }
+
+}
+
+

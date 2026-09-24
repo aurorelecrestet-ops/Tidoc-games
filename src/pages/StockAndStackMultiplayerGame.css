@@ -1,0 +1,1167 @@
+
+/* ========================================
+   STOCK & STACK — MULTIJOUEUR
+
+   Complément de StockAndStack.css.
+   Ne remplace pas le CSS solo.
+======================================== */
+
+
+/* ========================================
+   PAGE DU JEU
+======================================== */
+
+.stock-multi-game {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+}
+
+
+.stock-multi-game .stock-playing-screen {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  overscroll-behavior-y: contain;
+
+  -webkit-overflow-scrolling: touch;
+
+  padding-top: 94px;
+
+  padding-bottom:
+    max(
+      30px,
+      env(safe-area-inset-bottom)
+    );
+}
+
+
+/* ========================================
+   HUD DES JOUEURS
+
+   Même principe que Beat Catcher :
+   joueurs alignés dans une barre.
+======================================== */
+
+.stock-multi-hud {
+  position: absolute;
+
+  top:
+    max(
+      12px,
+      env(safe-area-inset-top)
+    );
+
+  left: 50%;
+
+  z-index: 100;
+
+  width:
+    min(
+      1100px,
+      calc(100% - 44px)
+    );
+
+  min-height: 62px;
+
+  padding: 8px 12px;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(
+      112,
+      229,
+      244,
+      0.14
+    );
+
+  border-radius: 20px;
+
+  background:
+    rgba(
+      4,
+      35,
+      54,
+      0.82
+    );
+
+  backdrop-filter: blur(15px);
+
+  -webkit-backdrop-filter:
+    blur(15px);
+
+  box-shadow:
+    0 16px 35px
+    rgba(
+      0,
+      0,
+      0,
+      0.20
+    );
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   JOUEUR DU HUD
+======================================== */
+
+.stock-multi-hud-player {
+  position: relative;
+
+  flex:
+    1 1 0;
+
+  min-width: 0;
+  min-height: 44px;
+
+  padding: 0 15px;
+
+  display: grid;
+
+  grid-template-columns:
+    auto
+    minmax(0, 1fr)
+    auto;
+
+  align-items: center;
+
+  gap: 8px;
+
+  border-radius: 12px;
+
+  background: transparent;
+
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.stock-multi-hud-player
++ .stock-multi-hud-player {
+
+  border-left:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.09
+    );
+}
+
+
+/* Ton propre joueur */
+
+.stock-multi-hud-player.is-me {
+  background:
+    rgba(
+      112,
+      229,
+      244,
+      0.05
+    );
+
+  box-shadow:
+    inset 0 0 0 1px
+    rgba(
+      255,
+      255,
+      255,
+      0.07
+    );
+}
+
+
+/* Joueur dont c'est le tour */
+
+.stock-multi-hud-player.is-active {
+  background:
+    rgba(
+      85,
+      217,
+      238,
+      0.11
+    );
+
+  box-shadow:
+    inset 0 0 0 1px
+    rgba(
+      85,
+      217,
+      238,
+      0.32
+    );
+}
+
+
+.stock-multi-hud-player.is-active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 14px;
+  right: 14px;
+  bottom: -1px;
+
+  height: 2px;
+
+  border-radius: 20px;
+
+  background:
+    #55d9ee;
+
+  box-shadow:
+    0 0 10px
+    rgba(
+      85,
+      217,
+      238,
+      0.65
+    );
+}
+
+
+/* Pseudo */
+
+.stock-multi-hud-player strong {
+  min-width: 0;
+
+  overflow: hidden;
+
+  color: white;
+
+  font-size: 11px;
+  font-weight: 750;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* Score */
+
+.stock-multi-hud-player
+> span:last-child {
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.82
+    );
+
+  font-size: 11px;
+  font-weight: 850;
+
+  white-space: nowrap;
+}
+
+
+/* ========================================
+   POINT DE COULEUR DES JOUEURS
+======================================== */
+
+.stock-multi-player-dot {
+  width: 10px;
+  height: 10px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: currentColor;
+
+  box-shadow:
+    0 0 10px currentColor;
+}
+
+
+/* ========================================
+   COULEURS INDIVIDUELLES
+
+   Joueur 1 : vert
+   Joueur 2 : rouge
+   Joueur 3 : jaune
+   Joueur 4 : violet
+======================================== */
+
+.stock-multi-color-green {
+  --stock-player-color:
+    #55e68a;
+
+  --stock-player-rgb:
+    85, 230, 138;
+}
+
+
+.stock-multi-color-red {
+  --stock-player-color:
+    #ff5f68;
+
+  --stock-player-rgb:
+    255, 95, 104;
+}
+
+
+.stock-multi-color-yellow {
+  --stock-player-color:
+    #ffd84d;
+
+  --stock-player-rgb:
+    255, 216, 77;
+}
+
+
+.stock-multi-color-purple {
+  --stock-player-color:
+    #b77cff;
+
+  --stock-player-rgb:
+    183, 124, 255;
+}
+
+
+.stock-multi-player-dot {
+  color:
+    var(
+      --stock-player-color,
+      #55d9ee
+    );
+}
+
+
+
+
+/* ========================================
+   TITRE ET INDICATION DU TOUR
+======================================== */
+
+.stock-multi-turn-banner {
+  width:
+    min(
+      600px,
+      calc(100% - 30px)
+    );
+
+  margin:
+    0 auto 12px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 5px;
+
+  text-align: center;
+}
+
+
+.stock-multi-turn-banner > span {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.56
+    );
+
+  font-size: 10px;
+  font-weight: 850;
+
+  letter-spacing: 0.20em;
+}
+
+
+.stock-multi-turn-banner > strong {
+  color: #70e5f4;
+
+  font-size:
+    clamp(
+      12px,
+      1.6vw,
+      17px
+    );
+
+  font-weight: 900;
+
+  letter-spacing: 0.07em;
+
+  text-transform: uppercase;
+
+  text-wrap: balance;
+}
+
+
+/* ========================================
+   RÉSERVE
+
+   Dimensions conservées du solo.
+======================================== */
+
+.stock-multi-game
+.stock-board-wrapper {
+
+  flex-shrink: 0;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.stock-multi-game
+.stock-board {
+
+  position: relative;
+}
+
+
+.stock-multi-game
+.stock-grid {
+
+  position: absolute;
+}
+
+
+/* ========================================
+   CASES OCCUPÉES
+
+   Les cartons restent visibles
+   quelle que soit leur couleur.
+======================================== */
+
+.stock-multi-game
+.stock-grid-cell {
+
+  min-width: 0;
+  min-height: 0;
+}
+
+
+.stock-multi-game
+.stock-board-box {
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   PRÉVISUALISATION
+
+   Conserve la validation verte/rouge
+   déjà prévue dans StockAndStack.css.
+======================================== */
+
+.stock-multi-game
+.stock-preview-box {
+
+  opacity: 0.78;
+}
+
+
+/* ========================================
+   ZONE DES TROIS FORMES
+======================================== */
+
+.stock-multi-game
+.stock-pieces-area {
+
+  flex-shrink: 0;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.stock-multi-game
+.stock-pieces-tray {
+
+  width: 100%;
+
+  min-width: 0;
+}
+
+
+/* ========================================
+   JOUEUR EN ATTENTE
+
+   Il voit les trois formes,
+   mais ne peut pas les déplacer.
+======================================== */
+
+.stock-multi-tray-waiting {
+  opacity: 0.70;
+}
+
+
+.stock-multi-slot-disabled {
+  cursor: default !important;
+}
+
+
+.stock-multi-tray-waiting
+.stock-piece-slot {
+
+  touch-action: auto;
+}
+
+
+/*
+  Tour actif :
+  les formes peuvent être glissées.
+*/
+
+.stock-multi-game
+.stock-piece-slot:not(
+  .stock-multi-slot-disabled
+) {
+
+  cursor: grab;
+
+  touch-action: none;
+}
+
+
+.stock-multi-game
+.stock-piece-slot:not(
+  .stock-multi-slot-disabled
+):active {
+
+  cursor: grabbing;
+}
+
+
+/* ========================================
+   PIÈCE FLOTTANTE
+
+   Toujours devant le plateau
+   et sans intercepter le doigt.
+======================================== */
+
+.stock-multi-game
+.stock-drag-ghost {
+
+  z-index: 1000;
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   ENREGISTREMENT DU COUP
+======================================== */
+
+.stock-multi-saving {
+  position: absolute;
+
+  left: 50%;
+  bottom:
+    max(
+      12px,
+      env(safe-area-inset-bottom)
+    );
+
+  z-index: 150;
+
+  width: max-content;
+  max-width:
+    calc(100% - 30px);
+
+  padding:
+    10px 17px;
+
+  border:
+    1px solid
+    rgba(
+      85,
+      217,
+      238,
+      0.30
+    );
+
+  border-radius: 100px;
+
+  color: white;
+
+  background:
+    rgba(
+      4,
+      35,
+      54,
+      0.94
+    );
+
+  box-shadow:
+    0 12px 30px
+    rgba(
+      0,
+      0,
+      0,
+      0.25
+    );
+
+  font-size: 12px;
+  font-weight: 750;
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   ERREUR DE PLACEMENT
+======================================== */
+
+.stock-multi-error {
+  position: relative;
+
+  z-index: 120;
+
+  width:
+    min(
+      500px,
+      calc(100% - 30px)
+    );
+
+  margin:
+    8px auto 0;
+
+  padding:
+    10px 14px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      95,
+      104,
+      0.35
+    );
+
+  border-radius: 12px;
+
+  color: #ffd0d3;
+
+  background:
+    rgba(
+      110,
+      22,
+      39,
+      0.75
+    );
+
+  text-align: center;
+
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+
+/* ========================================
+   CLASSEMENT FINAL
+
+   Même présentation générale
+   que les résultats ECG.
+======================================== */
+
+.stock-multi-final-ranking {
+  height: 100%;
+  min-height: 0;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  -webkit-overflow-scrolling: touch;
+
+  overscroll-behavior-y: contain;
+
+  padding-bottom:
+    max(
+      90px,
+      calc(
+        env(safe-area-inset-bottom)
+        + 60px
+      )
+    );
+}
+
+
+.stock-multi-final-ranking
+.rankings-heading {
+
+  width: 100%;
+}
+
+
+/*
+  Une seule carte de résultats :
+  centrée, même si .rankings-games
+  prévoit trois colonnes.
+*/
+
+.stock-multi-final-ranking
+.rankings-games {
+
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+
+.stock-multi-final-card {
+  width:
+    min(
+      620px,
+      100%
+    );
+
+  min-width: 0;
+
+  min-height: auto;
+
+  margin:
+    0 auto;
+
+  padding-bottom: 22px;
+}
+
+
+/* ========================================
+   LISTE DES JOUEURS
+======================================== */
+
+.stock-multi-match-ranking {
+  width: 100%;
+
+  margin-top: 22px;
+
+  padding:
+    0 0 18px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+
+/* ========================================
+   BOUTON RETOUR
+======================================== */
+
+.stock-multi-final-card
+.rankings-card-bottom {
+
+  width: 100%;
+
+  padding-top: 10px;
+
+  justify-content: flex-end;
+}
+
+
+/* ========================================
+   TABLETTE
+======================================== */
+
+@media (max-width: 1000px) {
+
+  .stock-multi-game
+  .stock-playing-screen {
+
+    padding-top: 90px;
+
+    padding-bottom:
+      max(
+        35px,
+        env(safe-area-inset-bottom)
+      );
+  }
+
+
+  .stock-multi-hud {
+    width:
+      calc(100% - 30px);
+
+    min-height: 56px;
+
+    padding: 6px 8px;
+
+    border-radius: 17px;
+  }
+
+
+  .stock-multi-hud-player {
+    min-height: 40px;
+
+    padding: 0 9px;
+
+    gap: 6px;
+  }
+
+
+  .stock-multi-hud-player strong {
+    font-size: 10px;
+  }
+
+
+  .stock-multi-hud-player
+  > span:last-child {
+
+    font-size: 10px;
+  }
+
+
+  .stock-multi-turn-banner {
+    margin-bottom: 9px;
+  }
+
+}
+
+
+/* ========================================
+   TÉLÉPHONE PORTRAIT
+
+   HUD compact, 2 à 4 joueurs
+   sur une seule ligne.
+======================================== */
+
+@media (max-width: 650px) {
+
+  .stock-multi-game
+  .stock-playing-screen {
+
+    padding-top: 78px;
+
+    padding-bottom:
+      max(
+        28px,
+        env(safe-area-inset-bottom)
+      );
+  }
+
+
+  .stock-multi-hud {
+    top:
+      max(
+        7px,
+        env(safe-area-inset-top)
+      );
+
+    width:
+      calc(100% - 16px);
+
+    min-height: 47px;
+
+    padding: 5px;
+
+    border-radius: 14px;
+  }
+
+
+  .stock-multi-hud-player {
+    min-height: 35px;
+
+    padding: 0 5px;
+
+    gap: 4px;
+
+    grid-template-columns:
+      7px
+      minmax(0, 1fr);
+  }
+
+
+  /*
+    Le score passe sous le pseudo
+    afin de garder les quatre
+    joueurs lisibles.
+  */
+
+  .stock-multi-hud-player
+  > span:last-child {
+
+    grid-column: 2;
+
+    margin-top: -4px;
+
+    font-size: 9px;
+  }
+
+
+  .stock-multi-hud-player strong {
+    font-size: 9px;
+  }
+
+
+  .stock-multi-player-dot {
+    width: 7px;
+    height: 7px;
+
+    grid-row: 1 / 3;
+  }
+
+
+  .stock-multi-hud-player.is-active::after {
+    left: 5px;
+    right: 5px;
+  }
+
+
+  .stock-multi-turn-banner {
+    gap: 3px;
+
+    margin-bottom: 7px;
+  }
+
+
+  .stock-multi-turn-banner
+  > span {
+
+    font-size: 8px;
+
+    letter-spacing: 0.13em;
+  }
+
+
+  .stock-multi-turn-banner
+  > strong {
+
+    font-size: 11px;
+
+    letter-spacing: 0.03em;
+  }
+
+
+  .stock-multi-final-card {
+    padding:
+      17px 13px;
+  }
+
+
+  .stock-multi-match-ranking {
+    margin-top: 15px;
+
+    gap: 7px;
+  }
+
+
+  .stock-multi-final-card
+  .rankings-card-bottom button {
+
+    width: 100%;
+
+    justify-content: center;
+  }
+
+}
+
+
+/* ========================================
+   TÉLÉPHONE PAYSAGE
+
+   HUD plus fin pour laisser
+   de la place à la réserve.
+======================================== */
+
+@media
+  (orientation: landscape)
+  and (max-height: 599px) {
+
+  .stock-multi-hud {
+    top:
+      max(
+        5px,
+        env(safe-area-inset-top)
+      );
+
+    min-height: 42px;
+
+    padding: 4px 7px;
+
+    border-radius: 13px;
+  }
+
+
+  .stock-multi-hud-player {
+    min-height: 32px;
+
+    padding: 0 6px;
+
+    gap: 5px;
+  }
+
+
+  .stock-multi-hud-player strong {
+    font-size: 9px;
+  }
+
+
+  .stock-multi-hud-player
+  > span:last-child {
+
+    font-size: 9px;
+  }
+
+
+  .stock-multi-player-dot {
+    width: 7px;
+    height: 7px;
+  }
+
+
+  .stock-multi-game
+  .stock-playing-screen {
+
+    padding-top: 58px;
+
+    padding-bottom: 15px;
+  }
+
+
+  .stock-multi-turn-banner {
+    margin-bottom: 4px;
+  }
+
+
+  .stock-multi-turn-banner
+  > span {
+
+    font-size: 8px;
+  }
+
+
+  .stock-multi-turn-banner
+  > strong {
+
+    font-size: 11px;
+  }
+
+}
+
+
+/* ========================================
+   INTERACTIONS TACTILES
+======================================== */
+
+@media
+  (hover: none)
+  and (pointer: coarse) {
+
+  .stock-multi-game
+  .stock-piece-slot:hover {
+
+    transform: none;
+  }
+
+}
+
+/* ========================================
+   STOCK & STACK MULTI
+   COLORATION UNIFORME DES CARTONS
+
+   Conserve l'image et le relief du solo.
+======================================== */
+
+
+/* Couleurs des quatre joueurs */
+
+/* ========================================
+   COULEURS DES CARTONS
+   VERSION PLUS DOUCE
+======================================== */
+
+/* JOUEUR 1 — VERT MENTHE */
+
+.stock-multi-game .stock-multi-color-green {
+  --stock-carton-filter:
+    sepia(0.45)
+    saturate(1.65)
+    hue-rotate(65deg)
+    brightness(1.02);
+}
+
+
+/* JOUEUR 2 — ROUGE VIF */
+
+.stock-multi-game .stock-multi-color-red {
+  --stock-carton-filter:
+    sepia(0.85)
+    saturate(3.2)
+    hue-rotate(325deg)
+    brightness(0.96);
+}
+
+
+/* JOUEUR 3 — JAUNE DORÉ */
+
+.stock-multi-game .stock-multi-color-yellow {
+  --stock-carton-filter:
+    sepia(0.45)
+    saturate(1.45)
+    hue-rotate(350deg)
+    brightness(1.04);
+}
+
+
+/* JOUEUR 4 — VIOLET LAVANDE */
+
+.stock-multi-game .stock-multi-color-purple {
+  --stock-carton-filter:
+    sepia(0.55)
+    saturate(1.7)
+    hue-rotate(205deg)
+    brightness(1.04);
+}
+
+
+/* Aucune couche ajoutée sur le carton */
+
+.stock-multi-game
+.stock-piece-box[class*="stock-multi-color-"]::before,
+
+.stock-multi-game
+.stock-piece-box[class*="stock-multi-color-"]::after {
+  content: none;
+}
+
+
+/* Teinte directement sur l'image complète */
+
+.stock-multi-game
+.stock-piece-box[class*="stock-multi-color-"]
+> img {
+  filter: var(--stock-carton-filter);
+}
+

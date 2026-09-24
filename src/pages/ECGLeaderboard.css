@@ -1,0 +1,676 @@
+/* ========================================
+   PAGE CLASSEMENT ECG
+======================================== */
+
+.ecg-ranking-page {
+  width: min(760px, 90%);
+  margin: 0 auto;
+  padding: 35px 0 70px;
+  color: white;
+}
+
+
+/* ========================================
+   TITRE
+======================================== */
+
+.ecg-ranking-page-heading {
+  margin-bottom: 34px;
+  text-align: center;
+}
+
+.ecg-ranking-page-eyebrow {
+  margin: 0 0 10px;
+
+  color: #55d9ee;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 5px;
+}
+
+.ecg-ranking-page-heading h1 {
+  margin: 0;
+
+  font-size: clamp(
+    38px,
+    5vw,
+    58px
+  );
+
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.ecg-ranking-page-heading h1 span {
+  color: #55d9ee;
+}
+
+.ecg-ranking-page-subtitle {
+  margin: 15px auto 0;
+
+  color: rgba(
+    255,
+    255,
+    255,
+    0.62
+  );
+
+  font-size: 14px;
+}
+
+
+/* ========================================
+   BLOC CLASSEMENT
+======================================== */
+
+.ecg-ranking-board {
+  padding: 20px;
+
+  border: 1px solid
+    rgba(
+      85,
+      217,
+      238,
+      0.22
+    );
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 46, 67, 0.92),
+      rgba(5, 30, 48, 0.96)
+    );
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 20px 55px
+      rgba(0, 0, 0, 0.28),
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.05);
+}
+
+
+/* ========================================
+   EN-TÊTE DU CLASSEMENT
+======================================== */
+
+.ecg-ranking-board-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 2px 4px 16px;
+}
+
+.ecg-ranking-board-heading > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ecg-ranking-board-heading span {
+  margin-bottom: 4px;
+
+  color: #55d9ee;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.19em;
+}
+
+.ecg-ranking-board-heading strong {
+  color: white;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+
+/* ========================================
+   TROPHÉE
+======================================== */
+
+.ecg-ranking-board-trophy {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid
+    rgba(
+      85,
+      217,
+      238,
+      0.24
+    );
+
+  border-radius: 12px;
+
+  color: #8eeeff;
+
+  background:
+    rgba(
+      25,
+      140,
+      167,
+      0.13
+    );
+}
+
+.ecg-ranking-board-trophy svg {
+  width: 21px;
+  height: 21px;
+
+  fill: currentColor;
+
+  filter:
+    drop-shadow(
+      0 0 6px
+      rgba(
+        85,
+        217,
+        238,
+        0.45
+      )
+    );
+}
+
+
+/* ========================================
+   LISTE DU CLASSEMENT
+======================================== */
+
+.ecg-ranking-page-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.ecg-ranking-page-row {
+  display: grid;
+
+  grid-template-columns:
+    44px
+    44px
+    minmax(0, 1fr)
+    auto;
+
+  align-items: center;
+
+  min-height: 58px;
+
+  padding:
+    7px
+    13px
+    7px
+    8px;
+
+  border: 1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.055
+    );
+
+  border-radius: 15px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.035
+    );
+}
+
+
+/* ========================================
+   POSITION
+======================================== */
+
+.ecg-ranking-page-position {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: rgba(
+    255,
+    255,
+    255,
+    0.58
+  );
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+
+/* ========================================
+   MÉDAILLES 1 / 2 / 3
+======================================== */
+
+.ecg-ranking-page-position
+.rank-badge-medal {
+  display: block;
+
+  width: 35px;
+  height: 35px;
+
+  max-width: none;
+}
+
+.ecg-ranking-page-position
+.rank-badge-number {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 25px;
+
+  color: rgba(
+    255,
+    255,
+    255,
+    0.58
+  );
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+
+/* ========================================
+   AVATAR
+======================================== */
+
+.ecg-ranking-page-avatar {
+  width: 37px;
+  height: 37px;
+
+  object-fit: cover;
+
+  border: 1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.16
+    );
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+}
+
+
+/* ========================================
+   JOUEUR
+======================================== */
+
+.ecg-ranking-page-player {
+  min-width: 0;
+
+  padding-left: 11px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+}
+
+.ecg-ranking-page-player strong {
+  overflow: hidden;
+
+  color: rgba(
+    255,
+    255,
+    255,
+    0.92
+  );
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ecg-ranking-page-player span {
+  flex-shrink: 0;
+
+  padding: 3px 6px;
+
+  border-radius: 999px;
+
+  color: #9af2ff;
+
+  background:
+    rgba(
+      85,
+      217,
+      238,
+      0.13
+    );
+
+  font-size: 7px;
+  font-weight: 900;
+
+  letter-spacing: 0.13em;
+}
+
+
+/* ========================================
+   SCORE
+======================================== */
+
+.ecg-ranking-page-score {
+  padding-left: 8px;
+
+  display: flex;
+  align-items: baseline;
+
+  gap: 4px;
+}
+
+.ecg-ranking-page-score strong {
+  color: white;
+
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.ecg-ranking-page-score span {
+  color: rgba(
+    255,
+    255,
+    255,
+    0.38
+  );
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+
+/* ========================================
+   PODIUM
+======================================== */
+
+.ecg-ranking-page-top {
+  min-height: 63px;
+}
+
+.ecg-ranking-page-1 {
+  border-color:
+    rgba(
+      255,
+      215,
+      95,
+      0.28
+    );
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 205, 75, 0.10),
+      rgba(255, 255, 255, 0.035)
+    );
+}
+
+.ecg-ranking-page-2 {
+  border-color:
+    rgba(
+      210,
+      226,
+      235,
+      0.18
+    );
+}
+
+.ecg-ranking-page-3 {
+  border-color:
+    rgba(
+      214,
+      150,
+      102,
+      0.18
+    );
+}
+
+
+/* ========================================
+   JOUEUR ACTUEL
+======================================== */
+
+.ecg-ranking-page-me {
+  border-color:
+    rgba(
+      85,
+      217,
+      238,
+      0.65
+    );
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(25, 140, 167, 0.22),
+      rgba(85, 217, 238, 0.07)
+    );
+
+  box-shadow:
+    inset 3px 0 0 #55d9ee,
+    0 0 18px
+      rgba(
+        85,
+        217,
+        238,
+        0.07
+      );
+}
+
+
+/* ========================================
+   CHARGEMENT / ERREUR
+======================================== */
+
+.ecg-ranking-message {
+  padding: 35px 10px;
+
+  color: rgba(
+    255,
+    255,
+    255,
+    0.55
+  );
+
+  text-align: center;
+
+  font-size: 12px;
+}
+
+
+/* ========================================
+   BOUTONS
+======================================== */
+
+.ecg-ranking-page-actions {
+  margin-top: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+}
+
+.ecg-ranking-page-actions button {
+  padding: 10px 17px;
+
+  border-radius: 100px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ecg-ranking-back {
+  border: 1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
+
+  color: rgba(
+    255,
+    255,
+    255,
+    0.65
+  );
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.04
+    );
+}
+
+.ecg-ranking-back:hover {
+  color: white;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+}
+
+.ecg-ranking-play {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  border: 1px solid
+    rgba(
+      85,
+      217,
+      238,
+      0.28
+    );
+
+  color: white;
+
+  background:
+    rgba(
+      85,
+      217,
+      238,
+      0.14
+    );
+}
+
+.ecg-ranking-play:hover {
+  border-color:
+    rgba(
+      85,
+      217,
+      238,
+      0.5
+    );
+
+  background:
+    rgba(
+      85,
+      217,
+      238,
+      0.23
+    );
+
+  transform:
+    translateX(2px);
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 650px) {
+
+  .ecg-ranking-page {
+    width: 92%;
+    padding-top: 25px;
+  }
+
+  .ecg-ranking-page-heading {
+    margin-bottom: 28px;
+  }
+
+  .ecg-ranking-board {
+    padding: 13px;
+    border-radius: 19px;
+  }
+
+  .ecg-ranking-page-row {
+    grid-template-columns:
+      38px
+      38px
+      minmax(0, 1fr)
+      auto;
+
+    padding-right: 9px;
+  }
+
+  .ecg-ranking-page-position
+  .rank-badge-medal {
+    width: 31px;
+    height: 31px;
+  }
+
+  .ecg-ranking-page-avatar {
+    width: 33px;
+    height: 33px;
+  }
+
+  .ecg-ranking-page-player {
+    padding-left: 8px;
+  }
+
+  .ecg-ranking-page-player strong {
+    font-size: 12px;
+  }
+
+  .ecg-ranking-page-score strong {
+    font-size: 12px;
+  }
+
+}

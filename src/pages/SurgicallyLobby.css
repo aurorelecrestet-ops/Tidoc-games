@@ -1,0 +1,15 @@
+
+/* ========================================
+   SURGICALLY INSANE — LOBBY
+   Même design que le lobby ECG
+======================================== */
+
+@import './ECGLobby.css';
+
+/* ========================================
+   PERSONNALISATION CHIRURGIE
+======================================== */
+
+.surgically-lobby-page {
+  /* On conserve le style du lobby ECG */
+}
