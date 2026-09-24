@@ -1,0 +1,139 @@
+<!doctype html>
+
+<html lang="fr">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <!-- =====================================
+         AFFICHAGE MOBILE
+    ====================================== -->
+
+    <meta
+      name="viewport"
+      content="
+        width=device-width,
+        initial-scale=1.0,
+        viewport-fit=cover,
+        user-scalable=no
+      "
+    />
+
+
+    <!-- =====================================
+         MODE APPLICATION IOS
+    ====================================== -->
+
+    <meta
+      name="apple-mobile-web-app-capable"
+      content="yes"
+    />
+
+    <meta
+      name="mobile-web-app-capable"
+      content="yes"
+    />
+
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <meta
+      name="apple-mobile-web-app-title"
+      content="Ti'Doc Games"
+    />
+
+
+    <!-- =====================================
+         COULEURS APPLICATION
+    ====================================== -->
+
+    <meta
+      name="theme-color"
+      content="#061c2d"
+    />
+
+
+    <!-- =====================================
+         ICÔNE / TITRE
+    ====================================== -->
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+
+    <title>
+      Ti'Doc Games
+    </title>
+
+  </head>
+
+
+  <body>
+
+    <script>
+  function startupText(fr, ro) {
+    try {
+      return localStorage.getItem('tidoc-games-language') === 'ro' ? ro : fr
+    } catch {
+      return fr
+    }
+  }
+
+  function showStartupError(message) {
+    const panel = document.createElement('pre')
+
+    panel.textContent =
+      startupText('ERREUR AU DÉMARRAGE', 'EROARE LA PORNIRE') + '\n\n' + message
+
+    panel.style.cssText = `
+      position: fixed;
+      inset: 16px;
+      z-index: 2147483647;
+      margin: 0;
+      padding: 20px;
+      overflow: auto;
+      box-sizing: border-box;
+      color: white;
+      background: #7f1024;
+      border: 2px solid #ff8090;
+      border-radius: 14px;
+      font: 14px/1.5 monospace;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    `
+
+    document.body.appendChild(panel)
+  }
+
+  window.addEventListener('error', function (event) {
+    showStartupError(
+      event.message ||
+      startupText('Erreur de chargement d’un fichier', 'Eroare la încărcarea unui fișier')
+    )
+  }, true)
+
+  window.addEventListener(
+    'unhandledrejection',
+    function (event) {
+      showStartupError(
+        String(event.reason)
+      )
+    }
+  )
+</script>
+
+    <div id="root"></div>
+
+    <script
+      type="module"
+      src="/src/main.tsx"
+    ></script>
+
+  </body>
+
+</html>

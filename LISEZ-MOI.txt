@@ -1,0 +1,22 @@
+TI’DOC GAMES — LOT VISIBILITE / FOND IOS
+
+Base : tidoc-games-main 4(1).zip
+
+Installation : copier les quatre fichiers aux chemins identiques dans GitHub.
+Ne pas remplacer le depot entier par cette archive. Aucun SQL necessaire.
+
+1. Surgically Insane tournoi solo : masque le meilleur score, les vies,
+   ainsi que l'animation de nouveau record, uniquement dans ce mode.
+   Le solo classique de l'accueil n'est pas touche.
+2. Stock & Stack tournoi solo : chrono visible sous le bandeau des equipes,
+   au-dessus du plateau, avec taille adaptee telephone/tablette.
+3. iOS/PWA : .game-home couvre tout son parent; la zone de secours
+   html/body/#root affiche aussi l'image de l'hopital.
+
+Attention : sur certains appareils iOS, une zone reservee par le systeme
+peut rester opaque. Tester le raccourci d'accueil apres un rechargement.
+Le present lot ne modifie PAS les règles des jeux ni Supabase.
+
+Ce ZIP est base sur l'archive fournie. Il ne reintroduit pas
+SurgicallyTournamentSoloGame.tsx : conserver la correction que vous avez
+faite sur GitHub concernant playFunnyCrySound.
