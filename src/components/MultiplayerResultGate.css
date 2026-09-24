@@ -1,0 +1,17 @@
+.multiplayer-result-page {
+  position: relative;
+  z-index: 1;
+}
+.multiplayer-result-page .multiplayer-result-row {
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+}
+.multiplayer-result-note {
+  color: rgba(255, 255, 255, .65);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+.multiplayer-result-page button:disabled {
+  opacity: .6;
+  cursor: wait;
+}

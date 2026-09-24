@@ -1,0 +1,162 @@
+.solo-pause-button {
+  position: fixed !important;
+  z-index: 2147483646 !important;
+  bottom: max(18px, env(safe-area-inset-bottom));
+  right: max(18px, env(safe-area-inset-right));
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 9px 14px;
+  border: 1px solid rgba(112, 229, 244, 0.35);
+  border-radius: 999px;
+  color: white;
+  background: rgba(4, 30, 48, 0.76);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 800;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.solo-pause-button:hover {
+  background: rgba(85, 217, 238, 0.22);
+  transform: translateY(-2px);
+}
+
+.solo-pause-button span {
+  color: #70e5f4;
+  font-size: 13px;
+  letter-spacing: -3px;
+}
+
+.solo-pause-overlay {
+  position: fixed !important;
+  z-index: 2147483647 !important;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(25, 140, 167, .18), transparent 35%),
+    rgba(2, 18, 31, 0.78);
+  backdrop-filter: blur(12px);
+}
+
+.solo-pause-card {
+  position: relative;
+  overflow: hidden;
+  width: min(430px, 100%);
+  padding: 34px 30px 30px;
+  border: 1px solid rgba(112, 229, 244, 0.28);
+  border-radius: 28px;
+  color: white;
+  text-align: center;
+  background:
+    linear-gradient(145deg, rgba(17, 86, 112, .98), rgba(4, 31, 51, .99));
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, .48),
+    0 0 45px rgba(85, 217, 238, .1),
+    inset 0 1px 0 rgba(255, 255, 255, .1);
+}
+
+.solo-pause-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #70e5f4, transparent);
+  box-shadow: 0 0 18px #70e5f4;
+}
+
+.solo-pause-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 18px;
+  border: 1px solid rgba(112, 229, 244, .42);
+  border-radius: 18px;
+  color: #70e5f4;
+  background: rgba(112, 229, 244, .1);
+  box-shadow: 0 0 25px rgba(112, 229, 244, .12);
+}
+
+.solo-pause-mark span {
+  width: 6px;
+  height: 24px;
+  border-radius: 4px;
+  background: currentColor;
+}
+
+.solo-pause-kicker {
+  margin: 0 0 8px;
+  color: #70e5f4;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.solo-pause-card h2 {
+  margin: 0;
+  font-size: clamp(26px, 5vw, 36px);
+  letter-spacing: -.04em;
+}
+
+.solo-pause-description {
+  margin: 10px auto 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.solo-pause-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.solo-pause-actions button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  padding: 11px 16px;
+  border: 1px solid rgba(85, 217, 238, 0.34);
+  border-radius: 999px;
+  color: white;
+  background: rgba(85, 217, 238, 0.16);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: left;
+}
+
+.solo-pause-actions button:hover {
+  background: rgba(85, 217, 238, 0.28);
+}
+
+.solo-pause-actions .solo-pause-secondary {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.solo-pause-actions b {
+  color: #bdf7ff;
+  font-size: 14px;
+}
+
+@media (max-width: 480px) {
+  .solo-pause-overlay { padding: 16px; }
+  .solo-pause-card { padding: 27px 19px 20px; border-radius: 23px; }
+  .solo-pause-mark { width: 50px; height: 50px; margin-bottom: 14px; }
+  .solo-pause-mark span { height: 21px; }
+  .solo-pause-card h2 { font-size: 27px; }
+  .solo-pause-description { font-size: 12px; }
+  .solo-pause-actions { margin-top: 20px; }
+  .solo-pause-actions button { min-height: 46px; font-size: 11px; }
+}

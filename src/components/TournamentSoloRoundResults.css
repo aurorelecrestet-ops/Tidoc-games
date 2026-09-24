@@ -1,0 +1,8 @@
+.tournament-solo-round-results{position:absolute;inset:0;z-index:110;display:grid;place-items:center;overflow-y:auto;padding:clamp(18px,4vw,48px);background:transparent;color:#fff}
+.tournament-solo-round-results-card{width:min(800px,100%);max-height:100%;overflow:auto;text-align:center;padding:clamp(18px,3vw,34px);border:1px solid rgba(255,255,255,.3);border-radius:24px;background:#0b5367;box-shadow:0 20px 60px #001d2b77}
+.tournament-solo-round-results-kicker{letter-spacing:.2em;font-size:.8rem;font-weight:800}
+.tournament-solo-round-results h2{font-size:clamp(2rem,6vw,4rem);margin:.5rem 0}
+.tournament-solo-round-results h2 small{font-size:.28em}
+.tournament-solo-round-results .tournament-board{margin:1.2rem auto;text-align:left;max-width:100%;overflow-x:auto}
+.tournament-solo-round-results button{border:0;border-radius:999px;padding:14px 28px;background:#198ca7;color:white;font:inherit;font-weight:800;cursor:pointer}
+.tournament-solo-clock{position:absolute;top:62px;left:50%;transform:translateX(-50%);z-index:75;border-radius:999px;padding:6px 16px;background:#073c4bea;border:1px solid #79e5ef;color:white;font-weight:800;font-variant-numeric:tabular-nums;pointer-events:none}

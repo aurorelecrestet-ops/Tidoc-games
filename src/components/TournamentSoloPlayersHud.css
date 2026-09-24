@@ -1,0 +1,140 @@
+/* Bandeau 4 joueurs — tournoi solo, look multijoueur */
+.tournament-solo-players-hud {
+  position: fixed;
+  top: max(12px, env(safe-area-inset-top));
+  left: 50%;
+  z-index: 10000;
+  width: min(1100px, calc(100vw - 44px));
+  min-height: 62px;
+  padding: 8px 12px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  gap: 0;
+  border: 1px solid rgba(112, 229, 244, 0.14);
+  border-radius: 20px;
+  background: rgba(4, 35, 54, 0.72);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.2);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.tournament-solo-hud-player {
+  position: relative;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0 12px;
+  display: grid;
+  grid-template-columns: 28px 10px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 7px;
+  transition: opacity 0.2s ease;
+}
+
+.tournament-solo-hud-player + .tournament-solo-hud-player {
+  border-left: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.tournament-solo-hud-player.is-me {
+  background: linear-gradient(
+    180deg,
+    rgba(112, 229, 244, 0.06),
+    rgba(112, 229, 244, 0.02)
+  );
+  border-radius: 14px;
+}
+
+.tournament-solo-hud-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.tournament-solo-hud-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.tournament-dot-green { color: #4ae390; }
+.tournament-dot-red { color: #ff7272; }
+.tournament-dot-yellow { color: #ffdd55; }
+.tournament-dot-purple { color: #bd8aff; }
+
+.tournament-solo-hud-player strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 750;
+  color: #fff;
+}
+
+.tournament-solo-hud-player.is-me strong {
+  color: #70e5f4;
+}
+
+.tournament-solo-hud-score {
+  color: #70e5f4;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+@media (max-width: 700px) {
+  .tournament-solo-players-hud {
+    top: max(8px, env(safe-area-inset-top));
+    width: calc(100vw - 16px);
+    min-height: 48px;
+    padding: 6px 4px;
+    border-radius: 14px;
+  }
+
+  .tournament-solo-hud-player {
+    grid-template-columns: 20px 7px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    min-height: 40px;
+    padding: 4px 5px;
+    gap: 4px 5px;
+    justify-items: center;
+  }
+
+  .tournament-solo-hud-player + .tournament-solo-hud-player {
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .tournament-solo-hud-avatar {
+    width: 20px;
+    height: 20px;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .tournament-solo-hud-dot {
+    width: 7px;
+    height: 7px;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .tournament-solo-hud-player strong {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    font-size: 8px;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .tournament-solo-hud-score {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    font-size: 10px;
+    font-weight: 850;
+  }
+}
