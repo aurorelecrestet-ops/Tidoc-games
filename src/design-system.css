@@ -1,0 +1,135 @@
+/* TI'DOC GAMES — FINITION COMMUNE DES MENUS (sans toucher aux moteurs de jeu).
+   Chargé après les CSS existants pour garder un seul point de réglage visuel. */
+:root {
+  --td-night: #061c2d;
+  --td-deep: #073c4b;
+  --td-blue: #198ca7;
+  --td-cyan: #70e5f4;
+  --td-white: #f5fcff;
+  --td-muted: #b2ccd7;
+  --td-stroke: rgba(112,229,244,.23);
+  --td-surface: linear-gradient(145deg,rgba(12,66,88,.84),rgba(4,31,51,.89));
+  --td-shadow: 0 22px 60px rgba(0,12,27,.3),inset 0 1px rgba(255,255,255,.07);
+  --td-radius: 24px;
+}
+/* Le fond d'hôpital reste celui de .game-home (défini dans App.tsx). */
+.game-home { min-height: 0; height: var(--app-height,100dvh); background-color: var(--td-night); }
+.game-home > .background-overlay {
+  background: linear-gradient(100deg,rgba(2,25,44,.81),rgba(3,38,58,.64) 52%,rgba(2,25,44,.78));
+}
+.game-home:not(.game-running) > :is(.hero,.solo-page,.rankings-page,.settings-page,.help-page,.ecg-multi-page,.bacteria-multi-page,.surgically-multi-page) {
+  min-width: 0;
+  box-sizing: border-box;
+  padding-bottom: max(32px,calc(env(safe-area-inset-bottom) + 20px));
+  -webkit-overflow-scrolling: touch;
+}
+/* Listes de quatre jeux = deux colonnes sur tablette/ordinateur, une colonne sur téléphone.
+   Ne s'applique pas aux plateaux interactifs ou aux HUD. */
+@media (min-width: 651px) {
+  .game-home .solo-games,
+  .game-home .rankings-games { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .game-home .solo-game-card,
+  .game-home .rankings-game-card { min-width: 0; }
+}
+@media (max-width: 650px) {
+  .game-home .solo-games,
+  .game-home .rankings-games { grid-template-columns: minmax(0,1fr); }
+  .game-home .solo-page,
+  .game-home .rankings-page,
+  .game-home .settings-page { width: min(100%,calc(100% - 24px)); max-width: none; margin-inline: auto; }
+  .game-home .settings-page { padding-inline: 0; }
+  .settings-page :is(select,input,textarea,.settings-language-select) { min-width: 0; max-width: 100%; }
+  .settings-page :is(.settings-card,.settings-heading) { min-width: 0; max-width: 100%; }
+  .tournament-solo-cups { grid-template-columns: minmax(0,1fr); }
+}
+/* Même finition sur les cartes de menus / sélection / classement. */
+.game-home :is(.solo-game-card,.rankings-game-card,.game-card,.tournament-card,.tournament-round-card,.tournament-solo-cup,.settings-card,.help-card) {
+  border-color: var(--td-stroke);
+  border-radius: var(--td-radius);
+  box-shadow: var(--td-shadow);
+}
+.game-home :is(.tournament-card,.tournament-round-card,.tournament-solo-cup) { background: var(--td-surface); }
+.game-home :is(.solo-game-card,.rankings-game-card,.tournament-solo-cup):focus-within { border-color: var(--td-cyan); }
+/* Scores : un langage visuel commun pour les résultats tournoi et les classements. */
+.game-home :is(.tournament-board,.tournament-standings,.ecg-leaderboard) {
+  max-width: 100%;
+  border: 1px solid var(--td-stroke);
+  border-radius: var(--td-radius);
+  background: var(--td-surface);
+  box-shadow: var(--td-shadow);
+}
+.game-home :is(.tournament-board-row,.tournament-standings-row,.ecg-ranking-row) { min-width: 0; }
+.game-home :is(.tournament-board-player,.tournament-standings-player,.ecg-ranking-player) { min-width: 0; }
+.game-home :is(.tournament-board-player,.tournament-standings-player,.ecg-ranking-player) strong { overflow-wrap: anywhere; }
+.game-home :is(.tournament-board-total,.tournament-standings-total,.ecg-ranking-score) { font-variant-numeric: tabular-nums; }
+.game-home :is(.tournament-board-row.is-me,.tournament-standings-row.is-me,.ecg-ranking-me) {
+  background: rgba(112,229,244,.12);
+}
+/* Résultat de manche : fond de l'hôpital visible, carte opaque juste ce qu'il faut. */
+.game-home .tournament-solo-round-results {
+  /* L’hôpital conserve le même rendu en jeu et pendant les résultats. */
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  padding: max(14px,env(safe-area-inset-top)) max(14px,env(safe-area-inset-right)) max(20px,env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-left));
+}
+.game-home .tournament-solo-round-results-card {
+  background: var(--td-surface);
+  border-color: var(--td-stroke);
+  border-radius: var(--td-radius);
+  box-shadow: var(--td-shadow);
+}
+.game-home .tournament-solo-round-results-card button { min-height: 44px; }
+@media (max-width: 650px) {
+  .game-home .tournament-solo-round-results-card { padding: 17px 12px; }
+  .game-home .tournament-standings-row { grid-template-columns: 34px minmax(0,1fr) minmax(55px,auto); gap: 7px; padding: 12px 10px; }
+  .game-home .tournament-standings-player span { overflow-wrap: anywhere; }
+  .game-home .tournament-results-actions { flex-wrap: wrap; }
+  .game-home .tournament-results-actions > button { min-width: 0; }
+}
+/* Accessibilité tactile / mouvement réduit. */
+.game-home:not(.game-running) button:focus-visible,
+.game-home:not(.game-running) a:focus-visible {
+  outline: 2px solid var(--td-cyan); outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .game-home:not(.game-running) :is(.solo-game-card,.rankings-game-card,.game-card,.tournament-solo-cup) { transition-duration: .01ms; }
+}
+
+/* iOS PWA : ne pas limiter le fond a une hauteur mesuree avant la disparition
+   des barres de Safari. .game-home est deja positionne avec inset: 0. */
+.game-home {
+  height: 100%;
+  min-height: 100%;
+}
+
+/* Tournoi Stock & Stack : chrono au premier plan, sous la barre des equipes,
+   independant du plateau et des animations qui peuvent le recouvrir. */
+.game-home .stock-game-page .stock-tournament-clock {
+  position: absolute;
+  z-index: 1100;
+  top: 58px;
+  right: max(12px, env(safe-area-inset-right));
+  margin: 0;
+  min-width: 105px;
+  padding: 9px 15px;
+  border: 1px solid rgba(143, 235, 255, .65);
+  border-radius: 999px;
+  background: rgba(5, 34, 54, .96);
+  color: #fff;
+  box-shadow: 0 5px 22px rgba(0, 12, 27, .55);
+  font-size: clamp(15px, 2.5vw, 20px);
+  font-weight: 850;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+@media (max-width: 650px) {
+  .game-home .stock-game-page .stock-tournament-clock {
+    top: 52px;
+    right: max(8px, env(safe-area-inset-right));
+    padding: 7px 12px;
+    min-width: 88px;
+  }
+}

@@ -1,0 +1,191 @@
+/* ========================================
+   BASE GLOBALE — TI'DOC GAMES
+======================================== */
+
+:root {
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-synthesis: none;
+
+  text-rendering:
+    optimizeLegibility;
+
+  -webkit-font-smoothing:
+    antialiased;
+
+  -moz-osx-font-smoothing:
+    grayscale;
+
+  color: #ffffff;
+
+  background:
+    #061c2d;
+}
+
+
+/* ========================================
+   RESET
+======================================== */
+
+* {
+  box-sizing:
+    border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  background:
+    #061c2d;
+}
+
+html {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overscroll-behavior:
+    none;
+}
+
+body {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+
+  overflow: hidden;
+
+  overscroll-behavior:
+    none;
+
+  background:
+    #061c2d;
+
+  -webkit-text-size-adjust:
+    100%;
+
+  -webkit-overflow-scrolling:
+    auto;
+}
+
+#root {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+
+  overflow: hidden;
+
+  background:
+    #061c2d;
+
+  overscroll-behavior:
+    none;
+}
+
+
+/* ========================================
+   ÉLÉMENTS GLOBAUX
+======================================== */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color:
+    transparent;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+
+/* ========================================
+   IOS / SAFE AREAS
+======================================== */
+
+@supports (
+  padding:
+    max(0px)
+) {
+
+  body {
+    /*
+      Le fond bleu nuit continue
+      derrière les safe areas.
+
+      Les éléments qui doivent
+      éviter l'encoche utilisent
+      ensuite env(safe-area-...)
+      individuellement.
+    */
+
+    background:
+      #061c2d;
+  }
+}
+
+
+/* ========================================
+   TACTILE
+======================================== */
+
+@media
+  (hover: none)
+  and (pointer: coarse) {
+
+  button {
+    touch-action:
+      manipulation;
+  }
+}
+/* Fond de secours identique a l'hopital dans les zones iOS hors conteneur
+   (PWA plein ecran / safe area). Chemin resolu par Vite depuis src/index.css. */
+html, body, #root {
+  background-color: #061c2d;
+  background-image: linear-gradient(100deg,
+    rgba(2, 25, 44, .81), rgba(3, 38, 58, .64) 52%, rgba(2, 25, 44, .78)),
+    url('./assets/hospital-bg.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

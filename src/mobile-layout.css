@@ -1,0 +1,97 @@
+/* Shared viewport for menus and immersive games, including standalone iOS/Android. */
+:root {
+  --app-height: 100vh;
+}
+
+@supports (height: 100dvh) {
+  :root { --app-height: 100dvh; }
+}
+
+/* Only the application shell is fixed; nested fixed roots can clip Safari's viewport. */
+html,
+body,
+#root {
+  position: relative;
+  inset: auto;
+  height: 100%;
+  min-height: 0;
+}
+
+.game-home {
+  height: var(--app-height);
+  min-height: 0;
+}
+
+/* The header consumes its actual height, including the notch, rather than 84/100px. */
+.game-home:not(.game-running) > :is(
+  .hero, .solo-page, .rankings-page, .help-page, .settings-page,
+  .ecg-multi-page, .bacteria-multi-page, .surgically-multi-page,
+  .ecg-lobby-page, .bacteria-lobby-page, .surgically-lobby-page,
+  .ecg-game-page, .stock-game-page, .surgically-page, .bacteria-game-page
+) {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
+  scroll-padding-bottom: max(24px, env(safe-area-inset-bottom));
+}
+
+.game-home.game-running > :is(
+  .ecg-game-page, .stock-game-page, .surgically-page,
+  .bacteria-game-page, .bacteria-multi-game-page
+) {
+  flex: none;
+  width: 100%;
+  height: var(--app-height);
+  min-height: 0;
+  margin: 0;
+}
+
+.stock-playing-screen,
+.bacteria-multi-game-page,
+.surgically-state-countdown .surgically-countdown {
+  height: var(--app-height);
+}
+
+.ecg-rotate-screen,
+.ecg-return-portrait {
+  inset: 0;
+  width: 100%;
+  min-width: 0;
+  height: var(--app-height);
+  min-height: 0;
+}
+
+@media (pointer: coarse), (max-width: 1024px) {
+  .game-home:not(.game-running) > :is(
+    .hero, .solo-page, .rankings-page, .help-page, .settings-page
+  ) {
+    max-width: calc(100% - max(12px, env(safe-area-inset-left)) - max(12px, env(safe-area-inset-right)));
+  }
+
+  .solo-menu-back,
+  .help-back,
+  .settings-back,
+  .ecg-multi-back,
+  .bacteria-multi-back,
+  .surgically-multi-back {
+    min-height: 44px;
+  }
+
+  /* Avoid automatic input zoom on iPhone, which changes the visible viewport. */
+  input, select, textarea { font-size: 16px; }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .header {
+    padding-top: max(8px, env(safe-area-inset-top));
+    padding-bottom: 8px;
+    gap: 12px;
+  }
+
+  .game-home:not(.game-running) .hero {
+    justify-content: flex-start;
+  }
+}

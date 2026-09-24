@@ -1,0 +1,129 @@
+:root {
+  --menu-max-width: 1180px;
+  --menu-cyan: #70e5f4;
+  --menu-cyan-strong: #55d9ee;
+  --menu-surface: linear-gradient(145deg, rgba(15, 72, 99, .76), rgba(5, 39, 62, .84));
+  --menu-border: rgba(112, 229, 244, .2);
+  --menu-shadow: 0 22px 60px rgba(0, 0, 0, .22);
+}
+
+/* Même profondeur et même finition pour les menus de l’application. */
+.game-home:not(.game-running)::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(85, 217, 238, .12), transparent 28%),
+    radial-gradient(circle at 88% 78%, rgba(25, 140, 167, .14), transparent 30%);
+}
+
+.solo-page,
+.rankings-page,
+.help-page,
+.ecg-multi-page,
+.bacteria-multi-page,
+.surgically-multi-page,
+.settings-page {
+  position: relative;
+  z-index: 1;
+}
+
+.solo-menu-back,
+.help-back,
+.settings-back,
+.ecg-multi-back,
+.bacteria-multi-back,
+.surgically-multi-back {
+  border: 1px solid var(--menu-border) !important;
+  border-radius: 999px !important;
+  background: rgba(5, 38, 56, .66) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.solo-menu-back:hover,
+.help-back:hover,
+.settings-back:hover,
+.ecg-multi-back:hover,
+.bacteria-multi-back:hover,
+.surgically-multi-back:hover {
+  border-color: rgba(112, 229, 244, .55) !important;
+  background: rgba(25, 140, 167, .22) !important;
+  transform: translateY(-1px);
+}
+
+.solo-game-card,
+.rankings-game-card,
+.ecg-multi-card,
+.bacteria-multi-card,
+.surgically-multi-card,
+.settings-card,
+.help-card {
+  border-color: var(--menu-border) !important;
+  box-shadow: var(--menu-shadow), inset 0 1px 0 rgba(255, 255, 255, .06);
+}
+
+.solo-game-card:hover,
+.rankings-game-card:hover,
+.ecg-multi-card:hover,
+.bacteria-multi-card:hover,
+.surgically-multi-card:hover,
+.help-card:hover {
+  border-color: rgba(85, 217, 238, .48) !important;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, .28), 0 0 28px rgba(85, 217, 238, .08);
+}
+
+.solo-card-bottom button,
+.rankings-card-bottom button,
+.ecg-multi-card button,
+.bacteria-multi-card button,
+.surgically-multi-card button,
+.game-card > button {
+  border-color: rgba(112, 229, 244, .38) !important;
+  background: linear-gradient(135deg, rgba(25, 140, 167, .9), rgba(22, 185, 210, .78)) !important;
+  box-shadow: 0 8px 24px rgba(13, 163, 191, .18);
+}
+
+.solo-card-bottom button:hover,
+.rankings-card-bottom button:hover,
+.ecg-multi-card button:hover,
+.bacteria-multi-card button:hover,
+.surgically-multi-card button:hover,
+.game-card > button:hover {
+  filter: brightness(1.12);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--menu-cyan) !important;
+  outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  .solo-page,
+  .rankings-page,
+  .help-page,
+  .ecg-multi-page,
+  .bacteria-multi-page,
+  .surgically-multi-page {
+    width: calc(100% - 24px);
+  }
+
+  .settings-page { padding-left: 14px; padding-right: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .solo-game-card,
+  .rankings-game-card,
+  .ecg-multi-card,
+  .bacteria-multi-card,
+  .surgically-multi-card,
+  .help-card,
+  .solo-menu-back,
+  .help-back,
+  .settings-back,
+  button { transition: none !important; }
+}
